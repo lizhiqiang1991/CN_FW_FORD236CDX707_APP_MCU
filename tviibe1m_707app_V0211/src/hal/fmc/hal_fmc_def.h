@@ -1,0 +1,39 @@
+#ifndef HAL_FMC_DEF_H
+#define HAL_FMC_DEF_H
+
+typedef struct
+{
+    uint8_t u8ReadWaitStates;
+}fmc_config_t;
+
+#define FLASH_WS_MIN     0
+#define FLASH_WS_MAX    15
+
+/*HAL_FMC_Status_Get(uint32_t *pu32Status)*/
+#define FLASH_DRV_SUCCESS                   CY_FLASH_DRV_SUCCESS                 
+#define FLASH_DRV_INV_PROT                  CY_FLASH_DRV_INV_PROT                
+#define FLASH_DRV_INVALID_FM_PL             CY_FLASH_DRV_INVALID_FM_PL           
+#define FLASH_DRV_INVALID_FLASH_ADDR        CY_FLASH_DRV_INVALID_FLASH_ADDR      
+#define FLASH_DRV_ROW_PROTECTED             CY_FLASH_DRV_ROW_PROTECTED           
+#define FLASH_DRV_IPC_BUSY                  CY_FLASH_DRV_IPC_BUSY                
+#define FLASH_DRV_CHECKSUM_NON_ZERO         CY_FLASH_DRV_CHECKSUM_NON_ZERO       
+#define FLASH_DRV_SECTOR_SUSPEND            CY_FLASH_DRV_SECTOR_SUSPEND          
+#define FLASH_DRV_NO_ERASE_SUSPEND          CY_FLASH_DRV_NO_ERASE_SUSPEND        
+#define FLASH_DRV_FLASH_NOT_ERASED          CY_FLASH_DRV_FLASH_NOT_ERASED        
+#define FLASH_DRV_NO_ERASE_ONGOING          CY_FLASH_DRV_NO_ERASE_ONGOING        
+#define FLASH_DRV_ACTIVE_ERASE              CY_FLASH_DRV_ACTIVE_ERASE            
+#define FLASH_DRV_INVALID_DATA_WIDTH        CY_FLASH_DRV_INVALID_DATA_WIDTH      
+#define FLASH_DRV_FLASH_SAFTEY_ENABLED      CY_FLASH_DRV_FLASH_SAFTEY_ENABLED    
+#define FLASH_DRV_INVALID_SFLASH_ADDR       CY_FLASH_DRV_INVALID_SFLASH_ADDR     
+#define FLASH_DRV_SFLASH_BACKUP_ERASED      CY_FLASH_DRV_SFLASH_BACKUP_ERASED    
+#define FLASH_DRV_INVALID_INPUT_PARAMETERS  CY_FLASH_DRV_INVALID_INPUT_PARAMETERS
+#define FLASH_DRV_SROM_API_TIMEOUT          CY_FLASH_DRV_SROM_API_TIMEOUT        
+#define FLASH_DRV_ERR_UNC                   CY_FLASH_DRV_ERR_UNC                 
+#define FLASH_DRV_PROGRESS_NO_ERROR         CY_FLASH_DRV_PROGRESS_NO_ERROR       
+#define FLASH_DRV_OPERATION_STARTED         CY_FLASH_DRV_OPERATION_STARTED       
+#define FLASH_DRV_OPCODE_BUSY               CY_FLASH_DRV_OPCODE_BUSY             
+
+extern fmc_config_t gtdFMC_Config;
+
+#endif
+

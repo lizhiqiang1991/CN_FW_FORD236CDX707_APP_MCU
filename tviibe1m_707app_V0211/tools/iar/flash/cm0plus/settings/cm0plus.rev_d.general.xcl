@@ -1,0 +1,19 @@
+"C:\Program Files\IAR Systems\Embedded Workbench 9.1\arm\bin\armPROC.dll" 
+
+"C:\Program Files\IAR Systems\Embedded Workbench 9.1\arm\bin\armJET.dll" 
+
+"C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_d\Exe\cm0plus.out" 
+
+--plugin="C:\Program Files\IAR Systems\Embedded Workbench 9.1\arm\bin\armbat.dll" 
+
+--device_macro="C:\Program Files\IAR Systems\Embedded Workbench 9.1\arm/config/debugger/Infineon/CYT2B7_M0.dmac" 
+
+--device_macro="C:\Program Files\IAR Systems\Embedded Workbench 9.1\arm/config/debugger/Infineon/CYTVII_M0.dmac" 
+
+--device_macro="C:\Program Files\IAR Systems\Embedded Workbench 9.1\arm/config/debugger/Infineon/CYTVII_Common.dmac" 
+
+--flash_loader="C:\Program Files\IAR Systems\Embedded Workbench 9.1\arm/config/flashloader/Infineon/FlashCYT2_CF1M_WF96K.board" 
+
+
+
+

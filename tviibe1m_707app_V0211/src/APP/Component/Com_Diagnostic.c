@@ -1,0 +1,849 @@
+/**
+* @file Com_Diagnostic.c
+* @author your name (you@domain.com)
+* @brief 
+* @version 0.1
+* @date 2020-11-20
+* 
+* @copyright Copyright (c) 2020
+* 
+*/
+
+/* include public information */
+#include "gPinDef.h"
+#include "UartApp.h"
+
+/* include conponent */
+#include "Com_Diagnostic.h"
+#include "Com_DeviceControl.h"
+
+/* include module */
+#include "Mod_DataManagement.h"
+#include "Mod_INTBControl.h"
+#include "Mod_DetectGPIO.h"
+#include "Mod_DetectI2C.h"
+#include "Mod_PowerSequence_Ctrl.h"
+
+/* Include App */
+#include "TimerApp.h"
+#include "AdcApp.h"
+
+
+CD_StateMachine_E CD_StateMachine_e = CD_STATE_INIT;
+
+/* PowerState */
+//static Global_PowerState_E CD_PowerState_e = ePowerState_Stop;
+/* Lock state */
+//static Global_LockState_E CD_LockState_e = eLocked;
+/* Display enable reg */
+static uint8_t tdDisplayEnReg = NUM_ZERO;
+
+//static uint8_t u8LockStateResaultTemp = NUM_ZERO;
+
+static I2C_MESSAGES_T CD_I2CMessage_t;
+static CDC_EVENT_T CD_CDC_Event_t;
+/* parameter for LLOSS detect */
+static uint8_t u8EventSetFlag = DISABLE;
+static uint8_t u8EventSetCount = NUM_ZERO;
+static uint8_t u8SourceICDetectCount = NUM_ZERO;
+//static uint8_t u8TFTFaultCount = NUM_ZERO;
+
+static CD_EVENT_T CD_Event_t;
+
+/* connection detect flag */
+uint8_t u8ConnectDetectFlag = ENABLE;
+
+//static uint8_t u8BacklightStatusCheck = 0;    /* use this byte to record if any bl error */
+//static uint8_t u8DisplayStatusCheck = 0;      /* use this byte to record if any disp error */
+
+static BL_Diag_State_E bl_state = Detect_IO;
+
+
+/* Start Program */
+
+uint8_t  CD_Event_Get(CD_EVENT_T *pEvent_t)
+{
+    uint8_t ProcessStatus = NUM_ZERO;
+    
+    if(pEvent_t == NULL)
+    {
+        ProcessStatus = NUM_ZERO;
+    }
+    else
+    {
+        memcpy(pEvent_t,&CD_Event_t,sizeof(CD_EVENT_T));
+        ProcessStatus = true;
+    }
+    
+    return ProcessStatus;
+}
+
+uint8_t  CD_Event_Set(CD_EVENT_T *pEvent_t)
+{
+    uint8_t ProcessStatus = NUM_ZERO;
+    
+    if(pEvent_t == NULL)
+    {
+        ProcessStatus = NUM_ZERO;
+    }
+    else
+    {
+        memcpy(&CD_Event_t,pEvent_t,sizeof(CD_EVENT_T));
+        ProcessStatus = true;
+    }
+    
+    return ProcessStatus;
+}
+
+/* Leo Modify, this function is no longer used */
+#if 0 
+Global_PowerState_E CD_PowerState_Ctrl(Global_PowerState_E u8FlagState)
+{
+	switch (u8FlagState)
+	{
+	case ePowerstate_Get:
+		/* code */
+		break;
+        
+	default:
+        CD_PowerState_e = u8FlagState;
+		break;
+	}
+    
+	return CD_PowerState_e;
+}
+#endif
+
+/* Use this function to set/clear LLOSS(Loss of Lock) */
+uint8_t CD_LLOSS_Set(uint8_t u8LLOSSStatus)
+{
+	uint8_t u8ProcessStatus;
+    
+	if (u8LLOSSStatus <= NUM_ONE)
+	{
+		MMIM_DisplayStatusReg_Ctrl(COM_Diagnostic_ID,elossoflock,u8LLOSSStatus);
+		u8ProcessStatus = true;
+	}
+	else
+	{
+		u8ProcessStatus = false;
+	}
+    
+	return u8ProcessStatus;
+}
+
+uint8_t CD_INTBActiveFlag_Set(uint8_t u8FlagState)
+{
+	uint8_t u8ProcessStatus;
+	if (u8FlagState <= NUM_ONE)
+	{
+		MMIM_INTBActiveFlag_Ctrl (u8FlagState);
+		u8ProcessStatus = true;
+	}
+	else
+	{
+		u8ProcessStatus = false;
+	}
+    
+	return u8ProcessStatus;
+}
+
+uint8_t CD_LLOSS_Detect(uint8_t u8DispEnReg)
+{
+	if(MDGPIO_LLOSS_Detect() == eFault)
+	{
+		if(u8DispEnReg == ENABLE)
+		{
+			/* Set Lock Pin Status */
+			MINTBC_LockPinStatus_Ctrl(eUnLocked);
+            
+			/* Maintain Lock pin status */
+			MMIM_LockPinStatus_Ctrl(eUnLocked);
+            
+			MMIM_DisplayStatusReg_Ctrl(COM_Diagnostic_ID,elossoflock,true);
+			
+			if(u8EventSetCount == NUM_ZERO)
+			{
+				u8EventSetFlag = ENABLE;
+				u8EventSetCount++;
+			}
+			else
+			{
+				/* code */
+				u8EventSetFlag = DISABLE;
+			}
+		}
+	}
+	else
+	{
+		/* Set Lock Pin Status */
+		MINTBC_LockPinStatus_Ctrl(eLocked);
+        
+		/* Maintain Lock pin status */
+		MMIM_LockPinStatus_Ctrl(eLocked);
+        
+		if (u8EventSetCount == NUM_ONE)
+		{
+			if((CD_I2CMessage_t.display_enable.DISP_EN == ENABLE) && (CD_I2CMessage_t.display_status.DISP_ST == DISABLE))
+			{
+				u8EventSetFlag = RECOVEREVENT;
+				u8EventSetCount = NUM_ZERO;
+			}
+			else
+			{
+				u8EventSetFlag = DISABLE;
+				u8EventSetCount = NUM_ZERO;
+			}
+		}
+		else
+		{
+			u8EventSetFlag = DISABLE;
+		}
+	}
+	
+	return u8EventSetFlag;
+}
+
+static void CD_Event_Process(void)
+{ 
+    /* Init State, init somett_Process(void)*/
+    
+    /* Get Diagnostic Event to enable display */
+    /* DCC = Dectect Connect Control */
+    if((CD_Event_t.Event_e & (uint8_t)CD_DCC_EVENT_MSK) == (uint8_t)CD_DCC_EVENT_MSK)
+    {
+        u8ConnectDetectFlag = CD_Event_t.EventBuff[DATABYTE_ONE];
+        
+        CD_Event_t.Event_e &= (~ CD_DCC_EVENT_MSK);
+        CD_Event_t.EventBuff[DATABYTE_ONE] = NUM_ZERO;
+        
+    }
+    else
+    {
+            ;
+    }
+    memset(CD_Event_t.EventBuff,NUM_ZERO,sizeof(CD_Event_t.EventBuff));
+    
+}
+
+/*  Property  : Error Bit
+*  Name      : LCD Error 
+*  Method    : Detect TFT-bias voltage  
+*  Judgement : vgoff_ov, vgoffuv, vgon_ov, vgon_uv, navdd_ov, navdd_uv, avdd_ov, avdd_uv 
+*/  
+void CD_Detect_TFT_Bais(void)
+{
+    if( (uint8_t)eFault == MDGPIO_Diagnostic_TFT_Bias_Fault())
+    {
+        if(NUM_ZERO != MDI2C_25221_Fault1())
+        {
+#if BYPASS_BLERR_LCDERR
+        MMIM_DisplayStatusReg_Ctrl(SOUREFROMI2C,eDisplayStatus,false);
+#else
+            MMIM_DisplayStatusReg_Ctrl(COM_Diagnostic_ID,eLCDERR,true);
+            MMIM_DisplayStatusReg_Ctrl(SOUREFROMI2C,eDisplayStatus,false);/* this is not latch, so let soure to be I2C, force register as zero */
+
+            if(CDC_Event_Get(&CD_CDC_Event_t) == true)
+            {
+                /* Set buffer to adjust backlight duty*/
+                CD_CDC_Event_t.Event_e |= eDisplayEN_Sequence;
+                CD_CDC_Event_t.EventBuff[CDC_MEM_SHIFT15 + CDC_BUFFBYTE_ONE] = eDispOffSeq;
+                /* Set Com_DeviceControl event */
+                CDC_Event_Set(&CD_CDC_Event_t);
+            }
+#endif
+        } 
+    }
+  
+}
+
+
+/*  Property : Error Bit
+*  Name     : Disconnection Error 
+*  Method   : detect gpio status from panel fpc  
+*  Jugement : PIN_PANEL_FPCA_DET_OUT_R, PIN_PANEL_FPCA_DET_OUT_L is high (I guess ... not sure)
+*/	
+void CD_Detect_FPC_Connect(void)
+{
+    CDC_EVENT_T CD_CDC_Event_t;
+    uint8_t decect_result_R = 0, decect_result_L = 0;
+    static uint8_t u8DispOffFlag = false; 
+
+    memset(CD_CDC_Event_t.EventBuff,NUM_ZERO,sizeof(CD_CDC_Event_t.EventBuff));
+
+    decect_result_L = MDGPIO_DisconnectERR_L_Detect();
+
+    decect_result_R = MDGPIO_DisconnectERR_R_Detect();
+
+    if( (eFault == decect_result_L) || (eFault == decect_result_R))
+    {
+        MMIM_DisplayStatusReg_Ctrl(COM_Diagnostic_ID,eDisconnecterror,true);
+        MMIM_DisplayStatusReg_Ctrl(COM_Diagnostic_ID,eResetRequest,true);
+        
+        //DEBUG_PF("Disconnecterror\r\n");
+
+        if((CDC_Event_Get(&CD_CDC_Event_t) == true) && (false == u8DispOffFlag))
+        {
+            //DEBUG_PF("DispOffSeq\r\n");
+            CD_CDC_Event_t.Event_e |= eDisplayEN_Sequence;
+            CD_CDC_Event_t.EventBuff[CDC_MEM_SHIFT15 + CDC_BUFFBYTE_ONE] = eDispOffSeq;
+            CDC_Event_Set(&CD_CDC_Event_t);
+            u8DispOffFlag = true;
+        }
+        MMIM_DisplayStatusReg_Ctrl(SOUREFROMI2C,eDisplayStatus,false);/* this is not latch, so let soure to be I2C, force register as zero */
+        MMIM_DisplayStatusReg_Ctrl(SOUREFROMI2C,eBacklightStatus,false); /* this is not latch, so let soure to be I2C, force register as zero */
+    }
+    else
+    {
+        ;
+    }
+}
+
+/*  Property : Status Bit
+*  Name     : Display Status  
+*  Method   : read registor from HS-82105
+*  Jugement : HS-82108 registor is good.
+*/
+void CD_Detect_SourceIC(void)
+{
+	memset(CD_CDC_Event_t.EventBuff,NUM_ZERO,sizeof(CD_CDC_Event_t.EventBuff));
+
+    /*Detect Panel ABD*/
+    if(MDGPIO_Display_Diagnostic() == eFault)  
+    {
+        if(MDI2C_DispStatus_Detect() == true)
+        {            
+            //SD fault pin is error but SD register is good => display status = true
+            //DEBUG_PF("MDI2C_DispStatus_Detect(),display ST=1\r\n");
+            if((DISABLE == CD_I2CMessage_t.display_status.DISP_ST) && (DISABLE == CD_I2CMessage_t.display_status.LCDERR))
+            {
+                MMIM_DisplayStatusReg_Ctrl(SOUREFROMI2C,eDisplayStatus,true);
+                //DEBUG_PF("MDI2C_DispStatus_Detect(),display ST=1\r\n");
+            }
+            MDI2C_Clear_SourceIC_faultpin_cnt();
+        }
+        else
+        {
+            //MMIM_DisplayStatusReg_Ctrl(COM_Diagnostic_ID,eDisplayError,true);
+#if BYPASS_BLERR_LCDERR
+            MMIM_DisplayStatusReg_Ctrl(COM_Diagnostic_ID,eDisplayStatus,true);
+#else
+            //DEBUG_PF("MDI2C_DispStatus_Detect(),display ST=0, LCDERR = 1\r\n");
+            MMIM_DisplayStatusReg_Ctrl(COM_Diagnostic_ID,eLCDERR,true);
+            MMIM_DisplayStatusReg_Ctrl(SOUREFROMI2C,eDisplayStatus,false);/* this is not latch, so let soure to be I2C, force register as zero */
+            if( true == MDI2C_ResetRequstFlag_Ctrl(GETFLAG))
+            {
+                MDI2C_ResetRequstFlag_Ctrl(false);
+                MMIM_DisplayStatusReg_Ctrl(COM_Diagnostic_ID,eResetRequest,true);
+            }
+#endif       
+
+            if(CDC_Event_Get(&CD_CDC_Event_t) == true)
+            {
+                /* Set buffer to adjust backlight duty*/
+                CD_CDC_Event_t.Event_e |= eDisplayEN_Sequence;
+                CD_CDC_Event_t.EventBuff[CDC_MEM_SHIFT15 + CDC_BUFFBYTE_ONE] = eDispOffSeq;
+                /* Set Com_DeviceControl event */
+                CDC_Event_Set(&CD_CDC_Event_t);
+            }
+        }                          
+    }
+    else
+    {
+        //DEBUG_PF("MDGPIO_Display_Diagnostic(),display ST=1\r\n");
+
+        if((DISABLE == CD_I2CMessage_t.display_status.DISP_ST) && (DISABLE == CD_I2CMessage_t.display_status.LCDERR))
+        {
+            MMIM_DisplayStatusReg_Ctrl(SOUREFROMI2C,eDisplayStatus,true);
+           // DEBUG_PF("MDGPIO_Display_Diagnostic(),display ST=1\r\n");
+        }
+    }
+}
+
+void CD_Detect_TCON_CRC(void)
+{
+    if( true == MDGPIO_Diagnostic_TCON_Fault())
+    {
+        if(eBLERR_Fail == MDI2C_TCON_Fail_Detect())
+        {
+            MMIM_DisplayStatusReg_Ctrl(COM_Diagnostic_ID,eLCD_BL_Fault,true);
+            MMIM_DisplayStatusReg_Ctrl(SOUREFROMI2C,eBacklightStatus,false);
+            MMIM_DisplayStatusReg_Ctrl(COM_Diagnostic_ID,eResetRequest,true);
+        }
+        else
+        {
+
+        }
+    }
+}
+
+
+
+/* Property  : Error Bit
+*  Name      : Backlight Error  
+*  Method    : read registor from TCON.
+*  Judgement : LED driver is ready. LED short, open, thermal shutdown.
+*/     
+void CD_Detect_TCON_LedDriver(void)
+{   
+    BL_Result_E result = eProcessing;
+   // static uint8_t u8TconFaultPinHighCnt = 0;
+   // uint8_t u8temp1 = 0;
+   // uint8_t u8temp2 = 0;
+   // uint8_t u8temp3 = 0;
+
+#if TCON_DIAG_NEW 
+    switch(bl_state)
+    {
+        case Detect_IO:
+            if(MDGPIO_Diagnostic_TCON_Fault() == true)
+            {
+                /* BL Fault Pin Fail */
+                bl_state = Detect_Reg;
+            }
+            else
+            {
+                /* BL Fault Pin Pass */
+                if((NUM_ZERO != CD_I2CMessage_t.lcd_backlight_pwm_value.BL_PWM_7_0) 
+                && (NUM_ZERO != CD_I2CMessage_t.lcd_backlight_pwm_value.BL_PWM_9_8)
+                && (DISABLE == CD_I2CMessage_t.display_status.BL_ST) 
+                && (DISABLE == CD_I2CMessage_t.display_status.BLERR))
+                {
+                    MMIM_DisplayStatusReg_Ctrl(COM_Diagnostic_ID,eBacklightStatus,true);
+                }
+                MDI2C_Clear_Leddriver_faultpin_cnt();
+                MDI2C_Clear_TCON_faultpin_cnt();
+                bl_state = Detect_IO;
+            }
+            break;
+        
+        case Detect_Reg:                                   
+            result = MDI2C_New_BL_Detect();                                                                     
+            if(result == eBLERR_Fail)
+            {
+                /* BL I2C Fail */
+                bl_state = Report_Err;
+            }
+            else if(result == eBLERR_Pass)
+            {
+                /* BL I2C Pass */
+                if((NUM_ZERO != CD_I2CMessage_t.lcd_backlight_pwm_value.BL_PWM_7_0) 
+                && (NUM_ZERO != CD_I2CMessage_t.lcd_backlight_pwm_value.BL_PWM_9_8)
+                && (DISABLE == CD_I2CMessage_t.display_status.BL_ST)
+                && (DISABLE == CD_I2CMessage_t.display_status.BLERR))
+                {
+                    MMIM_DisplayStatusReg_Ctrl(COM_Diagnostic_ID,eBacklightStatus,true);
+                }
+                bl_state = Detect_IO;
+            }
+            else 
+            {
+                /* Processing */
+                bl_state = Detect_Reg;
+            }
+            break;
+        
+        case Report_Err:
+#if BYPASS_BLERR_LCDERR
+            MMIM_DisplayStatusReg_Ctrl(COM_Diagnostic_ID,eBacklightStatus,true);
+#else
+            MMIM_DisplayStatusReg_Ctrl(COM_Diagnostic_ID,eLCD_BL_Fault,true);
+            MMIM_DisplayStatusReg_Ctrl(SOUREFROMI2C,eBacklightStatus,false);
+            MMIM_DisplayStatusReg_Ctrl(COM_Diagnostic_ID,eResetRequest,true);
+#endif
+#if 0
+            if(MDGPIO_Diagnostic_TCON_Fault() == true)
+            {
+                /* Fault Pin Fail , stay at Report_Err */
+                u8TconFaultPinHighCnt = 0;
+                bl_state = Report_Err; 
+            }
+            else
+            {
+                u8TconFaultPinHighCnt++;
+                
+                if(u8TconFaultPinHighCnt == TCON_ASIL_DEBOUNCECOUNT + 1)
+                {
+                    u8TconFaultPinHighCnt = 0;
+                    bl_state = Detect_IO;                                          
+                }
+                else
+                {
+                    bl_state = Report_Err;
+                }
+                
+                /* for debug */
+                u8temp1 = MMIM_Client_Diag_Get(TCON_LED_L_LED1_B6);
+                u8temp2 = MMIM_Client_Diag_Get(TCON_LED_R_LED1_B6);
+                u8temp3 = MMIM_Client_Diag_Get(TCON_LED_R_LED3_B6);
+            }
+#endif 
+            /*After report error,and re-detect */
+            bl_state = Detect_IO;       
+            break;
+        
+        default:
+            bl_state = Detect_IO;
+        
+            break;
+    }                                  
+#else 
+	if(MDI2C_LCD_BL_Detect() != NUM_ZERO)
+	//if(MDGPIO_Diagnostic_TCON_Fault() == true)  
+	{
+	    /* maintain BLERR */
+	    MMIM_DisplayStatusReg_Ctrl(COM_Diagnostic_ID,eLCD_BL_Fault,true);
+	    
+	    /* Property  : Status Bit
+	    *  Name      : Backlight Status  
+	    *  Method    : BLEER
+	    *  Judgement : If BLEER occur, BL_ST = 1
+	    */  
+	    MMIM_DisplayStatusReg_Ctrl(SOUREFROMI2C,eBacklightStatus,false); /* this is not latch, so let soure to be I2C, force register as zero */
+	    
+	    /* maintain RST_RQ */
+	    MMIM_DisplayStatusReg_Ctrl(COM_Diagnostic_ID,eResetRequest,true);
+	}
+	else
+	{                            
+	    MMIM_DisplayStatusReg_Ctrl(COM_Diagnostic_ID,eBacklightStatus,true);
+	}            
+                                                  
+#endif   
+}
+
+/* 25ms timer interrupt process */
+void CD_Det_ISR(void* context)
+{
+    UNUSED (context);   
+    
+	/* Get Status */
+	CD_I2CMessage_t = *MMIM_pI2CMessage_Get();
+	CD_Event_Process();
+    
+	if(CD_I2CMessage_t.display_enable.DISP_EN == ENABLE)
+	{   
+        /* get TFT bias Rev ID */
+        MDI2C_25221_Revision();  
+        /* VCOM detect. only excute one time */
+        MDI2C_VCOM_Detect();        		
+#if 0      
+        /*  Property  : Error Bit
+        *  Name      : LCD Error 
+        *  Method    : detect gpio panel_abd status 
+        *  Judgement : Panel_ABD = Low, LCDERR = 1 
+        */
+		if(MDGPIO_Display_Diagnostic() == eFault && MMIM_SourceDriver_Ctrl(GETFLAG) == ENABLE )  
+		{
+			MMIM_DisplayStatusReg_Ctrl(COM_Diagnostic_ID,eLCDERR,true);	           
+		}
+#endif
+	}
+    
+	if((MMIM_PwrInitStatus_Ctrl(GETFLAG) == ENABLE) && (u8ConnectDetectFlag == ENABLE) && (MMIM_FactoryFlag_Ctrl(GETFLAG) != ENABLE))
+	{  
+        /*FPC Connect detect*/    
+        //CD_Detect_FPC_Connect();
+
+        if(CD_I2CMessage_t.display_enable.DISP_EN == ENABLE )
+        {
+            /*FPC Connect detect*/    
+            CD_Detect_FPC_Connect();
+
+        //  if(MMIM_First_Diag_Get() == NUM_ONE)    /* First time diagnostic ignore */
+        //  {
+        //      MMIM_First_Diag_Set(NUM_ZERO);
+        //  }
+        //  else
+        //  {
+                /* detect TCON version */
+                //MDI2C_TCON_VER_DETECT();
+            
+                if(MMIM_SourceDriver_Ctrl(GETFLAG) == ENABLE)
+                {
+                    /* detect TCON version */
+                    MDI2C_TCON_VER_DETECT();
+                    /*TCON & LDE Driver detect*/  
+                    CD_Detect_TCON_LedDriver();
+                    /*TFT Bias detect*/    
+                    CD_Detect_TFT_Bais();
+                     /*count 25ms *4 = 100ms */
+                     if (u8SourceICDetectCount >= 4)
+                     {
+                        u8SourceICDetectCount = 0;
+                        /*Source IC detect*/ 
+                        CD_Detect_SourceIC();   
+                     }
+                    else
+                    {
+                        u8SourceICDetectCount++;
+                    }
+
+                    /*  Property : Status Bit
+                    *  Name     : Backlight Status  
+                    *  Method   : read 25210 Reset Pin
+                    *  Jugement : Check 25210_Reset Pin is good.
+                    */        
+                    if(MPSC_Check_Power_Alive(PIN_25210_RESET_L, 30U) == (uint8_t)NUM_ZERO)
+                    {
+                        /*for MAX25210  BL LDO  not good*/
+                        /* maintain BL_ST */                                    
+                        //MMIM_LedVoltError_Set(MASK_BL_LDO_L);  //BIT0 means LDO_L
+                    }
+                    else
+                    {
+                        //MMIM_LedVoltError_Set(~MASK_BL_LDO_L);
+                    }                        
+                    if(MPSC_Check_Power_Alive(PIN_25210_RESET_R, 30U) == (uint8_t)NUM_ZERO)
+                    {
+                        /*for MAX25210  BL LDO  not good*/
+                        /* maintain BL_ST */                                        
+                        //MMIM_LedVoltError_Set(MASK_BL_LDO_R);  //BIT1 means LDO_R
+                    }
+                    else
+                    {
+                        //MMIM_LedVoltError_Set(~MASK_BL_LDO_R);
+                    }
+                }
+                else
+                {
+                    MMIM_DisplayStatusReg_Ctrl(SOUREFROMI2C,eDisplayStatus,false);/* this is not latch, so let soure to be I2C, force register as zero */                             
+                    MMIM_DisplayStatusReg_Ctrl(SOUREFROMI2C,eBacklightStatus,false); /* this is not latch, so let soure to be I2C, force register as zero */
+                    //DEBUG_PF("MMIM_SourceDriver_Ctrl(GETFLAG),DISP_ST=0,BL_ST=0\r\n");
+                }	
+        //  }
+            
+        }
+        else
+        {
+            /* maintain BL_ST */
+            MMIM_DisplayStatusReg_Ctrl(SOUREFROMI2C,eDisplayStatus,false);/* this is not latch, so let soure to be I2C, force register as zero */
+            MMIM_DisplayStatusReg_Ctrl(SOUREFROMI2C,eBacklightStatus,false); /* this is not latch, so let soure to be I2C, force register as zero */
+            //DEBUG_PF("display_enable.DISP_EN=low ,BL_ST=0,DISP_ST=0\r\n");
+
+        }
+	}
+}
+           
+
+/* 2ms timer interrupt process */
+void CD_Det_10ms_ISR(void* context)
+{
+    UNUSED (context);
+    
+    uint8_t u8LockStateResault = NUM_ZERO;
+    static uint16_t u16DiagnosticCounter = 0;    //20211216
+    
+    CDC_EVENT_T CD_CDC_Event_t;
+    if(u16DiagnosticCounter > 100)
+    {
+        memset(CD_CDC_Event_t.EventBuff,NUM_ZERO,sizeof(CD_CDC_Event_t.EventBuff));
+        
+        /* Get Status */
+        CD_I2CMessage_t = *MMIM_pI2CMessage_Get();       
+        
+        if(CD_I2CMessage_t.display_enable.DISP_EN != tdDisplayEnReg)
+        {
+            
+            tdDisplayEnReg = CD_I2CMessage_t.display_enable.DISP_EN;
+            //MDGPIO_DisplayENState_Set(tdDisplayEnReg);
+            
+        }
+        /* Detect loss of lock  */
+        u8LockStateResault = CD_LLOSS_Detect(tdDisplayEnReg);
+        
+        if(u8LockStateResault == ENABLE)
+        {
+            if(CDC_Event_Get(&CD_CDC_Event_t) == true)
+            {
+                CD_CDC_Event_t.Event_e |= eDisplayEN_Sequence;
+                CD_CDC_Event_t.EventBuff[CDC_MEM_SHIFT15 + CDC_BUFFBYTE_ONE] = eDispOffSeq;
+                CDC_Event_Set(&CD_CDC_Event_t);
+            }
+            
+            /* maintain RST_RQ */	
+            MMIM_DisplayStatusReg_Ctrl(COM_Diagnostic_ID,eResetRequest,true);
+            MMIM_DisplayStatusReg_Ctrl(SOUREFROMI2C,eDisplayStatus,false);/* this is not latch,so let soure to be I2C,force register as zero */
+        }
+        else if(u8LockStateResault == RECOVEREVENT)
+        {
+            if(CDC_Event_Get(&CD_CDC_Event_t) == true)
+            {
+                CD_CDC_Event_t.Event_e |= eDisplayEN_Sequence;
+                
+                CD_CDC_Event_t.EventBuff[CDC_MEM_SHIFT15 + CDC_BUFFBYTE_ONE] |= CD_I2CMessage_t.display_enable.DISP_EN;
+				
+                /* Set Com_DeviceControl event */
+                CDC_Event_Set(&CD_CDC_Event_t);
+                
+                /* Set buffer to adjust backlight duty*/
+                CD_CDC_Event_t.Event_e |= eBLBrightnessCtrl;
+                CD_CDC_Event_t.EventBuff[CDC_MEM_SHIFT6 + CDC_BUFFBYTE_ONE] = CD_I2CMessage_t.lcd_backlight_pwm_value.BL_PWM_9_8;
+                CD_CDC_Event_t.EventBuff[CDC_MEM_SHIFT6 + CDC_BUFFBYTE_TWO] = CD_I2CMessage_t.lcd_backlight_pwm_value.BL_PWM_7_0;
+                CD_CDC_Event_t.EventBuff[CDC_MEM_SHIFT6 + CDC_BUFFBYTE_THR] = ENABLE;
+                
+                /* Set Com_DeviceControl event */
+                CDC_Event_Set(&CD_CDC_Event_t);
+            }		
+            
+        }
+        else
+        {
+            ;
+        }   
+    }
+    else
+    {
+        u16DiagnosticCounter++;     //20211216
+    }
+}
+#if 0
+/* 500ms timer interrupt process */
+void CD_Det_50ms_ISR(void* context)
+{
+    /*count 10x50ms = 500ms */
+    if (u8SourceICDetectCount >= 2)
+    {
+        //DEBUG_PF("50ms count = %d\r\n",u8SourceICDetectCount);
+        u8SourceICDetectCount = NUM_ZERO;
+        if((MMIM_PwrInitStatus_Ctrl(GETFLAG) == ENABLE) && (u8ConnectDetectFlag == ENABLE) && (MMIM_FactoryFlag_Ctrl(GETFLAG) != ENABLE))
+        {
+            if(CD_I2CMessage_t.display_enable.DISP_EN == ENABLE )
+            {
+                /*Source IC detect*/
+                CD_Detect_SourceIC();
+            }
+            else
+            {
+                /* maintain BL_ST */
+                MMIM_DisplayStatusReg_Ctrl(SOUREFROMI2C,eDisplayStatus,false);/* this is not latch, so let soure to be I2C, force register as zero */
+                DEBUG_PF("display_enable.DISP_EN=low ,display_ST=0,BL_ST=0\r\n");
+            }
+        }
+
+    }
+    else
+    {
+        u8SourceICDetectCount++;
+    }
+}
+#endif
+
+void CD_Det_1ms_ISR(void* context)
+{
+    UNUSED (context);
+
+    if((MMIM_PwrInitStatus_Ctrl(GETFLAG) == ENABLE) && (CD_I2CMessage_t.display_enable.DISP_EN == ENABLE) && (MMIM_SourceDriver_Ctrl(GETFLAG) == ENABLE))
+    {
+        CD_Detect_TCON_CRC();
+    }
+}
+
+void CD_DET_25msTimerProcess_Install(void)
+{
+    /* Create CD_DET Timer for 10ms */
+    HAL_Timer_Init(CD_DET_TIMER_25MINSEC,&gts_25mSec_Timer_Continuous_Config);  //25ms
+    
+    /*Timer register callback*/
+    HAL_Timer_Callback_Register (CD_DET_TIMER_25MINSEC,CD_Det_ISR,NULL);
+    
+    /*Timer Enable*/
+    HAL_Timer_Active(CD_DET_TIMER_25MINSEC  ,FUNC_ENABLE);
+    
+    /*CD_DET TIMER  timer start*/ 
+    HAL_Timer_Start(CD_DET_TIMER_25MINSEC   ,FUNC_ENABLE);
+    
+    /*Enable CD_DET TIMER interrupt & recounting */
+    HAL_Timer_Interrupt_Set (CD_DET_TIMER_25MINSEC, FUNC_ENABLE, CYHAL_TCPWM_IRQ_PRIORITY);    
+}
+
+void CD_DET_10msTimerProcess_Install(void)
+{
+    /* Create CD_DET Timer for 10ms */
+    HAL_Timer_Init(CD_DET_TIMER_10MINSEC,&gts_10mSec_Timer_Continuous_Config);  //2ms
+    
+    /*Timer register callback*/
+    HAL_Timer_Callback_Register (CD_DET_TIMER_10MINSEC,CD_Det_10ms_ISR,NULL);
+    
+    /*Timer Enable*/
+    HAL_Timer_Active(CD_DET_TIMER_10MINSEC  ,FUNC_ENABLE);
+    
+    /*CD_DET TIMER  timer start*/ 
+    HAL_Timer_Start(CD_DET_TIMER_10MINSEC   ,FUNC_ENABLE);
+    
+    /*Enable CD_DET TIMER interrupt & recounting */
+    HAL_Timer_Interrupt_Set (CD_DET_TIMER_10MINSEC, FUNC_ENABLE, CYHAL_TCPWM_IRQ_PRIORITY);    
+}
+
+void CD_DET_1msTimerProcess_Install(void)
+{
+    /* Create CD_DET Timer for 10ms */
+    HAL_Timer_Init(CD_DET_TIMER_1MINSEC,&gts_1mSec_Timer_Continuous_Config);  //2ms
+    
+    /*Timer register callback*/
+    HAL_Timer_Callback_Register (CD_DET_TIMER_1MINSEC,CD_Det_1ms_ISR,NULL);
+    
+    /*Timer Enable*/
+    HAL_Timer_Active(CD_DET_TIMER_1MINSEC  ,FUNC_ENABLE);
+    
+    /*CD_DET TIMER  timer start*/ 
+    HAL_Timer_Start(CD_DET_TIMER_1MINSEC   ,FUNC_ENABLE);
+    
+    /*Enable CD_DET TIMER interrupt & recounting */
+    HAL_Timer_Interrupt_Set (CD_DET_TIMER_1MINSEC, FUNC_ENABLE, CYHAL_TCPWM_IRQ_PRIORITY);    
+}
+#if 0
+void CD_DET_50msTimerProcess_Install(void)
+{
+    /* Create CD_DET Timer for 10ms */
+    HAL_Timer_Init(CD_DET_TIMER_50MINSEC,&gts_50mSec_Timer_Continuous_Config);  //50ms
+    
+    /*Timer register callback*/
+    HAL_Timer_Callback_Register (CD_DET_TIMER_50MINSEC,CD_Det_50ms_ISR,NULL);
+    
+    /*Timer Enable*/
+    HAL_Timer_Active(CD_DET_TIMER_50MINSEC  ,FUNC_ENABLE);
+    
+    /*CD_DET TIMER  timer start*/ 
+    HAL_Timer_Start(CD_DET_TIMER_50MINSEC   ,FUNC_ENABLE);
+    
+    /*Enable CD_DET TIMER interrupt & recounting */
+    HAL_Timer_Interrupt_Set (CD_DET_TIMER_50MINSEC, FUNC_ENABLE, CYHAL_TCPWM_IRQ_PRIORITY);    
+}
+#endif
+
+static void CD_Service_Init(void)  //should modify
+{ /* Init State, init something */
+    
+    memset(CD_Event_t.EventBuff,NUM_ZERO,sizeof(CD_Event_t.EventBuff));
+    
+	/* Module initial */
+	MDGPIO_Interface_Set(MMIM_PwrInitStatus_Ctrl,CD_LLOSS_Set,CD_INTBActiveFlag_Set,MINTBC_LockPinStatus_Ctrl);
+    
+	/* Active 2ms Timer to detect ADC */
+	AdcApp_2msTimerProcess_Install();
+	
+	MINTBC_2msTimerProcess_Install(MMIM_INTBActiveFlag_Ctrl);
+	CD_DET_25msTimerProcess_Install();
+	CD_DET_10msTimerProcess_Install();
+    CD_DET_1msTimerProcess_Install();
+	//MDGPIO_PIN984Lock_IRQCallback_Instal();
+    
+	CD_StateMachine_e = CD_STATE_PROCESS;
+}
+
+static void CD_Service_Data_Process(void)
+{
+    
+    
+	CD_StateMachine_e = CD_STATE_PROCESS;
+}
+
+static void CD_Service_Error_Alarm(void)
+{ /* Error State, recovery to init state? */
+	;
+}
+
+/* Create CD state machine */
+void (*const CD_State_Machine[CD_STATE_MAX + 1])(void) =
+{CD_Service_Init, CD_Service_Data_Process, CD_Service_Error_Alarm};

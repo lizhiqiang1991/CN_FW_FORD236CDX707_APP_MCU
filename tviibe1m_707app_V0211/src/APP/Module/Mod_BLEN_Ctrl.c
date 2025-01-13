@@ -1,0 +1,153 @@
+/**
+* @file Mod_BLEN_Ctrl.c
+* @author your name (you@domain.com)
+* @brief 
+* @version 0.1
+* @date 2021-04-08
+* 
+* @copyright Copyright (c) 2021
+* 
+*/
+
+/* include global */
+#include "gPinDef.h"
+
+/* include module */
+#include "Mod_BLEN_Ctrl.h"
+#include "Mod_DataManagement.h"
+#include "Mod_DisplayEN_Ctrl.h"
+/* Include App */
+#include "GpioApp.h"
+#include "PWMApp.h"
+#include "I2CMasterApp.h"
+#include "UartApp.h"
+#include "Mod_BLBrightness_Ctrl.h"
+#include "Mod_DetectI2C.h"
+extern uint8_t MPSC_Check_Power_Alive(uint8_t status, uint8_t times);
+static Global_PowerState_E eBLEN_PowerState = ePowerState_Stop;
+
+void MBLC_PowerSequence_BL_ON(void)
+{   
+    //uint8_t u8Input = NUM_ZERO;
+    uint8_t u8Wr_Data[2]; 
+    
+    //Cy_SysLib_Delay(30);  // Delay 30 msec,Normal Run mode  
+    (void)HAL_GPIO_PinWrite(PIN_Panel_XON_MCU,PIN_HIGH);
+    (void)HAL_GPIO_PinWrite(PIN_MAX25221_EN,PIN_HIGH); // MAX25221_EN
+    Cy_SysLib_Delay(2); 
+    /* ----- MAX25210 -----*/
+    (void)HAL_GPIO_PinWrite(PIN_25210_EN_L,PIN_HIGH);  // HV LDO BL on
+    (void)HAL_GPIO_PinWrite(PIN_25210_EN_R,PIN_HIGH);  // HV LDO BL on
+
+    Cy_SysLib_Delay(2); 
+
+    /* ----- MAX25240 -----*/
+    (void)HAL_GPIO_PinWrite(PIN_25240_EN_L,PIN_HIGH); // Buck-Boost turn on
+    (void)HAL_GPIO_PinWrite(PIN_25240_EN_R,PIN_HIGH); // Buck-Boost turn on   
+
+    (void)HAL_GPIO_PinWrite(PIN_TCON_RESET,PIN_HIGH); // TCON_RESET
+
+    (void)HAL_GPIO_PinWrite(PIN_PANEL_RESET,PIN_HIGH); // Panel_RESET
+    
+    Cy_SysLib_Delay(22);  // Delay 22 msec,Normal Run mode  
+    
+    MDEN_SourceDriver_DispOn_CheckReset();
+    
+    //(void)HAL_GPIO_PinRead(PIN_PANEL_ABD,&u8Input);
+    if(MPSC_Check_Power_Alive(PIN_PANEL_ABD, 30U) == (uint8_t)NUM_ZERO)
+    {
+        MDEN_SourceDriver_DispOn_CheckReset(); /*for  HX82105 not good*/
+    }
+    else
+    {
+        ;
+    }
+    
+    if(MMIM_LocalDim_Flag_Get() == NUM_ONE)
+    {
+        /* local dimming */     
+        u8Wr_Data[0] = 0U; 
+        u8Wr_Data[1] = 0x04;  /*checksum = 0x04 + 0x00 */
+        
+    }
+    else
+    {
+        /* global dimming */
+        u8Wr_Data[0] = 1U;
+        u8Wr_Data[1] = 0x05;  /*checksum = 0x04 + 0x01 */
+    }
+    
+    I2CM_Write(TCON_ADDRESS_ID, 0x04, &u8Wr_Data[0], sizeof(u8Wr_Data));
+    
+    Cy_SysLib_Delay(5); /* Leo add */
+    
+    //MDI2C_TconApp_Magic_Code_Write(0x05);
+    //Cy_SysLib_Delay(50);
+    
+    //I2CM_Read(TCON_ADDRESS_ID, 0x05, &I2cMasterBuffer[0], 3);
+}    
+
+void MBLC_PowerSequence_BL_OFF(void)
+{   
+    //(void)MBLC_TconApp_Backlight_Output(NUM_ZERO);
+    (void)MBLBC_BLPWM_Output(NUM_ZERO);
+
+    (void)HAL_GPIO_PinWrite(PIN_Panel_XON_MCU,PIN_LOW);
+    Cy_SysLib_Delay(20);
+    (void)HAL_GPIO_PinWrite(PIN_MAX25221_EN,PIN_LOW); // MAX25221_EN
+
+    (void)MDI2C_Set_TCON_BlackPattern(ENABLE);
+     Cy_SysLib_Delay(100);
+    (void)MDI2C_Set_TCON_BlackPattern(DISABLE);
+    /* ----- MAX25240 -----*/
+    (void)HAL_GPIO_PinWrite(PIN_25240_EN_L,PIN_LOW); // Buck-Boost turn off
+    (void)HAL_GPIO_PinWrite(PIN_25240_EN_R,PIN_LOW); // Buck-Boost turn off  
+
+    (void)HAL_GPIO_PinWrite(PIN_25210_EN_L,PIN_LOW);  // HV LDO BL on
+    (void)HAL_GPIO_PinWrite(PIN_25210_EN_R,PIN_LOW);  // HV LDO BL on
+
+    (void)HAL_GPIO_PinWrite(PIN_TCON_RESET,PIN_LOW); // TCON_RESET
+    (void)HAL_GPIO_PinWrite(PIN_PANEL_RESET,PIN_LOW); // Panel_RESET
+}    
+
+uint8_t MBLC_Display_Ctrl(uint8_t ucBLEN,Global_PowerState_E ePowerState,Global_LockState_E eLockState)
+{
+    uint8_t BLEN_ProcessState = NUM_TEN;
+    
+    eBLEN_PowerState = ePowerState;
+    
+    switch (eBLEN_PowerState)
+    {
+    case ePowerState_Standby:
+        
+        if(ucBLEN == ENABLE && eLockState == eLocked)
+        {
+            MBLC_PowerSequence_BL_ON();
+            BLEN_ProcessState = ENABLE;
+            MMIM_First_Diag_Set(NUM_ONE);
+        }
+        else
+        {
+            ; /* code */
+        }
+        break;
+    case ePowerState_Normal:
+        if(ucBLEN == DISABLE)
+        {
+            /* code */
+            MBLC_PowerSequence_BL_OFF();
+            MMIM_DisplayStatusReg_Ctrl(SOUREFROMI2C,eBacklightStatus,LEVEL_LOW);
+            
+            //COOLING_FAN_Pwm_Duty_Output(COOLING_FAN_PWM_GROUP, NUM_ZERO);
+            BLEN_ProcessState = DISABLE;
+        }
+        else
+        {            
+            ;
+        }
+        break;
+    default:
+        break;
+    }
+    return BLEN_ProcessState;
+}

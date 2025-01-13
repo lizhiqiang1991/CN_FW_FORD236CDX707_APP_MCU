@@ -1,0 +1,79 @@
+/**
+* @file GpioApp.c
+* @author your name (you@domain.com)
+* @brief 
+* @version 0.1
+* @date 2021-02-02
+* 
+* @copyright Copyright (c) 2021
+* 
+*/
+#include "GpioApp.h"
+
+
+void GPIO_Initialize(void)
+{
+    /**< GPIO as Input */
+    HAL_GPIO_Pin_Init(PIN_MCU_DETECT0,&gtdPinInputConfig);          /**< P0.0 */
+    HAL_GPIO_Pin_Init(PIN_MCU_DETECT1,&gtdPinInputConfig);          /**< P0.1 */
+    HAL_GPIO_Pin_Init(PIN_25240_PG_L,&gtdPinInputConfig);           /**< P3.0 */
+    HAL_GPIO_Pin_Init(PIN_25210_RESET_L,&gtdPinInputConfig);        /**< P5.0 */
+    HAL_GPIO_Pin_Init(PIN_25501_FLTB_L,&gtdPinInputConfig);         /**< P5.2 */
+    HAL_GPIO_Pin_Init(PIN_FPCA_DET_IN_R,&gtdPinInputConfig);        /**< P7.4 */
+    HAL_GPIO_Pin_Init(PIN_FPCA_DET_IN_L,&gtdPinInputConfig);        /**< P7.5 */
+    HAL_GPIO_Pin_Init(PIN_PANEL_ABD,&gtdPinInputConfig);            /**< P8.1 */
+    HAL_GPIO_Pin_Init(PIN_TCON_ASIL_O,&gtdPinInputConfig);          /**< P12.2 */
+    HAL_GPIO_Pin_Init(PIN_984_LOCK,&gtdPinInputConfig);             /**< P13.4 */
+    HAL_GPIO_Pin_Init(PIN_MAX25221_FLTB,&gtdPinInputConfig);        /**< P13.7 */
+    HAL_GPIO_Pin_Init(PIN_MAX20419_PG,&gtdPinInputConfig);          /**< P14.1 */
+    HAL_GPIO_Pin_Init(PIN_LM61460_PG,&gtdPinInputConfig);           /**< P14.3 */
+    HAL_GPIO_Pin_Init(PIN_MAX25501_FLTB_R,&gtdPinInputConfig);      /**< P17.2 */
+    HAL_GPIO_Pin_Init(PIN_25210_RESET_R,&gtdPinInputConfig);        /**< P18.3 */
+#if 0
+    /* PCBA2.0 */
+    HAL_GPIO_Pin_Init(PIN_25240_PG_R,&gtdPinInputConfig);           /**< P18.5 */  
+#else
+    /* PCBA3.0 pin */
+    HAL_GPIO_Pin_Init(PIN_25240_PG_R,&gtdPinInputConfig);           /**< P19.1 */
+#endif 
+    HAL_GPIO_Pin_Init(PIN_20419_RESET1,&gtdPinInputConfig);         /**< P21.5 */
+    HAL_GPIO_Pin_Init(PIN_20419_RESET2,&gtdPinInputConfig);         /**< P22.0 */
+    HAL_GPIO_Pin_Init(PIN_20419_RESET3,&gtdPinInputConfig);         /**< P22.1 */
+    
+    
+    
+    /**< GPIO as Output */
+    HAL_GPIO_Pin_Init(PIN_MCU_INT,&gtdPinOutputConfig_Test);             /**< P0.2 */
+    HAL_GPIO_Pin_Init(PIN_25240_EN_L,&gtdPinOutputConfig);          /**< P3.1 */
+    HAL_GPIO_Pin_Init(PIN_25210_EN_L,&gtdPinOutputConfig);          /**< P5.1 */
+    HAL_GPIO_Pin_Init(PIN_U301_VBATT_SENSE,&gtdPinOutputConfig);    /**< P5.3 */
+    HAL_GPIO_Pin_Init(PIN_W25X20_WP,&gtdPinOutputConfig);           /**< P6.5 */
+    HAL_GPIO_Pin_Init(PIN_PANEL_FPCA_DET_OUT_R,&gtdPinOutputConfig);/**< P7.3 */
+    HAL_GPIO_Pin_Init(PIN_PANEL_FPCA_DET_OUT_L,&gtdPinOutputConfig);/**< P8.0 */
+    HAL_GPIO_Pin_Init(PIN_PANEL_RESET,&gtdPinOutputConfig);         /**< P8.2 */
+#if 0
+    /* PCBA2.0 */
+    HAL_GPIO_Pin_Init(PIN_TCON_BIST_STOP,&gtdPinOutputConfig);      /**< P12.0 */
+#else
+    /* PCBA3.0 */
+    HAL_GPIO_Pin_Init(PIN_TCON_BIST_STOP,&gtdPinOutputConfig_Test2);      /**< P11.1 */
+#endif
+    HAL_GPIO_Pin_Init(PIN_TCON_BIST,&gtdPinOutputConfig);           /**< P12.3 */
+    HAL_GPIO_Pin_Init(PIN_Panel_XON_MCU,&gtdPinOutputConfig);       /**< P11.2 */
+    HAL_GPIO_Pin_Init(PIN_TCON_RESET,&gtdPinOutputConfig);          /**< P12.4 */
+    HAL_GPIO_Pin_Init(PIN_984_PDB,&gtdPinOutputConfig);             /**< P13.0 */
+    HAL_GPIO_Pin_Init(PIN_984_INTB_IN,&gtdPinOutputConfig_OD_GPIO);         /**< P13.3 */
+    HAL_GPIO_Pin_Init(PIN_MAX25221_EN,&gtdPinOutputConfig);         /**< P13.6 */
+    HAL_GPIO_Pin_Init(PIN_MAX20419_XWDI,&gtdPinOutputConfig);       /**< P14.0 */
+    HAL_GPIO_Pin_Init(PIN_LM61460_EN,&gtdPinOutputConfig);          /**< P14.2 */
+    HAL_GPIO_Pin_Init(PIN_25210_EN_R,&gtdPinOutputConfig);          /**< P18.0 */
+    
+    HAL_GPIO_Pin_Init(PIN_25240_EN_R,&gtdPinOutputConfig);           /**< P19.0 */
+    
+    HAL_GPIO_Pin_Init(PIN_MCU_PIN64_P17_0,&gtdPinOutputConfig);     /**< P17.0 */
+    HAL_GPIO_Pin_Init(PIN_U301_EN_VBATT_SENSE,&gtdPinOutputConfig);     /**< P5.3*/
+    HAL_GPIO_Pin_Init(PIN_20419_EN3,&gtdPinOutputConfig);           /**< P19.2 */
+    HAL_GPIO_Pin_Init(PIN_20419_EN2,&gtdPinOutputConfig);           /**< P19.3 */
+    HAL_GPIO_Pin_Init(PIN_20419_EN1,&gtdPinOutputConfig);           /**< P21.0 */
+    
+}

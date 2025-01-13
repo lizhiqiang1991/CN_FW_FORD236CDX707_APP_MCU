@@ -1,0 +1,2139 @@
+###############################################################################
+#
+# IAR ELF Linker V9.32.1.338/W64 for ARM                  26/Dec/2024  10:14:09
+# Copyright 2007-2022 IAR Systems AB.
+#
+#    Output file  =
+#        C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Exe\cm0plus.out
+#    Map file     =
+#        C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\List\cm0plus.map
+#    Command line =
+#        -f
+#        C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Exe\cm0plus.out.rsp
+#        (C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\APP\AdcApp.o
+#        C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\APP\ClockApp.o
+#        C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\APP\Component\Com_BatteryProtect.o
+#        C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\APP\Component\Com_Communication.o
+#        C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\APP\Component\Com_DeviceControl.o
+#        C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\APP\Component\Com_Diagnostic.o
+#        C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\APP\Component\Com_PowerManagement.o
+#        C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\APP\Component\Com_TemperatureProtect.o
+#        C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\APP\Module\Crc8.o
+#        C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\drivers\adc\cy_adc.o
+#        C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\mw\button\cy_button.o
+#        C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\drivers\canfd\cy_canfd.o
+#        C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\drivers\cpu\cy_cpu.o
+#        C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\drivers\crypto\cy_crypto_config.o
+#        C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\drivers\evtgen\cy_evtgen.o
+#        C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\drivers\flash\cy_flash.o
+#        C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\drivers\gpio\cy_gpio.o
+#        C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\interrupts\rev_b\cy_interrupt_map.o
+#        C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\drivers\ipc\cy_ipc_drv.o
+#        C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\drivers\ipc\cy_ipc_pipe.o
+#        C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\drivers\ipc\cy_ipc_sema.o
+#        C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\drivers\lin\cy_lin.o
+#        C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\drivers\lvd\cy_lvd.o
+#        C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\drivers\mcwdt\cy_mcwdt.o
+#        C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\drivers\dma\cy_mdma.o
+#        C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\drivers\mpu\cy_mpu.o
+#        C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\mw\flash\cy_mw_flash.o
+#        C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\drivers\dma\cy_pdma.o
+#        C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\drivers\prot\cy_prot.o
+#        C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\drivers\scb\cy_scb_common.o
+#        C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\drivers\scb\cy_scb_ezi2c.o
+#        C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\drivers\scb\cy_scb_i2c.o
+#        C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\drivers\scb\cy_scb_spi.o
+#        C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\drivers\scb\cy_scb_uart.o
+#        C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\mw\semihosting\cy_semihosting.o
+#        C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\drivers\smartio\cy_smartio.o
+#        C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\drivers\srom\cy_srom.o
+#        C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\mw\sw_timer\cy_sw_tmr.o
+#        C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\drivers\sysclk\cy_sysclk.o
+#        C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\drivers\sysflt\cy_sysflt.o
+#        C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\drivers\sysint\cy_sysint.o
+#        C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\drivers\syslib\cy_syslib.o
+#        C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\drivers\syslib\cy_syslib_iar.o
+#        C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\drivers\syspm\cy_syspm.o
+#        C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\drivers\sysreset\cy_sysreset.o
+#        C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\drivers\sysrtc\cy_sysrtc.o
+#        C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\drivers\systick\cy_systick.o
+#        C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\drivers\syswdt\cy_syswdt.o
+#        C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\drivers\tcpwm\cy_tcpwm.o
+#        C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\drivers\tcpwm\cy_tcpwm_counter.o
+#        C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\drivers\tcpwm\cy_tcpwm_pwm.o
+#        C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\drivers\tcpwm\cy_tcpwm_quaddec.o
+#        C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\drivers\tcpwm\cy_tcpwm_sr.o
+#        C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\drivers\trigmux\cy_trigmux.o
+#        C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\hal\cy_hdr\cyhal_hwmgr.o
+#        C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\APP\FlashApp.o
+#        C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\APP\GpioApp.o
+#        C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\hal\adc\hal_adc.o
+#        C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\hal\hal_config\hal_adc_config.o
+#        C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\hal\clock\hal_clock.o
+#        C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\hal\hal_config\hal_clock_config.o
+#        C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\hal\fmc\hal_fmc.o
+#        C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\hal\gpio\hal_gpio.o
+#        C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\hal\hal_config\hal_gpio_config.o
+#        C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\hal\i2c\hal_i2c.o
+#        C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\hal\hal_config\hal_i2c_config.o
+#        C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\hal\pm\hal_pm.o
+#        C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\hal\hal_config\hal_pm_config.o
+#        C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\hal\pwm\hal_pwm.o
+#        C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\hal\hal_config\hal_pwm_config.o
+#        C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\hal\sp\hal_sp.o
+#        C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\hal\hal_config\hal_sp_config.o
+#        C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\hal\spi\hal_spi.o
+#        C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\hal\hal_config\hal_spi_config.o
+#        C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\hal\hal_config\hal_systick_config.o
+#        C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\hal\timer\hal_timer.o
+#        C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\hal\hal_config\hal_timer_config.o
+#        C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\hal\uart\hal_uart.o
+#        C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\hal\hal_config\hal_uart_config.o
+#        C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\hal\hal_ver.o
+#        C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\APP\I2CMasterApp.o
+#        C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\APP\I2CSlaveApp.o
+#        C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\APP\ICDiagApp.o
+#        C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\main_cm0plus.o
+#        C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\APP\MCUDiagApp.o
+#        C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\APP\Module\Mod_BatteryProtection_Ctrl.o
+#        C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\APP\Module\Mod_BLbrightness_Ctrl.o
+#        C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\APP\Module\Mod_BLEN_Ctrl.o
+#        C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\APP\Module\Mod_DataManagement.o
+#        C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\APP\Module\Mod_DetectGPIO.o
+#        C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\APP\Module\Mod_DetectI2C.o
+#        C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\APP\Module\Mod_DisplayEN_Ctrl.o
+#        C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\APP\Module\Mod_FPNCtrl.o
+#        C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\APP\Module\Mod_INTBControl.o
+#        C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\APP\Module\Mod_PowerSequence_Ctrl.o
+#        C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\APP\Module\Mod_ScanDirection_Ctrl.o
+#        C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\APP\Module\Mod_TemperatureProtection_Ctrl.o
+#        C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\APP\PWMApp.o
+#        C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\startup\startup.o
+#        C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\startup\startup_cm0plus.o
+#        C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\system\rev_b\system_tviibe1m_cm0plus.o
+#        C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\APP\TestPattern.o
+#        C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\APP\TimerApp.o
+#        C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\APP\UartApp.o
+#        C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\APP\WDTApp.o
+#        --no_out_extension -o
+#        C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Exe\cm0plus.out
+#        --config_def _CORE_cm0plus_=0 --config_def _LINK_flash_=0 --map
+#        C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\List\cm0plus.map
+#        --config
+#        C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\..\..\linker_directives_tviibe.icf
+#        --semihosting
+#        C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m\src\drivers\crypto\libs\libcrypto_server_cm0plus_iar.a
+#        --entry __iar_program_start --vfe --text_out locale --cpu=Cortex-M0+
+#        --fpu=None)
+#
+###############################################################################
+
+*******************************************************************************
+*** RUNTIME MODEL ATTRIBUTES
+***
+
+CppFlavor       = *
+__CPP_Runtime   = 1
+__SystemLibrary = DLib
+__dlib_version  = 6
+
+
+*******************************************************************************
+*** HEAP SELECTION
+***
+
+The basic heap was selected because no calls to memory allocation
+functions were found in the application outside of system library
+functions, there are calls to deallocation functions in the
+application, and the application appears to be primarily
+optimized for speed.
+
+
+*******************************************************************************
+*** PLACEMENT SUMMARY
+***
+
+"A0":  place at start of [from 0x1000'0000 to 0x1007'ffff] { section .intvec };
+"P1":  place in [from 0x1000'0000 to 0x1007'ffff] { ro };
+"P2":  place in [from 0x800'0000 to 0x800'ffff] { rw };
+define block HEAP with size = 512, alignment = 8 { };
+define block CSTACK with size = 1K, alignment = 8 { };
+define block HEAP_STACK { block HEAP, last block CSTACK };
+"A2":  place at end of [from 0x800'0000 to 0x800'ffff] { block HEAP_STACK };
+do not initialize { section .intvec_ram };
+initialize by copy { rw };
+
+No sections matched the following patterns:
+
+  section .cm4_rom  in "A1"
+
+
+  Section            Kind         Address    Size  Object
+  -------            ----         -------    ----  ------
+Absolute sections:                            0x2
+  .noinit            uninit    0x800'1500     0x2  Mod_DataManagement.o [4]
+                             - 0x800'1502     0x2
+
+"P2", part 1 of 3:                         0x18ba
+  P2-1                         0x800'1504  0x18ba  <Init block>
+    .data            inited    0x800'1504    0x24  Com_DeviceControl.o [3]
+    .data            inited    0x800'1528     0x7  Com_Diagnostic.o [3]
+    .data            inited    0x800'1530    0xe8  Com_TemperatureProtect.o [3]
+    .data            inited    0x800'1618   0x584  cy_interrupt_map.o [47]
+    .data            inited    0x800'1b9c     0x4  cy_interrupt_map.o [47]
+    .data            inited    0x800'1ba0    0xc0  cyhal_hwmgr.o [36]
+    .data            inited    0x800'1c60   0x460  cyhal_hwmgr.o [36]
+    .data            inited    0x800'20c0    0x10  cyhal_hwmgr.o [36]
+    .data            inited    0x800'20d0   0x300  hal_adc.o [34]
+    .data            inited    0x800'23d0     0xc  hal_adc_config.o [39]
+    .data            inited    0x800'23dc    0x24  hal_clock_config.o [39]
+    .data            inited    0x800'2400     0x8  hal_gpio_config.o [39]
+    .data            inited    0x800'2408     0x8  hal_gpio_config.o [39]
+    .data            inited    0x800'2410     0x8  hal_gpio_config.o [39]
+    .data            inited    0x800'2418     0x8  hal_gpio_config.o [39]
+    .data            inited    0x800'2420     0x8  hal_gpio_config.o [39]
+    .data            inited    0x800'2428     0x8  hal_gpio_config.o [39]
+    .data            inited    0x800'2430     0x8  hal_gpio_config.o [39]
+    .data            inited    0x800'2438    0x10  hal_i2c_config.o [39]
+    .data            inited    0x800'2448    0x10  hal_i2c_config.o [39]
+    .data            inited    0x800'2458     0xc  hal_timer_config.o [39]
+    .data            inited    0x800'2464     0xc  hal_timer_config.o [39]
+    .data            inited    0x800'2470     0xc  hal_timer_config.o [39]
+    .data            inited    0x800'247c     0xc  hal_timer_config.o [39]
+    .data            inited    0x800'2488     0xc  hal_uart_config.o [39]
+    .data            inited    0x800'2494    0x14  Mod_BatteryProtection_Ctrl.o [4]
+    .data            inited    0x800'24a8    0xdc  Mod_DataManagement.o [4]
+    .data            inited    0x800'2584    0x20  Mod_DataManagement.o [4]
+    .data            inited    0x800'25a4    0x80  Mod_DetectI2C.o [4]
+    .data            inited    0x800'2624    0x18  Mod_DetectI2C.o [4]
+    .data            inited    0x800'263c    0x18  Mod_DetectI2C.o [4]
+    .data            inited    0x800'2654    0x18  Mod_DetectI2C.o [4]
+    .data            inited    0x800'266c    0x18  Mod_DetectI2C.o [4]
+    .data            inited    0x800'2684    0x18  Mod_DetectI2C.o [4]
+    .data            inited    0x800'269c    0x18  Mod_DetectI2C.o [4]
+    .data            inited    0x800'26b4    0x18  Mod_DetectI2C.o [4]
+    .data            inited    0x800'26cc    0x18  Mod_DetectI2C.o [4]
+    .data            inited    0x800'26e4    0x18  Mod_DetectI2C.o [4]
+    .data            inited    0x800'26fc    0x18  Mod_DetectI2C.o [4]
+    .data            inited    0x800'2714    0x18  Mod_DetectI2C.o [4]
+    .data            inited    0x800'272c    0x18  Mod_DetectI2C.o [4]
+    .data            inited    0x800'2744    0x18  Mod_DetectI2C.o [4]
+    .data            inited    0x800'275c    0x18  Mod_DetectI2C.o [4]
+    .data            inited    0x800'2774    0x18  Mod_DetectI2C.o [4]
+    .data            inited    0x800'278c    0x18  Mod_DetectI2C.o [4]
+    .data            inited    0x800'27a4    0x18  Mod_DetectI2C.o [4]
+    .data            inited    0x800'27bc    0x18  Mod_DetectI2C.o [4]
+    .data            inited    0x800'27d4    0x18  Mod_DetectI2C.o [4]
+    .data            inited    0x800'27ec    0x18  Mod_DetectI2C.o [4]
+    .data            inited    0x800'2804    0x18  Mod_DetectI2C.o [4]
+    .data            inited    0x800'281c    0x18  Mod_DetectI2C.o [4]
+    .data            inited    0x800'2834    0x18  Mod_DetectI2C.o [4]
+    .data            inited    0x800'284c    0x18  Mod_DetectI2C.o [4]
+    .data            inited    0x800'2864    0x18  Mod_DetectI2C.o [4]
+    .data            inited    0x800'287c    0x18  Mod_DetectI2C.o [4]
+    .data            inited    0x800'2894    0x18  Mod_DetectI2C.o [4]
+    .data            inited    0x800'28ac    0x18  Mod_DetectI2C.o [4]
+    .data            inited    0x800'28c4    0x18  Mod_DetectI2C.o [4]
+    .data            inited    0x800'28dc    0x18  Mod_DetectI2C.o [4]
+    .data            inited    0x800'28f4    0x18  Mod_DetectI2C.o [4]
+    .data            inited    0x800'290c    0x18  Mod_DetectI2C.o [4]
+    .data            inited    0x800'2924    0x18  Mod_DetectI2C.o [4]
+    .data            inited    0x800'293c    0x18  Mod_DetectI2C.o [4]
+    .data            inited    0x800'2954    0x18  Mod_DetectI2C.o [4]
+    .data            inited    0x800'296c    0x18  Mod_DetectI2C.o [4]
+    .data            inited    0x800'2984    0x14  Mod_DetectI2C.o [4]
+    .data            inited    0x800'2998   0x3ec  Mod_TemperatureProtection_Ctrl.o [4]
+    .data            inited    0x800'2d84    0x18  PWMApp.o [2]
+    .data            inited    0x800'2d9c     0x6  Com_BatteryProtect.o [3]
+    .data            inited    0x800'2da2     0x4  Mod_BatteryProtection_Ctrl.o [4]
+    .data            inited    0x800'2da6     0x5  Com_DeviceControl.o [3]
+    .data            inited    0x800'2dab     0x5  Com_PowerManagement.o [3]
+    .data            inited    0x800'2db0     0x3  Mod_DataManagement.o [4]
+    .data            inited    0x800'2db3     0x1  Mod_DataManagement.o [4]
+    .data            inited    0x800'2db4     0x4  Mod_DetectI2C.o [4]
+    .data            inited    0x800'2db8     0x3  Mod_DetectI2C.o [4]
+    .data            inited    0x800'2dbb     0x1  Mod_DetectI2C.o [4]
+    .data            inited    0x800'2dbc     0x1  Mod_DetectI2C.o [4]
+    .data            inited    0x800'2dbd     0x1  Mod_DetectI2C.o [4]
+                             - 0x800'2dbe  0x18ba
+
+"P2", part 2 of 3:                          0xf4c
+  .bss               zero      0x800'2dc0   0x2c0  hal_i2c.o [40]
+  .bss               zero      0x800'3080   0x1e0  hal_uart.o [46]
+  .bss               zero      0x800'3260   0x100  I2CSlaveApp.o [2]
+  .bss               zero      0x800'3360    0xca  Mod_BLbrightness_Ctrl.o [4]
+  .bss               zero      0x800'342a     0xa  Mod_TemperatureProtection_Ctrl.o [4]
+  .bss               zero      0x800'3434    0xc8  Com_Communication.o [3]
+  .bss               zero      0x800'34fc    0xc8  Com_DeviceControl.o [3]
+  .bss               zero      0x800'35c4    0xc8  Com_Diagnostic.o [3]
+  .bss               zero      0x800'368c    0xc8  Mod_DataManagement.o [4]
+  .bss               zero      0x800'3754    0x90  ICDiagApp.o [2]
+  .bss               zero      0x800'37e4    0x90  Mod_FPNCtrl.o [4]
+  .bss               zero      0x800'3874    0x88  hal_uart.o [46]
+  .bss               zero      0x800'38fc    0x84  Mod_DataManagement.o [4]
+  .bss               zero      0x800'3980    0x80  MCUDiagApp.o [2]
+  .bss               zero      0x800'3a00    0x50  I2CSlaveApp.o [2]
+  .bss               zero      0x800'3a50    0x30  Com_Communication.o [3]
+  .bss               zero      0x800'3a80    0x2c  Mod_DataManagement.o [4]
+  .bss               zero      0x800'3aac    0x24  Com_Diagnostic.o [3]
+  .bss               zero      0x800'3ad0    0x24  cy_syslib.o [25]
+  .bss               zero      0x800'3af4    0x24  Mod_FPNCtrl.o [4]
+  .bss               zero      0x800'3b18    0x24  Mod_FPNCtrl.o [4]
+  .bss               zero      0x800'3b3c    0x24  Mod_FPNCtrl.o [4]
+  .bss               zero      0x800'3b60    0x24  Mod_FPNCtrl.o [4]
+  .bss               zero      0x800'3b84    0x24  Mod_FPNCtrl.o [4]
+  .bss               zero      0x800'3ba8    0x20  Mod_DataManagement.o [4]
+  .bss               zero      0x800'3bc8    0x20  Mod_DetectI2C.o [4]
+  .bss               zero      0x800'3be8    0x1a  AdcApp.o [2]
+  .bss               zero      0x800'3c02     0x6  PWMApp.o [2]
+  .bss               zero      0x800'3c08    0x1a  Mod_DetectGPIO.o [4]
+  .bss               zero      0x800'3c22     0x2  Com_Diagnostic.o [3]
+  .bss               zero      0x800'3c24    0x19  cy_sysclk.o [22]
+  .bss               zero      0x800'3c3d     0x2  cy_mw_flash.o [49]
+  .bss               zero      0x800'3c3f     0x1  Com_Communication.o [3]
+  .bss               zero      0x800'3c40    0x18  cy_syslib.o [25]
+  .bss               zero      0x800'3c58    0x14  system_tviibe1m_cm0plus.o [53]
+  .bss               zero      0x800'3c6c    0x12  Mod_BLbrightness_Ctrl.o [4]
+  .bss               zero      0x800'3c7e     0x2  hal_adc_config.o [39]
+  .bss               zero      0x800'3c80    0x10  cy_srom.o [21]
+  .bss               zero      0x800'3c90    0x10  Mod_DisplayEN_Ctrl.o [4]
+  .bss               zero      0x800'3ca0     0xa  Mod_BatteryProtection_Ctrl.o [4]
+  .bss               zero      0x800'3caa     0x2  Mod_BatteryProtection_Ctrl.o [4]
+  .bss               zero      0x800'3cac     0x9  Mod_DetectI2C.o [4]
+  .bss               zero      0x800'3cb6     0x2  Mod_DetectGPIO.o [4]
+  .bss               zero      0x800'3cb8     0x8  Com_BatteryProtect.o [3]
+  .bss               zero      0x800'3cc0     0x8  Com_TemperatureProtect.o [3]
+  .bss               zero      0x800'3cc8     0x8  Mod_INTBControl.o [4]
+  .bss               zero      0x800'3cd0     0x4  Com_Diagnostic.o [3]
+  .bss               zero      0x800'3cd4     0x4  cy_srom.o [21]
+  .bss               zero      0x800'3cd8     0x4  cy_syslib.o [25]
+  .bss               zero      0x800'3cdc     0x4  hal_adc.o [34]
+  .bss               zero      0x800'3ce0     0x4  Mod_TemperatureProtection_Ctrl.o [4]
+  .bss               zero      0x800'3ce4     0x4  Mod_TemperatureProtection_Ctrl.o [4]
+  .bss               zero      0x800'3ce8     0x4  Mod_TemperatureProtection_Ctrl.o [4]
+  .bss               zero      0x800'3cec     0x4  xfail_s.o [54]
+  .bss               zero      0x800'3cf0     0x2  Mod_DetectGPIO.o [4]
+  .bss               zero      0x800'3cf2     0x1  Com_Diagnostic.o [3]
+  .bss               zero      0x800'3cf3     0x1  Com_Diagnostic.o [3]
+  .bss               zero      0x800'3cf4     0x1  FlashApp.o [2]
+  .bss               zero      0x800'3cf5     0x1  hal_pwm.o [42]
+  .bss               zero      0x800'3cf6     0x1  hal_timer.o [45]
+  .bss               zero      0x800'3cf7     0x1  I2CMasterApp.o [2]
+  .bss               zero      0x800'3cf8     0x1  Mod_DataManagement.o [4]
+  .bss               zero      0x800'3cf9     0x1  Mod_DataManagement.o [4]
+  .bss               zero      0x800'3cfa     0x1  Mod_DataManagement.o [4]
+  .bss               zero      0x800'3cfb     0x1  Mod_DataManagement.o [4]
+  .bss               zero      0x800'3cfc     0x1  Mod_DataManagement.o [4]
+  .bss               zero      0x800'3cfd     0x1  Mod_DataManagement.o [4]
+  .bss               zero      0x800'3cfe     0x1  Mod_FPNCtrl.o [4]
+  .bss               zero      0x800'3cff     0x1  Mod_FPNCtrl.o [4]
+  .bss               zero      0x800'3d00     0x1  Mod_FPNCtrl.o [4]
+  .bss               zero      0x800'3d01     0x1  Mod_FPNCtrl.o [4]
+  .bss               zero      0x800'3d02     0x1  Mod_FPNCtrl.o [4]
+  .bss               zero      0x800'3d03     0x1  Mod_FPNCtrl.o [4]
+  .bss               zero      0x800'3d04     0x1  Mod_FPNCtrl.o [4]
+  .bss               zero      0x800'3d05     0x1  Mod_FPNCtrl.o [4]
+  .bss               zero      0x800'3d06     0x1  Mod_FPNCtrl.o [4]
+  .bss               zero      0x800'3d07     0x1  Mod_FPNCtrl.o [4]
+  .bss               zero      0x800'3d08     0x1  Mod_FPNCtrl.o [4]
+  .bss               zero      0x800'3d09     0x1  Mod_PowerSequence_Ctrl.o [4]
+  .bss               zero      0x800'3d0a     0x1  Mod_PowerSequence_Ctrl.o [4]
+  .bss               zero      0x800'3d0b     0x1  Mod_ScanDirection_Ctrl.o [4]
+                             - 0x800'3d0c   0xf4c
+
+"P2", part 3 of 3:                           0x80
+  .intvec_ram        uninit    0x800'3e00    0x80  startup_cm0plus.o [52]
+                             - 0x800'3e80    0x80
+
+"A2":                                       0x400
+  HEAP_STACK                   0x800'fc00   0x400  <Block>
+    CSTACK                     0x800'fc00   0x400  <Block>
+      CSTACK         uninit    0x800'fc00   0x400  <Block tail>
+                             - 0x801'0000   0x400
+
+"A0":                                        0x80
+  .intvec            ro code  0x1000'0000    0x80  startup_cm0plus.o [52]
+                            - 0x1000'0080    0x80
+
+"P1":                                      0xd9e8
+  .text              ro code  0x1000'0080  0x1ef4  Mod_DataManagement.o [4]
+  .text              ro code  0x1000'1f74    0x62  ABImemset.o [56]
+  .text              ro code  0x1000'1fd6     0xa  cy_syslib.o [25]
+  .text              ro code  0x1000'1fe0    0x4e  ABImemcpy.o [56]
+  .text              ro code  0x1000'2030    0xf8  FlashApp.o [2]
+  .text              ro code  0x1000'2128   0x1c0  hal_uart.o [46]
+  .text              ro code  0x1000'22e8   0x1dc  Mod_BatteryProtection_Ctrl.o [4]
+  .text              ro code  0x1000'24c4    0x24  Crc8.o [4]
+  .text              ro code  0x1000'24e8    0xe0  I32DivModFast.o [56]
+  .text              ro code  0x1000'25c8   0x1a8  ICDiagApp.o [2]
+  .text              ro code  0x1000'2770    0xbe  PWMApp.o [2]
+  .text              ro code  0x1000'2830   0x1ec  cy_mw_flash.o [49]
+  .text              ro code  0x1000'2a1c   0x5cc  cyhal_hwmgr.o [36]
+  .text              ro code  0x1000'2fe8   0x134  hal_gpio.o [38]
+  .text              ro code  0x1000'311c   0x5e0  cy_scb_uart.o [19]
+  .text              ro code  0x1000'36fc    0x40  vsnprint.o [54]
+  .text              ro code  0x1000'373c    0x8c  cy_syslib.o [25]
+  .text              ro code  0x1000'37c8   0x122  cy_scb_common.o [19]
+  .text              ro code  0x1000'38ec   0x196  hal_timer.o [45]
+  .text              ro code  0x1000'3a84     0x2  IntDivZer.o [56]
+  .text              ro code  0x1000'3a88   0x110  I2CMasterApp.o [2]
+  .text              ro code  0x1000'3b98    0x94  MCUDiagApp.o [2]
+  .text              ro code  0x1000'3c2c   0x1e8  hal_pwm.o [42]
+  .text              ro code  0x1000'3e14   0x1f8  cy_srom.o [21]
+  .text              ro code  0x1000'400c    0xc0  strncpy.o [56]
+  .text              ro code  0x1000'40cc   0x3f4  cy_flash.o [11]
+  .text              ro code  0x1000'44c0    0x7c  I64DivMod.o [56]
+  .text              ro code  0x1000'453c   0x6ec  cy_sysclk.o [22]
+  .text              ro code  0x1000'4c28    0xd4  cy_sysint.o [24]
+  .text              ro code  0x1000'4cfc   0x1ac  cy_tcpwm_counter.o [31]
+  .text              ro code  0x1000'4ea8   0xf9c  cy_scb_i2c.o [19]
+  .text              ro code  0x1000'5e44   0x214  cy_scb_spi.o [19]
+  .text              ro code  0x1000'6058   0x134  cy_gpio.o [12]
+  .text              ro code  0x1000'6190    0x1e  cy_syslib_iar.o [25]
+  .text              ro code  0x1000'61b0   0xf42  xprintffull_nomb.o [54]
+  .text              ro code  0x1000'70f2     0x2  cy_syslib.o [25]
+  .text              ro code  0x1000'70f4    0x14  cy_tcpwm.o [31]
+  .text              ro code  0x1000'7108   0x4a8  hal_i2c.o [40]
+  .text              ro code  0x1000'75b0   0x1b8  cy_tcpwm_pwm.o [31]
+  .text              ro code  0x1000'7768    0x28  cy_ipc_drv.o [13]
+  .text              ro code  0x1000'7790     0x2  I64DivZer.o [56]
+  .text              ro code  0x1000'7794    0x32  I64Mul.o [56]
+  .text              ro code  0x1000'77c8    0x12  strchr.o [56]
+  .text              ro code  0x1000'77dc    0x48  xfail_s.o [54]
+  .text              ro code  0x1000'7824     0xe  strlen.o [56]
+  .text              ro code  0x1000'7834    0x16  memchr.o [56]
+  .text              ro code  0x1000'784a    0x2a  frexp.o [55]
+  .text              ro code  0x1000'7874    0x32  DblCmpLe.o [55]
+  .text              ro code  0x1000'78a6    0x32  DblCmpGe.o [55]
+  .text              ro code  0x1000'78d8    0x70  ldexp.o [55]
+  .text              ro code  0x1000'7948    0x52  DblToI32.o [55]
+  .text              ro code  0x1000'799c    0x34  IxxToDbl.o [55]
+  .text              ro code  0x1000'79d0   0x1a8  DblAddSub.o [55]
+  .text              ro code  0x1000'7b78    0xc2  DblDiv.o [55]
+  .text              ro code  0x1000'7c3a   0x184  DblMul.o [55]
+  .text              ro code  0x1000'7dbe     0xa  abort.o [54]
+  .text              ro code  0x1000'7dc8    0x14  exit.o [57]
+  .text              ro code  0x1000'7ddc   0xde0  Mod_DetectI2C.o [4]
+  .text              ro code  0x1000'8bbc   0x2b0  Mod_BLbrightness_Ctrl.o [4]
+  .text              ro code  0x1000'8e6c   0x846  Com_DeviceControl.o [3]
+  .text              ro code  0x1000'96b2   0x134  Mod_BLEN_Ctrl.o [4]
+  .text              ro code  0x1000'97e8    0x80  Mod_DisplayEN_Ctrl.o [4]
+  .text              ro code  0x1000'9868    0x3c  WDTApp.o [2]
+  .text              ro code  0x1000'98a4   0x206  Com_Communication.o [3]
+  .text              ro code  0x1000'9aac    0x2c  Mod_ScanDirection_Ctrl.o [4]
+  .text              ro code  0x1000'9ad8   0x62c  Mod_FPNCtrl.o [4]
+  .text              ro code  0x1000'a104   0x4cc  Mod_PowerSequence_Ctrl.o [4]
+  .text              ro code  0x1000'a5d0    0x1c  cy_sysreset.o [27]
+  .text              ro code  0x1000'a5ec   0x10c  cy_syswdt.o [30]
+  .text              ro code  0x1000'a6f8   0x166  I2CSlaveApp.o [2]
+  .text              ro code  0x1000'a860   0x5ae  Com_Diagnostic.o [3]
+  .text              ro code  0x1000'ae10   0x234  Mod_DetectGPIO.o [4]
+  .text              ro code  0x1000'b044    0xb4  Mod_INTBControl.o [4]
+  .text              ro code  0x1000'b0f8   0x2e8  AdcApp.o [2]
+  .text              ro code  0x1000'b3e0   0x294  hal_adc.o [34]
+  .text              ro code  0x1000'b674   0x2c8  cy_adc.o [5]
+  .text              ro code  0x1000'b93c   0x4d8  Mod_TemperatureProtection_Ctrl.o [4]
+  .text              ro code  0x1000'be14   0x1e0  hal_clock.o [35]
+  .text              ro code  0x1000'bff4    0xa4  system_tviibe1m_cm0plus.o [53]
+  .text              ro code  0x1000'c098    0x30  cy_syspm.o [26]
+  .text              ro code  0x1000'c0c8   0x1ca  Com_TemperatureProtect.o [3]
+  .text              ro code  0x1000'c294    0x1e  memcmp.o [56]
+  .text              ro code  0x1000'c2b4   0x174  GpioApp.o [2]
+  .text              ro code  0x1000'c428   0x142  Com_BatteryProtect.o [3]
+  .text              ro code  0x1000'c56c   0x122  Com_PowerManagement.o [3]
+  .text              ro code  0x1000'c690   0x10c  cy_interrupt_map.o [47]
+  .rodata            const    0x1000'c79c   0x100  Crc8.o [4]
+  .rodata            const    0x1000'c89c    0xe4  Com_DeviceControl.o [3]
+  .text              ro code  0x1000'c980    0xbc  main_cm0plus.o [1]
+  .text              ro code  0x1000'ca3c    0x10  ClockApp.o [2]
+  .text              ro code  0x1000'ca4c    0x58  UartApp.o [2]
+  .text              ro code  0x1000'caa4    0x3c  TimerApp.o [2]
+  .rodata            const    0x1000'cae0    0xb8  cy_sysclk.o [22]
+  .text              ro code  0x1000'cb98    0x80  lz77_init_single.o [56]
+  .text              ro code  0x1000'cc18    0x6c  startup_cm0plus.o [52]
+  .rodata            const    0x1000'cc84    0x6a  xprintffull_nomb.o [54]
+  .rodata            const    0x1000'ccf0    0x68  hal_timer.o [45]
+  .rodata            const    0x1000'cd58    0x68  system_tviibe1m_cm0plus.o [53]
+  .text              ro code  0x1000'cdc0    0x68  startup.o [52]
+  .rodata            const    0x1000'ce28    0x50  Mod_DataManagement.o [4]
+  .rodata            const    0x1000'ce78    0x4c  hal_uart.o [46]
+  .rodata            const    0x1000'cec4    0x4c  UartApp.o [2]
+  .rodata            const    0x1000'cf10    0x48  cy_mw_flash.o [49]
+  .rodata            const    0x1000'cf58    0x48  cy_scb_i2c.o [19]
+  .text              ro code  0x1000'cfa0    0x3c  zero_init3.o [56]
+  .rodata            const    0x1000'cfdc    0x30  Com_PowerManagement.o [3]
+  .text              ro code  0x1000'd00c    0x28  data_init.o [56]
+  .iar.init_table    const    0x1000'd034    0x20  - Linker created -
+  .text              ro code  0x1000'd054    0x1e  cmain.o [56]
+  .text              ro code  0x1000'd074     0x4  startup_cm0plus.o [52]
+  .text              ro code  0x1000'd078     0x8  exit.o [54]
+  .text              ro code  0x1000'd080     0xa  cexit.o [56]
+  .text              ro code  0x1000'd08c    0x1c  startup_cm0plus.o [52]
+  .text              ro code  0x1000'd0a8    0x1c  startup_cm0plus.o [52]
+  .text              ro code  0x1000'd0c4    0x1c  cstartup_M.o [56]
+  .text              ro code  0x1000'd0e0    0x1c  xsnprout.o [54]
+  .mcu_checksum      const    0x1000'd0fc    0x10  FlashApp.o [2]
+  .rodata            const    0x1000'd10c     0xc  Com_BatteryProtect.o [3]
+  .rodata            const    0x1000'd118     0xc  Com_Communication.o [3]
+  .rodata            const    0x1000'd124     0xc  Com_DeviceControl.o [3]
+  .rodata            const    0x1000'd130     0xc  Com_Diagnostic.o [3]
+  .rodata            const    0x1000'd13c     0xc  Com_PowerManagement.o [3]
+  .rodata            const    0x1000'd148     0xc  Com_TemperatureProtect.o [3]
+  .sw_version        const    0x1000'd154     0xc  FlashApp.o [2]
+  .customer_id       const    0x1000'd160     0x8  FlashApp.o [2]
+  .text              ro code  0x1000'd168     0x2  startup_cm0plus.o [52]
+  .text              ro code  0x1000'd16c     0x2  startup_cm0plus.o [52]
+  .text              ro code  0x1000'd170     0x2  startup_cm0plus.o [52]
+  .text              ro code  0x1000'd174     0x2  startup_cm0plus.o [52]
+  .text              ro code  0x1000'd178     0x2  startup_cm0plus.o [52]
+  .text              ro code  0x1000'd17c     0x2  startup_cm0plus.o [52]
+  .text              ro code  0x1000'd180     0x2  startup_cm0plus.o [52]
+  .text              ro code  0x1000'd184     0x2  startup_cm0plus.o [52]
+  .text              ro code  0x1000'd188     0x2  startup_cm0plus.o [52]
+  .text              ro code  0x1000'd18c     0x2  startup_cm0plus.o [52]
+  .text              ro code  0x1000'd190     0x2  startup_cm0plus.o [52]
+  .rodata            const    0x1000'd192     0x0  zero_init3.o [56]
+  .rodata            const    0x1000'd192     0x0  lz77_init_single.o [56]
+  Initializer bytes  const    0x1000'd192   0x88d  <for P2-1>
+                            - 0x1000'da1f  0xd99f
+
+Unused ranges:
+
+         From           To      Size
+         ----           --      ----
+   0x800'0000   0x800'14ff    0x1500
+   0x800'1502   0x800'1503       0x2
+   0x800'2dbe   0x800'2dbf       0x2
+   0x800'3d0c   0x800'3dff      0xf4
+   0x800'3e80   0x800'fbff    0xbd80
+  0x1000'da68  0x1007'ffff  0x7'2598
+
+
+*******************************************************************************
+*** INIT TABLE
+***
+
+          Address      Size
+          -------      ----
+Zero (__iar_zero_init3)
+    1 destination range, total size 0xf4c:
+           0x800'2dc0   0xf4c
+
+Copy/lz77 (__iar_lz77_init_single3)
+    1 source range, total size 0x88d (34% of destination):
+          0x1000'd192   0x88d
+    1 destination range, total size 0x18ba:
+           0x800'1504  0x18ba
+
+
+
+*******************************************************************************
+*** MODULE SUMMARY
+***
+
+    Module                            ro code  ro data  rw data  rw data
+                                                                  (abs)
+    ------                            -------  -------  -------  -------
+command line/config:
+    --------------------------------------------------------------------
+    Total:
+
+C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src: [1]
+    main_cm0plus.o                        188
+    --------------------------------------------------------------------
+    Total:                                188
+
+C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\APP: [2]
+    AdcApp.o                              744                26
+    ClockApp.o                             16
+    FlashApp.o                            248       36        1
+    GpioApp.o                             372
+    I2CMasterApp.o                        272                 1
+    I2CSlaveApp.o                         358               336
+    ICDiagApp.o                           424               144
+    MCUDiagApp.o                          148               128
+    PWMApp.o                              190        9       30
+    TimerApp.o                             60
+    UartApp.o                              88       76
+    WDTApp.o                               60
+    --------------------------------------------------------------------
+    Total:                              2'980      121      666
+
+C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\APP\Component: [3]
+    Com_BatteryProtect.o                  322       14       14
+    Com_Communication.o                   518       12      249
+    Com_DeviceControl.o                 2'118      254      241
+    Com_Diagnostic.o                    1'454       14      251
+    Com_PowerManagement.o                 290       62        5
+    Com_TemperatureProtect.o              458       93      240
+    --------------------------------------------------------------------
+    Total:                              5'160      449    1'000
+
+C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\APP\Module: [4]
+    Crc8.o                                 36      256
+    Mod_BLEN_Ctrl.o                       308
+    Mod_BLbrightness_Ctrl.o               688               220
+    Mod_BatteryProtection_Ctrl.o          476        8       36
+    Mod_DataManagement.o                7'924      168      670        2
+    Mod_DetectGPIO.o                      564                30
+    Mod_DetectI2C.o                     3'552      354    1'063
+    Mod_DisplayEN_Ctrl.o                  128                16
+    Mod_FPNCtrl.o                       1'580               335
+    Mod_INTBControl.o                     180                 8
+    Mod_PowerSequence_Ctrl.o            1'228                 2
+    Mod_ScanDirection_Ctrl.o               44                 1
+    Mod_TemperatureProtection_Ctrl.o    1'240      347    1'026
+    --------------------------------------------------------------------
+    Total:                             17'948    1'133    3'407        2
+
+C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\drivers\adc: [5]
+    cy_adc.o                              712
+    --------------------------------------------------------------------
+    Total:                                712
+
+C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\drivers\canfd: [6]
+    --------------------------------------------------------------------
+    Total:
+
+C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\drivers\cpu: [7]
+    --------------------------------------------------------------------
+    Total:
+
+C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\drivers\crypto: [8]
+    --------------------------------------------------------------------
+    Total:
+
+C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\drivers\dma: [9]
+    --------------------------------------------------------------------
+    Total:
+
+C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\drivers\evtgen: [10]
+    --------------------------------------------------------------------
+    Total:
+
+C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\drivers\flash: [11]
+    cy_flash.o                          1'012
+    --------------------------------------------------------------------
+    Total:                              1'012
+
+C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\drivers\gpio: [12]
+    cy_gpio.o                             308
+    --------------------------------------------------------------------
+    Total:                                308
+
+C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\drivers\ipc: [13]
+    cy_ipc_drv.o                           40
+    --------------------------------------------------------------------
+    Total:                                 40
+
+C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\drivers\lin: [14]
+    --------------------------------------------------------------------
+    Total:
+
+C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\drivers\lvd: [15]
+    --------------------------------------------------------------------
+    Total:
+
+C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\drivers\mcwdt: [16]
+    --------------------------------------------------------------------
+    Total:
+
+C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\drivers\mpu: [17]
+    --------------------------------------------------------------------
+    Total:
+
+C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\drivers\prot: [18]
+    --------------------------------------------------------------------
+    Total:
+
+C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\drivers\scb: [19]
+    cy_scb_common.o                       290
+    cy_scb_i2c.o                        3'996       72
+    cy_scb_spi.o                          532
+    cy_scb_uart.o                       1'504
+    --------------------------------------------------------------------
+    Total:                              6'322       72
+
+C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\drivers\smartio: [20]
+    --------------------------------------------------------------------
+    Total:
+
+C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\drivers\srom: [21]
+    cy_srom.o                             504                20
+    --------------------------------------------------------------------
+    Total:                                504                20
+
+C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\drivers\sysclk: [22]
+    cy_sysclk.o                         1'772      184       25
+    --------------------------------------------------------------------
+    Total:                              1'772      184       25
+
+C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\drivers\sysflt: [23]
+    --------------------------------------------------------------------
+    Total:
+
+C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\drivers\sysint: [24]
+    cy_sysint.o                           212
+    --------------------------------------------------------------------
+    Total:                                212
+
+C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\drivers\syslib: [25]
+    cy_syslib.o                           152                64
+    cy_syslib_iar.o                        30
+    --------------------------------------------------------------------
+    Total:                                182                64
+
+C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\drivers\syspm: [26]
+    cy_syspm.o                             48
+    --------------------------------------------------------------------
+    Total:                                 48
+
+C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\drivers\sysreset: [27]
+    cy_sysreset.o                          28
+    --------------------------------------------------------------------
+    Total:                                 28
+
+C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\drivers\sysrtc: [28]
+    --------------------------------------------------------------------
+    Total:
+
+C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\drivers\systick: [29]
+    --------------------------------------------------------------------
+    Total:
+
+C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\drivers\syswdt: [30]
+    cy_syswdt.o                           268
+    --------------------------------------------------------------------
+    Total:                                268
+
+C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\drivers\tcpwm: [31]
+    cy_tcpwm.o                             20
+    cy_tcpwm_counter.o                    428
+    cy_tcpwm_pwm.o                        440
+    --------------------------------------------------------------------
+    Total:                                888
+
+C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\drivers\trigmux: [32]
+    --------------------------------------------------------------------
+    Total:
+
+C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\hal: [33]
+    --------------------------------------------------------------------
+    Total:
+
+C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\hal\adc: [34]
+    hal_adc.o                             660      265      772
+    --------------------------------------------------------------------
+    Total:                                660      265      772
+
+C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\hal\clock: [35]
+    hal_clock.o                           480
+    --------------------------------------------------------------------
+    Total:                                480
+
+C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\hal\cy_hdr: [36]
+    cyhal_hwmgr.o                       1'484      459    1'328
+    --------------------------------------------------------------------
+    Total:                              1'484      459    1'328
+
+C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\hal\fmc: [37]
+    --------------------------------------------------------------------
+    Total:
+
+C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\hal\gpio: [38]
+    hal_gpio.o                            308
+    --------------------------------------------------------------------
+    Total:                                308
+
+C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\hal\hal_config: [39]
+    hal_adc_config.o                                 5       14
+    hal_clock_config.o                              12       36
+    hal_gpio_config.o                               19       56
+    hal_i2c_config.o                                11       32
+    hal_timer_config.o                              17       48
+    hal_uart_config.o                                4       12
+    --------------------------------------------------------------------
+    Total:                                          68      198
+
+C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\hal\i2c: [40]
+    hal_i2c.o                           1'192               704
+    --------------------------------------------------------------------
+    Total:                              1'192               704
+
+C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\hal\pm: [41]
+    --------------------------------------------------------------------
+    Total:
+
+C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\hal\pwm: [42]
+    hal_pwm.o                             488                 1
+    --------------------------------------------------------------------
+    Total:                                488                 1
+
+C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\hal\sp: [43]
+    --------------------------------------------------------------------
+    Total:
+
+C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\hal\spi: [44]
+    --------------------------------------------------------------------
+    Total:
+
+C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\hal\timer: [45]
+    hal_timer.o                           406      104        1
+    --------------------------------------------------------------------
+    Total:                                406      104        1
+
+C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\hal\uart: [46]
+    hal_uart.o                            448       76      616
+    --------------------------------------------------------------------
+    Total:                                448       76      616
+
+C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\interrupts\rev_b: [47]
+    cy_interrupt_map.o                    268      490    1'416
+    --------------------------------------------------------------------
+    Total:                                268      490    1'416
+
+C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\mw\button: [48]
+    --------------------------------------------------------------------
+    Total:
+
+C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\mw\flash: [49]
+    cy_mw_flash.o                         492       72        2
+    --------------------------------------------------------------------
+    Total:                                492       72        2
+
+C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\mw\semihosting: [50]
+    --------------------------------------------------------------------
+    Total:
+
+C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\mw\sw_timer: [51]
+    --------------------------------------------------------------------
+    Total:
+
+C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\startup: [52]
+    startup.o                             104
+    startup_cm0plus.o                     318               128
+    --------------------------------------------------------------------
+    Total:                                422               128
+
+C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\system\rev_b: [53]
+    system_tviibe1m_cm0plus.o             164      104       20
+    --------------------------------------------------------------------
+    Total:                                164      104       20
+
+dl6M_tln.a: [54]
+    abort.o                                10
+    exit.o                                  8
+    vsnprint.o                             64
+    xfail_s.o                              72                 4
+    xprintffull_nomb.o                  3'906      106
+    xsnprout.o                             28
+    --------------------------------------------------------------------
+    Total:                              4'088      106        4
+
+m6M_tl.a: [55]
+    DblAddSub.o                           424
+    DblCmpGe.o                             50
+    DblCmpLe.o                             50
+    DblDiv.o                              194
+    DblMul.o                              388
+    DblToI32.o                             82
+    IxxToDbl.o                             52
+    frexp.o                                42
+    ldexp.o                               112
+    --------------------------------------------------------------------
+    Total:                              1'394
+
+rt6M_tl.a: [56]
+    ABImemcpy.o                            78
+    ABImemset.o                            98
+    I32DivModFast.o                       224
+    I64DivMod.o                           124
+    I64DivZer.o                             2
+    I64Mul.o                               50
+    IntDivZer.o                             2
+    cexit.o                                10
+    cmain.o                                30
+    cstartup_M.o                           28
+    data_init.o                            40
+    lz77_init_single.o                    128
+    memchr.o                               22
+    memcmp.o                               30
+    strchr.o                               18
+    strlen.o                               14
+    strncpy.o                             192
+    zero_init3.o                           60
+    --------------------------------------------------------------------
+    Total:                              1'150
+
+shb_l.a: [57]
+    exit.o                                 20
+    --------------------------------------------------------------------
+    Total:                                 20
+
+    Gaps                                   66        2        2
+    Linker created                                  32    1'024
+------------------------------------------------------------------------
+    Grand Total:                       52'102    3'737   11'398        2
+
+
+*******************************************************************************
+*** ENTRY LIST
+***
+
+Entry                       Address   Size  Type      Object
+-----                       -------   ----  ----      ------
+.iar.init_table$$Base   0x1000'd034          --   Gb  - Linker created -
+.iar.init_table$$Limit  0x1000'd054          --   Gb  - Linker created -
+?main                   0x1000'd055         Code  Gb  cmain.o [56]
+ADC_Channel_Get         0x1000'b3e1   0x50  Code  Lc  hal_adc.o [34]
+AdcApp_2msTimerProcess_Install
+                        0x1000'b283   0x30  Code  Gb  AdcApp.o [2]
+AdcApp_984TEMPAdcValue_Get
+                        0x1000'b257    0x6  Code  Gb  AdcApp.o [2]
+AdcApp_BacklightNtcAdcVaules_L_Get
+                        0x1000'b25d    0x6  Code  Gb  AdcApp.o [2]
+AdcApp_BacklightNtcAdcVaules_R_Get
+                        0x1000'b263    0x6  Code  Gb  AdcApp.o [2]
+AdcApp_BatteryVolAdcValue_Get
+                        0x1000'b251    0x6  Code  Gb  AdcApp.o [2]
+AdcApp_Ref_1V_Get       0x1000'b269   0x1a  Code  Gb  AdcApp.o [2]
+Adc_IO_init             0x1000'b2b5   0x40  Code  Gb  AdcApp.o [2]
+Adc_Initialize          0x1000'b2f5   0xd0  Code  Gb  AdcApp.o [2]
+Adc_Strategy            0x1000'b0f9  0x158  Code  Gb  AdcApp.o [2]
+Adc_Strategy::ADC_State
+                         0x800'3bec    0x1  Data  Lc  AdcApp.o [2]
+BL_PWMDuty_t             0x800'3c04    0x2  Data  Lc  PWMApp.o [2]
+BL_Pwm_Duty_Output      0x1000'279b   0x5a  Code  Gb  PWMApp.o [2]
+BL_Pwm_Duty_Output::pwm_OV_flag
+                         0x800'3c02    0x1  Data  Lc  PWMApp.o [2]
+CBP_CPMEventPMICFaultFromISR_Send
+                        0x1000'c429   0x32  Code  Gb  Com_BatteryProtect.o [3]
+CBP_Event_t              0x800'3cbc    0x4  Data  Lc  Com_BatteryProtect.o [3]
+CBP_Service_Data_Process
+                        0x1000'c45b   0xe8  Code  Lc  Com_BatteryProtect.o [3]
+CBP_Service_Error_Alarm
+                        0x1000'c569    0x2  Code  Lc  Com_BatteryProtect.o [3]
+CBP_Service_Init        0x1000'c543   0x18  Code  Lc  Com_BatteryProtect.o [3]
+CBP_StateMachine_e       0x800'3cb8    0x1  Data  Gb  Com_BatteryProtect.o [3]
+CBP_State_Machine       0x1000'd10c    0xc  Data  Gb  Com_BatteryProtect.o [3]
+CC_Event_Get            0x1000'98a5   0x1a  Code  Gb  Com_Communication.o [3]
+CC_Event_Set            0x1000'98bf   0x18  Code  Gb  Com_Communication.o [3]
+CC_Event_t               0x800'3a50   0x30  Data  Lc  Com_Communication.o [3]
+CC_I2CMSG_t              0x800'3434   0xc8  Data  Lc  Com_Communication.o [3]
+CC_Service_Data_Process
+                        0x1000'98ef  0x1ae  Code  Lc  Com_Communication.o [3]
+CC_Service_Error_Alarm  0x1000'9aa9    0x2  Code  Lc  Com_Communication.o [3]
+CC_Service_Init         0x1000'98d7   0x18  Code  Lc  Com_Communication.o [3]
+CC_StateMachine_e        0x800'3c3f    0x1  Data  Gb  Com_Communication.o [3]
+CC_State_Machine        0x1000'd118    0xc  Data  Gb  Com_Communication.o [3]
+CDC_DisplaySequence_Ctrl
+                        0x1000'8e9f   0xe2  Code  Gb  Com_DeviceControl.o [3]
+CDC_DisplayStatus        0x800'2da8    0x1  Data  Lc  Com_DeviceControl.o [3]
+CDC_Event_Get           0x1000'8e6d   0x1a  Code  Gb  Com_DeviceControl.o [3]
+CDC_Event_Set           0x1000'8e87   0x18  Code  Gb  Com_DeviceControl.o [3]
+CDC_Event_t              0x800'1504   0x24  Data  Lc  Com_DeviceControl.o [3]
+CDC_I2CMessage_t         0x800'34fc   0xc8  Data  Lc  Com_DeviceControl.o [3]
+CDC_Service_Data_Process
+                        0x1000'8fa5  0x706  Code  Lc  Com_DeviceControl.o [3]
+CDC_Service_Data_Process::TimeOutCnt
+                         0x800'2daa    0x1  Data  Lc  Com_DeviceControl.o [3]
+CDC_Service_Error_Alarm
+                        0x1000'96b1    0x2  Code  Lc  Com_DeviceControl.o [3]
+CDC_Service_Init        0x1000'8f81   0x16  Code  Lc  Com_DeviceControl.o [3]
+CDC_StateMachine_e       0x800'2da9    0x1  Data  Gb  Com_DeviceControl.o [3]
+CDC_State_Machine       0x1000'd124    0xc  Data  Gb  Com_DeviceControl.o [3]
+CD_CDC_Event_t           0x800'3aac   0x24  Data  Lc  Com_Diagnostic.o [3]
+CD_DET_10msTimerProcess_Install
+                        0x1000'ad35   0x30  Code  Gb  Com_Diagnostic.o [3]
+CD_DET_1msTimerProcess_Install
+                        0x1000'ad65   0x30  Code  Gb  Com_Diagnostic.o [3]
+CD_DET_25msTimerProcess_Install
+                        0x1000'ad05   0x30  Code  Gb  Com_Diagnostic.o [3]
+CD_Det_10ms_ISR         0x1000'ac21   0xc0  Code  Gb  Com_Diagnostic.o [3]
+CD_Det_10ms_ISR::u16DiagnosticCounter
+                         0x800'3cd2    0x2  Data  Lc  Com_Diagnostic.o [3]
+CD_Det_1ms_ISR          0x1000'ace1   0x24  Code  Gb  Com_Diagnostic.o [3]
+CD_Det_ISR              0x1000'ab61   0xb6  Code  Gb  Com_Diagnostic.o [3]
+CD_Detect_FPC_Connect   0x1000'a957   0x74  Code  Gb  Com_Diagnostic.o [3]
+CD_Detect_FPC_Connect::u8DispOffFlag
+                         0x800'3cf3    0x1  Data  Lc  Com_Diagnostic.o [3]
+CD_Detect_SourceIC      0x1000'a9cb   0xa4  Code  Gb  Com_Diagnostic.o [3]
+CD_Detect_TCON_CRC      0x1000'aa75   0x32  Code  Gb  Com_Diagnostic.o [3]
+CD_Detect_TCON_LedDriver
+                        0x1000'aaa7   0xb2  Code  Gb  Com_Diagnostic.o [3]
+CD_Detect_TFT_Bais      0x1000'a911   0x46  Code  Gb  Com_Diagnostic.o [3]
+CD_Event_Set            0x1000'a861   0x18  Code  Gb  Com_Diagnostic.o [3]
+CD_Event_t               0x800'1528    0x4  Data  Lc  Com_Diagnostic.o [3]
+CD_I2CMessage_t          0x800'35c4   0xc8  Data  Lc  Com_Diagnostic.o [3]
+CD_INTBActiveFlag_Set   0x1000'a891   0x12  Code  Gb  Com_Diagnostic.o [3]
+CD_LLOSS_Detect         0x1000'a8a3   0x6e  Code  Gb  Com_Diagnostic.o [3]
+CD_LLOSS_Set            0x1000'a879   0x18  Code  Gb  Com_Diagnostic.o [3]
+CD_Service_Data_Process
+                        0x1000'adcd    0x8  Code  Lc  Com_Diagnostic.o [3]
+CD_Service_Error_Alarm  0x1000'ae0d    0x2  Code  Lc  Com_Diagnostic.o [3]
+CD_Service_Init         0x1000'ad99   0x34  Code  Lc  Com_Diagnostic.o [3]
+CD_StateMachine_e        0x800'152c    0x1  Data  Gb  Com_Diagnostic.o [3]
+CD_State_Machine        0x1000'd130    0xc  Data  Gb  Com_Diagnostic.o [3]
+COOLING_FAN_Pwm_Duty_Output
+                        0x1000'2815   0x1a  Code  Gb  PWMApp.o [2]
+COOLING_FAN_Pwm_Duty_Output_Factory_Mode
+                        0x1000'280d    0x8  Code  Gb  PWMApp.o [2]
+COOLING_FAN_Pwm_Duty_Output_Get
+                        0x1000'27f5    0x6  Code  Gb  PWMApp.o [2]
+COOL_PWMDuty             0x800'2d86    0x2  Data  Lc  PWMApp.o [2]
+COOL_PWMDuty_t           0x800'2d84    0x2  Data  Lc  PWMApp.o [2]
+CPM_Event_Get           0x1000'c56d   0x12  Code  Gb  Com_PowerManagement.o [3]
+CPM_Event_Set           0x1000'c57f   0x12  Code  Gb  Com_PowerManagement.o [3]
+CPM_Event_t              0x800'2dae    0x1  Data  Gb  Com_PowerManagement.o [3]
+CPM_LockState_e          0x800'2dad    0x1  Data  Lc  Com_PowerManagement.o [3]
+CPM_PowerState_e         0x800'2dac    0x1  Data  Lc  Com_PowerManagement.o [3]
+CPM_Service_Data_Process
+                        0x1000'c5b3   0xce  Code  Lc  Com_PowerManagement.o [3]
+CPM_Service_Data_Process::TimeOutCnt
+                         0x800'2daf    0x1  Data  Lc  Com_PowerManagement.o [3]
+CPM_Service_Error_Alarm
+                        0x1000'c68d    0x2  Code  Lc  Com_PowerManagement.o [3]
+CPM_Service_Init        0x1000'c591   0x22  Code  Lc  Com_PowerManagement.o [3]
+CPM_State_Machine       0x1000'd13c    0xc  Data  Gb  Com_PowerManagement.o [3]
+CRC8_Calculation        0x1000'24c5   0x24  Code  Gb  Crc8.o [4]
+CRC_table_0x83          0x1000'c79c  0x100  Data  Gb  Crc8.o [4]
+CSTACK$$Base             0x800'fc00          --   Gb  - Linker created -
+CSTACK$$Limit            0x801'0000          --   Gb  - Linker created -
+CTP_Event_t              0x800'3cc4    0x4  Data  Gb  Com_TemperatureProtect.o [3]
+CTP_I2cMessage_t         0x800'1530   0xc8  Data  Lc  Com_TemperatureProtect.o [3]
+CTP_NTCTemp_t            0x800'15f8    0x4  Data  Gb  Com_TemperatureProtect.o [3]
+CTP_Service_Data_Process
+                        0x1000'c0db  0x1a6  Code  Lc  Com_TemperatureProtect.o [3]
+CTP_Service_Error_Alarm
+                        0x1000'c291    0x2  Code  Lc  Com_TemperatureProtect.o [3]
+CTP_Service_Init        0x1000'c0c9   0x12  Code  Lc  Com_TemperatureProtect.o [3]
+CTP_StateMachine_e       0x800'3cc0    0x1  Data  Gb  Com_TemperatureProtect.o [3]
+CTP_State_Machine       0x1000'd148    0xc  Data  Gb  Com_TemperatureProtect.o [3]
+CYHAL_SCB_Clock_Init    0x1000'2b05   0x34  Code  Gb  cyhal_hwmgr.o [36]
+CYHAL_SCB_Divider24_5_Assign
+                        0x1000'2a55   0xb0  Code  Gb  cyhal_hwmgr.o [36]
+CYHAL_SCB_Get           0x1000'2a1d   0x1c  Code  Gb  cyhal_hwmgr.o [36]
+CYHAL_SCB_IRQ_Set       0x1000'2b9d   0x58  Code  Gb  cyhal_hwmgr.o [36]
+CYHAL_TCPWM_Get         0x1000'2a39   0x1c  Code  Gb  cyhal_hwmgr.o [36]
+CYHAL_TCPWM_IRQ_Callback_Set
+                        0x1000'2b39   0x5a  Code  Gb  cyhal_hwmgr.o [36]
+Clock_Initialize        0x1000'ca3d   0x10  Code  Gb  ClockApp.o [2]
+CoreAssmFPNReadCount     0x800'3cff    0x1  Data  Lc  Mod_FPNCtrl.o [4]
+CpuUserInt0_Handler     0x1000'c693   0x1c  Code  Gb  cy_interrupt_map.o [47]
+CpuUserInt10_Handler    0x1000'd17d         Code  Wk  startup_cm0plus.o [52]
+CpuUserInt11_Handler    0x1000'd181         Code  Wk  startup_cm0plus.o [52]
+CpuUserInt12_Handler    0x1000'd185         Code  Wk  startup_cm0plus.o [52]
+CpuUserInt13_Handler    0x1000'd189         Code  Wk  startup_cm0plus.o [52]
+CpuUserInt14_Handler    0x1000'd18d         Code  Wk  startup_cm0plus.o [52]
+CpuUserInt15_Handler    0x1000'd191         Code  Wk  startup_cm0plus.o [52]
+CpuUserInt1_Handler     0x1000'c6af   0x1c  Code  Gb  cy_interrupt_map.o [47]
+CpuUserInt2_Handler     0x1000'c6cb   0x1c  Code  Gb  cy_interrupt_map.o [47]
+CpuUserInt3_Handler     0x1000'c6e7   0x1c  Code  Gb  cy_interrupt_map.o [47]
+CpuUserInt4_Handler     0x1000'c703   0x1c  Code  Gb  cy_interrupt_map.o [47]
+CpuUserInt5_Handler     0x1000'c71f   0x1c  Code  Gb  cy_interrupt_map.o [47]
+CpuUserInt6_Handler     0x1000'c73b   0x1c  Code  Gb  cy_interrupt_map.o [47]
+CpuUserInt7_Handler     0x1000'c757   0x1c  Code  Gb  cy_interrupt_map.o [47]
+CpuUserInt8_Handler     0x1000'd175         Code  Wk  startup_cm0plus.o [52]
+CpuUserInt9_Handler     0x1000'd179         Code  Wk  startup_cm0plus.o [52]
+Crc8CheckBuff            0x800'3ba8   0x20  Data  Lc  Mod_DataManagement.o [4]
+Cy_Adc_Channel_Disable  0x1000'b847    0xa  Code  Gb  cy_adc.o [5]
+Cy_Adc_Channel_Enable   0x1000'b83d    0xa  Code  Gb  cy_adc.o [5]
+Cy_Adc_Channel_GetResult
+                        0x1000'b85b   0x30  Code  Gb  cy_adc.o [5]
+Cy_Adc_Channel_Init     0x1000'b701  0x12a  Code  Gb  cy_adc.o [5]
+Cy_Adc_Channel_SetInterruptMask
+                        0x1000'b899   0x78  Code  Gb  cy_adc.o [5]
+Cy_Adc_Channel_SoftwareTrigger
+                        0x1000'b851    0xa  Code  Gb  cy_adc.o [5]
+Cy_Adc_Init             0x1000'b675   0x88  Code  Gb  cy_adc.o [5]
+Cy_DefaultUserHandler   0x1000'c691    0x2  Code  Gb  cy_interrupt_map.o [47]
+Cy_FlashHandler         0x1000'2831   0x34  Code  Lc  cy_mw_flash.o [49]
+Cy_FlashInit            0x1000'2865   0x44  Code  Gb  cy_mw_flash.o [49]
+Cy_FlashSectorErase     0x1000'28a9   0x58  Code  Gb  cy_mw_flash.o [49]
+Cy_FlashWriteWork       0x1000'2971   0x7c  Code  Gb  cy_mw_flash.o [49]
+Cy_Flash_BlankCheck     0x1000'440d   0x9c  Code  Gb  cy_flash.o [11]
+Cy_Flash_CallSromApiForFlashWrite
+                        0x1000'40cd   0x5a  Code  Lc  cy_flash.o [11]
+Cy_Flash_EraseSector    0x1000'4355   0x6e  Code  Gb  cy_flash.o [11]
+Cy_Flash_IsWorkSmallSector
+                        0x1000'4219   0x30  Code  Gb  cy_flash.o [11]
+Cy_Flash_MainBoundsCheck
+                        0x1000'4251   0x50  Code  Gb  cy_flash.o [11]
+Cy_Flash_ProcessOpcode  0x1000'42b5   0x92  Code  Gb  cy_flash.o [11]
+Cy_Flash_ProgramRow     0x1000'4127   0x92  Code  Gb  cy_flash.o [11]
+Cy_Flash_WorkBoundsCheck
+                        0x1000'41b9   0x50  Code  Gb  cy_flash.o [11]
+Cy_GPIO_Pin_Init        0x1000'6059  0x126  Code  Gb  cy_gpio.o [12]
+Cy_IPC_Drv_SendMsgWord  0x1000'7769   0x1e  Code  Gb  cy_ipc_drv.o [13]
+Cy_SCB_FwBlockReset     0x1000'4ea9   0x1c  Code  Lc  cy_scb_i2c.o [19]
+Cy_SCB_I2C_DeInit       0x1000'5005   0x42  Code  Gb  cy_scb_i2c.o [19]
+Cy_SCB_I2C_Disable      0x1000'5047   0x16  Code  Gb  cy_scb_i2c.o [19]
+Cy_SCB_I2C_GetDataRate  0x1000'51ed   0x58  Code  Gb  cy_scb_i2c.o [19]
+Cy_SCB_I2C_Init         0x1000'4ec5  0x12c  Code  Gb  cy_scb_i2c.o [19]
+Cy_SCB_I2C_Interrupt    0x1000'5605  0x76a  Code  Gb  cy_scb_i2c.o [19]
+Cy_SCB_I2C_MasterReadByte
+                        0x1000'54f9   0x9a  Code  Gb  cy_scb_i2c.o [19]
+Cy_SCB_I2C_MasterSendReStart
+                        0x1000'53af   0x90  Code  Gb  cy_scb_i2c.o [19]
+Cy_SCB_I2C_MasterSendStart
+                        0x1000'52ed   0xc2  Code  Gb  cy_scb_i2c.o [19]
+Cy_SCB_I2C_MasterSendStop
+                        0x1000'5441   0x58  Code  Gb  cy_scb_i2c.o [19]
+Cy_SCB_I2C_MasterSendWriteStop
+                        0x1000'5499   0x60  Code  Gb  cy_scb_i2c.o [19]
+Cy_SCB_I2C_MasterWriteByte
+                        0x1000'559d   0x60  Code  Gb  cy_scb_i2c.o [19]
+Cy_SCB_I2C_SetDataRate  0x1000'5095  0x156  Code  Gb  cy_scb_i2c.o [19]
+Cy_SCB_I2C_SlaveConfigReadBuf
+                        0x1000'5245   0x24  Code  Gb  cy_scb_i2c.o [19]
+Cy_SCB_I2C_SlaveConfigWriteBuf
+                        0x1000'5269   0x20  Code  Gb  cy_scb_i2c.o [19]
+Cy_SCB_I2C_SlaveGetWriteTransferCount
+                        0x1000'5295    0x4  Code  Gb  cy_scb_i2c.o [19]
+Cy_SCB_ReadArray        0x1000'37f9   0x1c  Code  Gb  cy_scb_common.o [19]
+Cy_SCB_ReadArrayNoCheck
+                        0x1000'37c9   0x30  Code  Gb  cy_scb_common.o [19]
+Cy_SCB_SPI_Interrupt    0x1000'5e45  0x20a  Code  Gb  cy_scb_spi.o [19]
+Cy_SCB_UART_DeInit      0x1000'33a1   0x44  Code  Gb  cy_scb_uart.o [19]
+Cy_SCB_UART_Disable     0x1000'33ed   0x18  Code  Gb  cy_scb_uart.o [19]
+Cy_SCB_UART_GetNumInRingBuffer
+                        0x1000'3445   0x12  Code  Gb  cy_scb_uart.o [19]
+Cy_SCB_UART_Init        0x1000'311d  0x25a  Code  Gb  cy_scb_uart.o [19]
+Cy_SCB_UART_Interrupt   0x1000'345d  0x2a0  Code  Gb  cy_scb_uart.o [19]
+Cy_SCB_WriteArray       0x1000'3845   0x2c  Code  Gb  cy_scb_common.o [19]
+Cy_SCB_WriteArrayNoCheck
+                        0x1000'3815   0x30  Code  Gb  cy_scb_common.o [19]
+Cy_SCB_WriteDefaultArray
+                        0x1000'38b3   0x38  Code  Gb  cy_scb_common.o [19]
+Cy_SCB_WriteDefaultArrayNoCheck
+                        0x1000'38a1   0x12  Code  Gb  cy_scb_common.o [19]
+Cy_SCB_WriteString      0x1000'3871   0x30  Code  Gb  cy_scb_common.o [19]
+Cy_Srom_CallApi         0x1000'3e15   0x94  Code  Gb  cy_srom.o [21]
+Cy_Srom_CallApi_NonBlock
+                        0x1000'3ea9   0x4c  Code  Gb  cy_srom.o [21]
+Cy_Srom_ConvertRespToStatus
+                        0x1000'3f45   0x20  Code  Gb  cy_srom.o [21]
+Cy_Srom_GetApiResponse  0x1000'3ef5   0x40  Code  Gb  cy_srom.o [21]
+Cy_Srom_ISR_ResponseIPC
+                        0x1000'3fb3   0x3a  Code  Lc  cy_srom.o [21]
+Cy_Srom_SetResponseHandler
+                        0x1000'3f65   0x4e  Code  Gb  cy_srom.o [21]
+Cy_SysClk_ClkPathGetSource
+                        0x1000'45b3   0x34  Code  Gb  cy_sysclk.o [22]
+Cy_SysClk_ClkPathSetSource
+                        0x1000'455d   0x56  Code  Gb  cy_sysclk.o [22]
+Cy_SysClk_FllGetConfiguration
+                        0x1000'45f9   0x56  Code  Gb  cy_sysclk.o [22]
+Cy_SysClk_GetClkPeriFrequency
+                        0x1000'4b61   0x4a  Code  Gb  cy_sysclk.o [22]
+Cy_SysClk_GetClkSlowFrequency
+                        0x1000'4bad   0x5c  Code  Gb  cy_sysclk.o [22]
+Cy_SysClk_GetCoreFrequency
+                        0x1000'4c09    0x8  Code  Gb  cy_sysclk.o [22]
+Cy_SysClk_GetEcoFrequency
+                        0x1000'4941   0x2a  Code  Gb  cy_sysclk.o [22]
+Cy_SysClk_GetFllOutputFrequency
+                        0x1000'4a53   0x5c  Code  Gb  cy_sysclk.o [22]
+Cy_SysClk_GetIlo0Frequency
+                        0x1000'496b   0x20  Code  Gb  cy_sysclk.o [22]
+Cy_SysClk_GetIlo1Frequency
+                        0x1000'498b   0x20  Code  Gb  cy_sysclk.o [22]
+Cy_SysClk_GetImoFrequency
+                        0x1000'4921   0x20  Code  Gb  cy_sysclk.o [22]
+Cy_SysClk_GetPathFrequency
+                        0x1000'4b25   0x28  Code  Gb  cy_sysclk.o [22]
+Cy_SysClk_GetPathSourceFrequency
+                        0x1000'49d1   0x6a  Code  Gb  cy_sysclk.o [22]
+Cy_SysClk_GetPllInputFrequency
+                        0x1000'4a3d   0x16  Code  Gb  cy_sysclk.o [22]
+Cy_SysClk_GetPllOutputFrequency
+                        0x1000'4aaf   0x6c  Code  Gb  cy_sysclk.o [22]
+Cy_SysClk_GetWcoFrequency
+                        0x1000'49ab   0x20  Code  Gb  cy_sysclk.o [22]
+Cy_SysClk_InitGetFreqParams
+                        0x1000'4909   0x16  Code  Gb  cy_sysclk.o [22]
+Cy_SysClk_PllConfigure  0x1000'4665  0x15e  Code  Gb  cy_sysclk.o [22]
+Cy_SysClk_PllEnable     0x1000'4891   0x48  Code  Gb  cy_sysclk.o [22]
+Cy_SysClk_PllGetConfiguration
+                        0x1000'4855   0x3a  Code  Gb  cy_sysclk.o [22]
+Cy_SysClk_PllGetLockStatus
+                        0x1000'453d   0x1c  Code  Lc  cy_sysclk.o [22]
+Cy_SysClk_PllManualConfigure
+                        0x1000'47c5   0x90  Code  Gb  cy_sysclk.o [22]
+Cy_SysInt_DisableIRQ    0x1000'4c87   0x12  Code  Gb  cy_sysint.o [24]
+Cy_SysInt_EnableIRQ     0x1000'4c75   0x12  Code  Gb  cy_sysint.o [24]
+Cy_SysInt_GetIntStatus  0x1000'4c99   0x4c  Code  Gb  cy_sysint.o [24]
+Cy_SysInt_InitIRQ       0x1000'4c29   0x3e  Code  Gb  cy_sysint.o [24]
+Cy_SysInt_SetSystemIrqVector
+                        0x1000'4c67    0xe  Code  Gb  cy_sysint.o [24]
+Cy_SysInt_SystemIrqUserTableRamPointer
+                         0x800'1b9c    0x4  Data  Gb  cy_interrupt_map.o [47]
+Cy_SysLib_Delay         0x1000'373d   0x28  Code  Gb  cy_syslib.o [25]
+Cy_SysLib_DelayCycles   0x1000'6191         Code  Gb  cy_syslib_iar.o [25]
+Cy_SysLib_DelayUs       0x1000'3765   0x10  Code  Gb  cy_syslib.o [25]
+Cy_SysLib_EnterCriticalSection
+                        0x1000'61a1         Code  Gb  cy_syslib_iar.o [25]
+Cy_SysLib_ExitCriticalSection
+                        0x1000'61a9         Code  Gb  cy_syslib_iar.o [25]
+Cy_SysLib_FaultHandler  0x1000'3779   0x34  Code  Gb  cy_syslib.o [25]
+Cy_SysLib_Halt          0x1000'3775    0x4  Code  Gb  cy_syslib.o [25]
+Cy_SysLib_ProcessingFault
+                        0x1000'70f3    0x2  Code  Wk  cy_syslib.o [25]
+Cy_SysLib_SvcHandler    0x1000'1fd7    0xa  Code  Wk  cy_syslib.o [25]
+Cy_SysPm_IoUnfreeze     0x1000'c099   0x26  Code  Gb  cy_syspm.o [26]
+Cy_SysReset_ClearAllResetReasons
+                        0x1000'a5d1   0x12  Code  Gb  cy_sysreset.o [27]
+Cy_SystemIrqUserTable    0x800'1618  0x584  Data  Gb  cy_interrupt_map.o [47]
+Cy_Tcpwm_Counter_ClearCC0_Intr
+                        0x1000'4e8b    0xc  Code  Gb  cy_tcpwm_counter.o [31]
+Cy_Tcpwm_Counter_ClearTC_Intr
+                        0x1000'4e7f    0xc  Code  Gb  cy_tcpwm_counter.o [31]
+Cy_Tcpwm_Counter_Disable
+                        0x1000'4e51    0xa  Code  Gb  cy_tcpwm_counter.o [31]
+Cy_Tcpwm_Counter_Enable
+                        0x1000'4e45    0xc  Code  Gb  cy_tcpwm_counter.o [31]
+Cy_Tcpwm_Counter_GetCC0_IntrMasked
+                        0x1000'4e77    0x8  Code  Gb  cy_tcpwm_counter.o [31]
+Cy_Tcpwm_Counter_GetTC_IntrMasked
+                        0x1000'4e6f    0x8  Code  Gb  cy_tcpwm_counter.o [31]
+Cy_Tcpwm_Counter_Init   0x1000'4cfd  0x144  Code  Gb  cy_tcpwm_counter.o [31]
+Cy_Tcpwm_Counter_SetCC0_IntrMask
+                        0x1000'4e65    0xa  Code  Gb  cy_tcpwm_counter.o [31]
+Cy_Tcpwm_Counter_SetTC_IntrMask
+                        0x1000'4e5b    0xa  Code  Gb  cy_tcpwm_counter.o [31]
+Cy_Tcpwm_Pwm_Disable    0x1000'7745    0xa  Code  Gb  cy_tcpwm_pwm.o [31]
+Cy_Tcpwm_Pwm_Enable     0x1000'7739    0xc  Code  Gb  cy_tcpwm_pwm.o [31]
+Cy_Tcpwm_Pwm_GetPeriod  0x1000'7753    0x4  Code  Gb  cy_tcpwm_pwm.o [31]
+Cy_Tcpwm_Pwm_Init       0x1000'75b1  0x184  Code  Gb  cy_tcpwm_pwm.o [31]
+Cy_Tcpwm_Pwm_SetCompare0
+                        0x1000'774f    0x4  Code  Gb  cy_tcpwm_pwm.o [31]
+Cy_Tcpwm_TriggerStart   0x1000'70f5    0xa  Code  Gb  cy_tcpwm.o [31]
+Cy_Tcpwm_TriggerStopOrKill
+                        0x1000'70ff    0xa  Code  Gb  cy_tcpwm.o [31]
+Cy_WDT_ClearWatchdog    0x1000'a6cf   0x16  Code  Gb  cy_syswdt.o [30]
+Cy_WDT_Disable          0x1000'a691   0x2c  Code  Gb  cy_syswdt.o [30]
+Cy_WDT_Enable           0x1000'a661   0x30  Code  Gb  cy_syswdt.o [30]
+Cy_WDT_Init             0x1000'a5ed   0x40  Code  Gb  cy_syswdt.o [30]
+Cy_WDT_Lock             0x1000'a62d    0xe  Code  Gb  cy_syswdt.o [30]
+Cy_WDT_Unlock           0x1000'a63b   0x1c  Code  Gb  cy_syswdt.o [30]
+Cy_WorkFlashBlankCheck  0x1000'290d   0x64  Code  Gb  cy_mw_flash.o [49]
+Cy_u32StartupStackEndAddress
+                        0x1000'cc80         Data  Gb  startup_cm0plus.o [52]
+Cy_u32StartupStackStartAddress
+                        0x1000'cc7c         Data  Gb  startup_cm0plus.o [52]
+DelAssmFPNReadCount      0x800'3cfe    0x1  Data  Lc  Mod_FPNCtrl.o [4]
+DispIDFPNFPNReadCount    0x800'37f0    0x1  Data  Lc  Mod_FPNCtrl.o [4]
+ErrorState_T             0x800'3c18    0x4  Data  Lc  Mod_DetectGPIO.o [4]
+FPCStrategyState_e_L     0x800'3c10    0x1  Data  Lc  Mod_DetectGPIO.o [4]
+FPCStrategyState_e_R     0x800'3c11    0x1  Data  Lc  Mod_DetectGPIO.o [4]
+FPN_CoreAssm_t           0x800'3b18   0x24  Data  Lc  Mod_FPNCtrl.o [4]
+FPN_DelAssm_t            0x800'3af4   0x24  Data  Lc  Mod_FPNCtrl.o [4]
+FPN_DispID_t             0x800'37e4    0xc  Data  Lc  Mod_FPNCtrl.o [4]
+FPN_MainCalib_t          0x800'3b3c   0x24  Data  Lc  Mod_FPNCtrl.o [4]
+FPN_SerialNum_t          0x800'3b84   0x24  Data  Lc  Mod_FPNCtrl.o [4]
+FPN_Software_t           0x800'3b60   0x24  Data  Lc  Mod_FPNCtrl.o [4]
+Flash_Initialize        0x1000'2031    0xa  Code  Gb  FlashApp.o [2]
+Flash_Work_Sector_Read  0x1000'20dd   0x4c  Code  Gb  FlashApp.o [2]
+Flash_Work_Sector_Write
+                        0x1000'203b   0x9c  Code  Gb  FlashApp.o [2]
+GPIO_Initialize         0x1000'c2b5  0x174  Code  Gb  GpioApp.o [2]
+Get_Dimming_Action_flag
+                        0x1000'8e15    0x6  Code  Gb  Mod_BLbrightness_Ctrl.o [4]
+HAL_ADC_Channel_Active  0x1000'b583   0x38  Code  Gb  hal_adc.o [34]
+HAL_ADC_Channel_Init    0x1000'b519   0x6a  Code  Gb  hal_adc.o [34]
+HAL_ADC_Channel_Result_Get
+                        0x1000'b5df   0x34  Code  Gb  hal_adc.o [34]
+HAL_ADC_Channel_SW_Trigger
+                        0x1000'b5bb   0x24  Code  Gb  hal_adc.o [34]
+HAL_ADC_Init            0x1000'b431   0xe8  Code  Gb  hal_adc.o [34]
+HAL_Clock_Init          0x1000'be15  0x198  Code  Gb  hal_clock.o [35]
+HAL_GPIO_PinRead        0x1000'30a7   0x24  Code  Gb  hal_gpio.o [38]
+HAL_GPIO_PinToggle      0x1000'30f7   0x20  Code  Gb  hal_gpio.o [38]
+HAL_GPIO_PinWrite       0x1000'30cb   0x2c  Code  Gb  hal_gpio.o [38]
+HAL_GPIO_Pin_Init       0x1000'2fe9   0xbe  Code  Gb  hal_gpio.o [38]
+HAL_I2C_Active          0x1000'73e1   0x38  Code  Gb  hal_i2c.o [40]
+HAL_I2C_Callback_Register
+                        0x1000'755b   0x24  Code  Gb  hal_i2c.o [40]
+HAL_I2C_DeInit          0x1000'738d   0x46  Code  Gb  hal_i2c.o [40]
+HAL_I2C_Init            0x1000'72b9   0xbe  Code  Gb  hal_i2c.o [40]
+HAL_I2C_Master_Reg_Receive
+                        0x1000'7457   0x7e  Code  Gb  hal_i2c.o [40]
+HAL_I2C_Master_Reg_Transmit
+                        0x1000'743d   0x1a  Code  Gb  hal_i2c.o [40]
+HAL_I2C_Master_Stop_Send
+                        0x1000'7419   0x24  Code  Gb  hal_i2c.o [40]
+HAL_I2C_Slave_Interrupt_Set
+                        0x1000'757f   0x32  Code  Gb  hal_i2c.o [40]
+HAL_I2C_Slave_ReadBuf_Config
+                        0x1000'74e1   0x2a  Code  Gb  hal_i2c.o [40]
+HAL_I2C_Slave_WriteBuf_Config
+                        0x1000'750b   0x2a  Code  Gb  hal_i2c.o [40]
+HAL_I2C_Slave_WriteTransferCount_Get
+                        0x1000'7535   0x26  Code  Gb  hal_i2c.o [40]
+HAL_PWM_Active          0x1000'3d9f   0x30  Code  Gb  hal_pwm.o [42]
+HAL_PWM_Duty_Set        0x1000'3dcf   0x1c  Code  Gb  hal_pwm.o [42]
+HAL_PWM_Init            0x1000'3c2d  0x12e  Code  Gb  hal_pwm.o [42]
+HAL_PWM_Period_Get      0x1000'3deb   0x20  Code  Gb  hal_pwm.o [42]
+HAL_PWM_Start           0x1000'3d75   0x2a  Code  Gb  hal_pwm.o [42]
+HAL_SCB_IRQ             0x1000'2f15   0xaa  Code  Lc  cyhal_hwmgr.o [36]
+HAL_TCPWM_IRQ           0x1000'2c35  0x2e0  Code  Lc  cyhal_hwmgr.o [36]
+HAL_Timer_Active        0x1000'39d7   0x30  Code  Gb  hal_timer.o [45]
+HAL_Timer_Callback_Register
+                        0x1000'3a07    0x8  Code  Gb  hal_timer.o [45]
+HAL_Timer_Flag_Clear    0x1000'3a0f   0x18  Code  Gb  hal_timer.o [45]
+HAL_Timer_Flag_Get      0x1000'3a27   0x1e  Code  Gb  hal_timer.o [45]
+HAL_Timer_Init          0x1000'38ed   0x9e  Code  Gb  hal_timer.o [45]
+HAL_Timer_Interrupt_Set
+                        0x1000'3a45   0x3e  Code  Gb  hal_timer.o [45]
+HAL_Timer_Start         0x1000'39ad   0x2a  Code  Gb  hal_timer.o [45]
+HAL_UartPrintf          0x1000'2271   0x6e  Code  Gb  hal_uart.o [46]
+HAL_Uart_Active         0x1000'2235   0x36  Code  Gb  hal_uart.o [46]
+HAL_Uart_Init           0x1000'214d   0xde  Code  Gb  hal_uart.o [46]
+HEAP_STACK$$Base         0x800'fc00          --   Gb  - Linker created -
+HEAP_STACK$$Limit        0x801'0000          --   Gb  - Linker created -
+HS82105_SOURCE_58H_Diag
+                         0x800'2620    0x4  Data  Gb  Mod_DetectI2C.o [4]
+HS82105_SOURCE_59H_Diag
+                         0x800'298c    0x4  Data  Gb  Mod_DetectI2C.o [4]
+HS82105_SOURCE_5AH_Diag
+                         0x800'2990    0x4  Data  Gb  Mod_DetectI2C.o [4]
+HS82105_SOURCE_5BH_Diag
+                         0x800'2994    0x4  Data  Gb  Mod_DetectI2C.o [4]
+HX8880_L_LED1_Diag       0x800'25a8   0x14  Data  Gb  Mod_DetectI2C.o [4]
+HX8880_L_LED2_Diag       0x800'25bc   0x14  Data  Gb  Mod_DetectI2C.o [4]
+HX8880_L_LED3_Diag       0x800'25d0   0x14  Data  Gb  Mod_DetectI2C.o [4]
+HX8880_R_LED1_Diag       0x800'25e4   0x14  Data  Gb  Mod_DetectI2C.o [4]
+HX8880_R_LED2_Diag       0x800'25f8   0x14  Data  Gb  Mod_DetectI2C.o [4]
+HX8880_R_LED3_Diag       0x800'260c   0x14  Data  Gb  Mod_DetectI2C.o [4]
+HX8880_TCON_Diag         0x800'2984    0x8  Data  Gb  Mod_DetectI2C.o [4]
+HandleStatus            0x1000'5d79   0xac  Code  Lc  cy_scb_i2c.o [19]
+HardFault_Handler       0x1000'd08d         Code  Wk  startup_cm0plus.o [52]
+I2CICDiagCtrl            0x800'3754   0x90  Data  Lc  ICDiagApp.o [2]
+I2CM_DeInitialze        0x1000'3aaf   0x10  Code  Gb  I2CMasterApp.o [2]
+I2CM_Diag               0x1000'3b35   0x64  Code  Gb  I2CMasterApp.o [2]
+I2CM_Initialze          0x1000'3a89   0x26  Code  Gb  I2CMasterApp.o [2]
+I2CM_Read               0x1000'3af5   0x36  Code  Gb  I2CMasterApp.o [2]
+I2CM_Write              0x1000'3abf   0x36  Code  Gb  I2CMasterApp.o [2]
+I2CS_Callback           0x1000'a6f9   0xfc  Code  Lc  I2CSlaveApp.o [2]
+I2CS_DeInitialze        0x1000'a855    0xa  Code  Gb  I2CSlaveApp.o [2]
+I2CS_Initialze          0x1000'a7f5   0x4a  Code  Gb  I2CSlaveApp.o [2]
+I2cMasterBuffer          0x800'3bc8   0x20  Data  Lc  Mod_DetectI2C.o [4]
+I2cMasterInitStatus      0x800'3cf7    0x1  Data  Lc  I2CMasterApp.o [2]
+ICDIAG_CmdTrigger       0x1000'25f9   0xe0  Code  Gb  ICDiagApp.o [2]
+ICDIAG_FillinDefaultRXData
+                        0x1000'25c9   0x10  Code  Lc  ICDiagApp.o [2]
+ICDIAG_GetRxBuffer      0x1000'25f5    0x4  Code  Gb  ICDiagApp.o [2]
+ICDIAG_Initialize       0x1000'25df   0x16  Code  Gb  ICDiagApp.o [2]
+ICDIAG_Main             0x1000'26d9   0x8e  Code  Gb  ICDiagApp.o [2]
+ICDIAG_SetCmdResault    0x1000'25d9    0x6  Code  Gb  ICDiagApp.o [2]
+LED_L_LED1_B2            0x800'2624   0x18  Data  Lc  Mod_DetectI2C.o [4]
+LED_L_LED1_B3            0x800'263c   0x18  Data  Lc  Mod_DetectI2C.o [4]
+LED_L_LED1_B4            0x800'2654   0x18  Data  Lc  Mod_DetectI2C.o [4]
+LED_L_LED1_B5            0x800'266c   0x18  Data  Lc  Mod_DetectI2C.o [4]
+LED_L_LED1_B6            0x800'2684   0x18  Data  Lc  Mod_DetectI2C.o [4]
+LED_L_LED2_B2            0x800'269c   0x18  Data  Lc  Mod_DetectI2C.o [4]
+LED_L_LED2_B3            0x800'26b4   0x18  Data  Lc  Mod_DetectI2C.o [4]
+LED_L_LED2_B4            0x800'26cc   0x18  Data  Lc  Mod_DetectI2C.o [4]
+LED_L_LED2_B5            0x800'26e4   0x18  Data  Lc  Mod_DetectI2C.o [4]
+LED_L_LED2_B6            0x800'26fc   0x18  Data  Lc  Mod_DetectI2C.o [4]
+LED_L_LED3_B2            0x800'2714   0x18  Data  Lc  Mod_DetectI2C.o [4]
+LED_L_LED3_B3            0x800'272c   0x18  Data  Lc  Mod_DetectI2C.o [4]
+LED_L_LED3_B4            0x800'2744   0x18  Data  Lc  Mod_DetectI2C.o [4]
+LED_L_LED3_B5            0x800'275c   0x18  Data  Lc  Mod_DetectI2C.o [4]
+LED_L_LED3_B6            0x800'2774   0x18  Data  Lc  Mod_DetectI2C.o [4]
+LED_R_LED1_B2            0x800'278c   0x18  Data  Lc  Mod_DetectI2C.o [4]
+LED_R_LED1_B3            0x800'27a4   0x18  Data  Lc  Mod_DetectI2C.o [4]
+LED_R_LED1_B4            0x800'27bc   0x18  Data  Lc  Mod_DetectI2C.o [4]
+LED_R_LED1_B5            0x800'27d4   0x18  Data  Lc  Mod_DetectI2C.o [4]
+LED_R_LED1_B6            0x800'27ec   0x18  Data  Lc  Mod_DetectI2C.o [4]
+LED_R_LED2_B2            0x800'2804   0x18  Data  Lc  Mod_DetectI2C.o [4]
+LED_R_LED2_B3            0x800'281c   0x18  Data  Lc  Mod_DetectI2C.o [4]
+LED_R_LED2_B4            0x800'2834   0x18  Data  Lc  Mod_DetectI2C.o [4]
+LED_R_LED2_B5            0x800'284c   0x18  Data  Lc  Mod_DetectI2C.o [4]
+LED_R_LED2_B6            0x800'2864   0x18  Data  Lc  Mod_DetectI2C.o [4]
+LED_R_LED3_B2            0x800'287c   0x18  Data  Lc  Mod_DetectI2C.o [4]
+LED_R_LED3_B3            0x800'2894   0x18  Data  Lc  Mod_DetectI2C.o [4]
+LED_R_LED3_B4            0x800'28ac   0x18  Data  Lc  Mod_DetectI2C.o [4]
+LED_R_LED3_B5            0x800'28c4   0x18  Data  Lc  Mod_DetectI2C.o [4]
+LED_R_LED3_B6            0x800'28dc   0x18  Data  Lc  Mod_DetectI2C.o [4]
+LM61460FaultDeounceCnt   0x800'24a0    0x2  Data  Lc  Mod_BatteryProtection_Ctrl.o [4]
+LatchBitRegShift        0x1000'ce6c    0x8  Data  Lc  Mod_DataManagement.o [4]
+LatchBitRegShift2       0x1000'ce74    0x4  Data  Lc  Mod_DataManagement.o [4]
+MBLBC_BLBrightness_Ctrl
+                        0x1000'8d57   0xbe  Code  Gb  Mod_BLbrightness_Ctrl.o [4]
+MBLBC_BLBrightness_Ctrl::u16PWMValMerged_10bit
+                         0x800'3428    0x2  Data  Lc  Mod_BLbrightness_Ctrl.o [4]
+MBLBC_BLPWMDifference_Calculate
+                        0x1000'8bbd   0x26  Code  Gb  Mod_BLbrightness_Ctrl.o [4]
+MBLBC_BLPWM_Output      0x1000'8c2d   0x40  Code  Gb  Mod_BLbrightness_Ctrl.o [4]
+MBLBC_BalckLightDimming_Calculate
+                        0x1000'8c6d   0x30  Code  Gb  Mod_BLbrightness_Ctrl.o [4]
+MBLBC_I2CMessage_t       0x800'3360   0xc8  Data  Lc  Mod_BLbrightness_Ctrl.o [4]
+MBLBC_NextStepBLPWM_Calculate
+                        0x1000'8c9d   0x50  Code  Gb  Mod_BLbrightness_Ctrl.o [4]
+MBLBC_PWMDimming_6ms    0x1000'8ced   0x6a  Code  Gb  Mod_BLbrightness_Ctrl.o [4]
+MBLBC_PWMDimming_6ms::MBLBC_Count_6ms
+                         0x800'3c75    0x1  Data  Lc  Mod_BLbrightness_Ctrl.o [4]
+MBLBC_PWMDimming_6ms::u16NowPWMVal
+                         0x800'3c7c    0x2  Data  Lc  Mod_BLbrightness_Ctrl.o [4]
+MBLC_Display_Ctrl       0x1000'97ab   0x3c  Code  Gb  Mod_BLEN_Ctrl.o [4]
+MBLC_IRQCallBack_Install
+                        0x1000'8e1b   0x30  Code  Gb  Mod_BLbrightness_Ctrl.o [4]
+MBLC_PowerSequence_BL_OFF
+                        0x1000'9749   0x62  Code  Gb  Mod_BLEN_Ctrl.o [4]
+MBLC_PowerSequence_BL_ON
+                        0x1000'96b3   0x96  Code  Gb  Mod_BLEN_Ctrl.o [4]
+MBLC_TconApp_Backlight_Output
+                        0x1000'8be3   0x4a  Code  Gb  Mod_BLbrightness_Ctrl.o [4]
+MBPC_100usTimerProcess_Install
+                        0x1000'242b   0x30  Code  Gb  Mod_BatteryProtection_Ctrl.o [4]
+MBPC_BattPro_BattVolt_Get
+                        0x1000'24a1    0x6  Code  Gb  Mod_BatteryProtection_Ctrl.o [4]
+MBPC_BatteryProtection_61460FaultInIRQ_Detect
+                        0x1000'238d   0x44  Code  Gb  Mod_BatteryProtection_Ctrl.o [4]
+MBPC_BatteryProtection_61460FaultInIRQ_Detect::u8GPIOStatus
+                         0x800'2496    0x1  Data  Lc  Mod_BatteryProtection_Ctrl.o [4]
+MBPC_BatteryProtection_Ctrl
+                        0x1000'2473   0x2e  Code  Gb  Mod_BatteryProtection_Ctrl.o [4]
+MBPC_BatteryProtection_Function_Initial
+                        0x1000'245b   0x18  Code  Gb  Mod_BatteryProtection_Ctrl.o [4]
+MBPC_BatteryProtection_Process
+                        0x1000'235b   0x32  Code  Gb  Mod_BatteryProtection_Ctrl.o [4]
+MBPC_BatteryVoltAdcValues_Average
+                        0x1000'2337   0x24  Code  Gb  Mod_BatteryProtection_Ctrl.o [4]
+MBPC_PMICRecover_Detect
+                        0x1000'23d1   0x5a  Code  Gb  Mod_BatteryProtection_Ctrl.o [4]
+MBP_CPM_ShutdownEvent_Send
+                         0x800'24a4    0x4  Data  Lc  Mod_BatteryProtection_Ctrl.o [4]
+MCUDIAG_MemRW           0x1000'3b99   0x2e  Code  Gb  MCUDiagApp.o [2]
+MCUDIAG_NVMRW           0x1000'3bc7   0x5a  Code  Gb  MCUDiagApp.o [2]
+MDEN_DispENProcess_Ctrl
+                        0x1000'9855   0x14  Code  Gb  Mod_DisplayEN_Ctrl.o [4]
+MDEN_SourceDriver_DispOn_CheckReset
+                        0x1000'97e9   0x3a  Code  Gb  Mod_DisplayEN_Ctrl.o [4]
+MDEN_TConBistMode_En    0x1000'9829   0x2c  Code  Gb  Mod_DisplayEN_Ctrl.o [4]
+MDGPIO_Diagnostic_LCD_BL_Fault::u16DebounceCount
+                         0x800'3c1c    0x2  Data  Lc  Mod_DetectGPIO.o [4]
+MDGPIO_Diagnostic_TCON_Fault
+                        0x1000'aee5   0x14  Code  Gb  Mod_DetectGPIO.o [4]
+MDGPIO_Diagnostic_TCON_Fault::u16DebounceCount
+                         0x800'3cb6    0x2  Data  Lc  Mod_DetectGPIO.o [4]
+MDGPIO_Diagnostic_TFT_Bias_Fault
+                        0x1000'b003   0x12  Code  Gb  Mod_DetectGPIO.o [4]
+MDGPIO_Diagnostic_TFT_Bias_Fault::u16DebounceCount
+                         0x800'3cf0    0x2  Data  Lc  Mod_DetectGPIO.o [4]
+MDGPIO_DisconnectERR_L_Detect
+                        0x1000'aefb   0x84  Code  Gb  Mod_DetectGPIO.o [4]
+MDGPIO_DisconnectERR_L_Detect::u8judge_L
+                         0x800'3c13    0x1  Data  Lc  Mod_DetectGPIO.o [4]
+MDGPIO_DisconnectERR_R_Detect
+                        0x1000'af7f   0x84  Code  Gb  Mod_DetectGPIO.o [4]
+MDGPIO_DisconnectERR_R_Detect::u8judge_R
+                         0x800'3c14    0x1  Data  Lc  Mod_DetectGPIO.o [4]
+MDGPIO_Display_Diagnostic
+                        0x1000'ae11   0x50  Code  Gb  Mod_DetectGPIO.o [4]
+MDGPIO_Display_Diagnostic::Disp_Fault_Counter
+                         0x800'3c12    0x1  Data  Lc  Mod_DetectGPIO.o [4]
+MDGPIO_Interface_Set    0x1000'aef9    0x2  Code  Gb  Mod_DetectGPIO.o [4]
+MDGPIO_LLOSS_Detect     0x1000'ae61   0x84  Code  Gb  Mod_DetectGPIO.o [4]
+MDGPIO_LLOSS_Detect::u16DebounceCount
+                         0x800'3c1e    0x2  Data  Lc  Mod_DetectGPIO.o [4]
+MDGPIO_LLOSS_Detect::u16DebounceCountForRecov
+                         0x800'3c20    0x2  Data  Lc  Mod_DetectGPIO.o [4]
+MDI2C_25221_Fault1      0x1000'8969   0x72  Code  Gb  Mod_DetectI2C.o [4]
+MDI2C_25221_Revision    0x1000'89db   0x36  Code  Gb  Mod_DetectI2C.o [4]
+MDI2C_25221_Revision::u8TFT_RevID_Flag
+                         0x800'2dbd    0x1  Data  Lc  Mod_DetectI2C.o [4]
+MDI2C_CPNR_BL_Reg       0x1000'7dfb  0x164  Code  Gb  Mod_DetectI2C.o [4]
+MDI2C_Clear_Leddriver_faultpin_cnt
+                        0x1000'8a19   0x74  Code  Gb  Mod_DetectI2C.o [4]
+MDI2C_Clear_SourceIC_faultpin_cnt
+                        0x1000'8abf   0x88  Code  Gb  Mod_DetectI2C.o [4]
+MDI2C_Clear_TCON_faultpin_cnt
+                        0x1000'8a8d   0x32  Code  Gb  Mod_DetectI2C.o [4]
+MDI2C_DispStatus_Detect
+                        0x1000'86e5  0x21a  Code  Gb  Mod_DetectI2C.o [4]
+MDI2C_ErrorState_t       0x800'3cac    0x4  Data  Lc  Mod_DetectI2C.o [4]
+MDI2C_New_BL_Detect     0x1000'7f69  0x692  Code  Gb  Mod_DetectI2C.o [4]
+MDI2C_New_BL_Detect::Fail_Flag
+                         0x800'2db7    0x1  Data  Lc  Mod_DetectI2C.o [4]
+MDI2C_New_BL_Detect::Left_LED_Status
+                         0x800'2db5    0x1  Data  Lc  Mod_DetectI2C.o [4]
+MDI2C_New_BL_Detect::Right_LED_Status
+                         0x800'2db6    0x1  Data  Lc  Mod_DetectI2C.o [4]
+MDI2C_New_BL_Detect::eState
+                         0x800'2db4    0x1  Data  Lc  Mod_DetectI2C.o [4]
+MDI2C_ResetRequstFlag_Ctrl
+                        0x1000'8b47    0xc  Code  Gb  Mod_DetectI2C.o [4]
+MDI2C_Set_TCON_BlackPattern
+                        0x1000'8b6d   0x36  Code  Gb  Mod_DetectI2C.o [4]
+MDI2C_TCON_Fail_Detect  0x1000'8605   0xdc  Code  Gb  Mod_DetectI2C.o [4]
+MDI2C_TCON_Fail_Detect::Fail_Flag
+                         0x800'2db9    0x1  Data  Lc  Mod_DetectI2C.o [4]
+MDI2C_TCON_Fail_Detect::Wait_Count
+                         0x800'2dba    0x1  Data  Lc  Mod_DetectI2C.o [4]
+MDI2C_TCON_Fail_Detect::eTconState
+                         0x800'2db8    0x1  Data  Lc  Mod_DetectI2C.o [4]
+MDI2C_TCON_VER_DETECT   0x1000'8931   0x38  Code  Gb  Mod_DetectI2C.o [4]
+MDI2C_TCON_VER_DETECT::u8READ_TCON_VER_Flag
+                         0x800'2dbc    0x1  Data  Lc  Mod_DetectI2C.o [4]
+MDI2C_TconApp_Magic_Code_Write
+                        0x1000'7ddd   0x1e  Code  Gb  Mod_DetectI2C.o [4]
+MDI2C_VCOM_Detect       0x1000'88ff   0x2e  Code  Gb  Mod_DetectI2C.o [4]
+MDI2C_VCOM_Detect::u8VCOMFlag
+                         0x800'2dbb    0x1  Data  Lc  Mod_DetectI2C.o [4]
+MFPNC_CoreAssm_WRTST_Check
+                        0x1000'9e67    0x8  Code  Gb  Mod_FPNCtrl.o [4]
+MFPNC_CoreAssm_WRTST_Check::u8WRTSTState
+                         0x800'3d05    0x1  Data  Lc  Mod_FPNCtrl.o [4]
+MFPNC_DelAssm_WRTST_Check
+                        0x1000'9caf    0x8  Code  Gb  Mod_FPNCtrl.o [4]
+MFPNC_DelAssm_WRTST_Check::u8WRTSTState
+                         0x800'3d03    0x1  Data  Lc  Mod_FPNCtrl.o [4]
+MFPNC_DispID_WRTST_Check
+                        0x1000'9d6d    0x6  Code  Gb  Mod_FPNCtrl.o [4]
+MFPNC_DispID_WRTST_Check::u8WRTSTState
+                         0x800'3d04    0x1  Data  Lc  Mod_FPNCtrl.o [4]
+MFPNC_FPNCheckSum_Calculate
+                        0x1000'9bfd   0x34  Code  Gb  Mod_FPNCtrl.o [4]
+MFPNC_FPNCoreAssmControl_Process
+                        0x1000'9e75   0x48  Code  Gb  Mod_FPNCtrl.o [4]
+MFPNC_FPNCoreAssmFromFlash_Read
+                        0x1000'9af7   0x1c  Code  Gb  Mod_FPNCtrl.o [4]
+MFPNC_FPNCoreAssmWriteToFlash_Process
+                        0x1000'9de9   0x7e  Code  Gb  Mod_FPNCtrl.o [4]
+MFPNC_FPNDelAssmControl_Process
+                        0x1000'9cbd   0x48  Code  Gb  Mod_FPNCtrl.o [4]
+MFPNC_FPNDelAssmFromFlash_Read
+                        0x1000'9ad9   0x1e  Code  Gb  Mod_FPNCtrl.o [4]
+MFPNC_FPNDelAssmWriteToFlash_Process
+                        0x1000'9c31   0x7e  Code  Gb  Mod_FPNCtrl.o [4]
+MFPNC_FPNDispIDControl_Process
+                        0x1000'9d83   0x5c  Code  Gb  Mod_FPNCtrl.o [4]
+MFPNC_FPNDispIDFromFlash_Read
+                        0x1000'9b43   0x1e  Code  Gb  Mod_FPNCtrl.o [4]
+MFPNC_FPNDispIDWriteToFlash_Process
+                        0x1000'9d09   0x60  Code  Gb  Mod_FPNCtrl.o [4]
+MFPNC_FPNMainCalibControl_Process
+                        0x1000'9f63   0x48  Code  Gb  Mod_FPNCtrl.o [4]
+MFPNC_FPNMainCalibFromFlash_Read
+                        0x1000'9b25   0x1e  Code  Gb  Mod_FPNCtrl.o [4]
+MFPNC_FPNMainCalibWriteToFlash_Process
+                        0x1000'9edd   0x7e  Code  Gb  Mod_FPNCtrl.o [4]
+MFPNC_FPNSerialControl_Process
+                        0x1000'a083   0x48  Code  Gb  Mod_FPNCtrl.o [4]
+MFPNC_FPNSerialFromFlash_Read
+                        0x1000'9bdf   0x1e  Code  Gb  Mod_FPNCtrl.o [4]
+MFPNC_FPNSerialToFlash_Write
+                        0x1000'9baf   0x30  Code  Gb  Mod_FPNCtrl.o [4]
+MFPNC_FPNSerialWriteToFlash_Process
+                        0x1000'a045   0x36  Code  Gb  Mod_FPNCtrl.o [4]
+MFPNC_FPNSoftwareControl_Process
+                        0x1000'9ff9   0x48  Code  Gb  Mod_FPNCtrl.o [4]
+MFPNC_FPNSoftwareFromFlash_Read
+                        0x1000'9b91   0x1e  Code  Gb  Mod_FPNCtrl.o [4]
+MFPNC_FPNSoftwareToFlash_Write
+                        0x1000'9b61   0x30  Code  Gb  Mod_FPNCtrl.o [4]
+MFPNC_FPNSoftwareWriteToFlash_Process
+                        0x1000'9fb1   0x36  Code  Gb  Mod_FPNCtrl.o [4]
+MFPNC_MainCalib_WRTST_Check
+                        0x1000'9f5b    0x8  Code  Gb  Mod_FPNCtrl.o [4]
+MFPNC_MainCalib_WRTST_Check::u8WRTSTState
+                         0x800'3d06    0x1  Data  Lc  Mod_FPNCtrl.o [4]
+MFPNC_Serial_WRTST_Check
+                        0x1000'a07b    0x8  Code  Gb  Mod_FPNCtrl.o [4]
+MFPNC_Serial_WRTST_Check::u8WRTSTState
+                         0x800'3d08    0x1  Data  Lc  Mod_FPNCtrl.o [4]
+MFPNC_Software_WRTST_Check
+                        0x1000'9fe7    0x8  Code  Gb  Mod_FPNCtrl.o [4]
+MFPNC_Software_WRTST_Check::u8WRTSTState
+                         0x800'3d07    0x1  Data  Lc  Mod_FPNCtrl.o [4]
+MINTBC_2msTimerProcess_Install
+                        0x1000'b0b7   0x34  Code  Gb  Mod_INTBControl.o [4]
+MINTBC_INTBFlag_Ctrl     0x800'3ccc    0x4  Data  Gb  Mod_INTBControl.o [4]
+MINTBC_INTBStrategy_Ctrl
+                        0x1000'b045   0x66  Code  Gb  Mod_INTBControl.o [4]
+MINTBC_LockPinStatus_Ctrl
+                        0x1000'b0ab    0xc  Code  Gb  Mod_INTBControl.o [4]
+MINTBC_u8LockPinStatus   0x800'3cc9    0x1  Data  Lc  Mod_INTBControl.o [4]
+MMIM_BISTData_Get       0x1000'0595    0xc  Code  Gb  Mod_DataManagement.o [4]
+MMIM_BISTModeFlag_Ctrl  0x1000'024f    0xc  Code  Gb  Mod_DataManagement.o [4]
+MMIM_BLNTCADC_Set       0x1000'055b    0x6  Code  Gb  Mod_DataManagement.o [4]
+MMIM_BLPWMFlag_Ctrl     0x1000'02b9    0xc  Code  Gb  Mod_DataManagement.o [4]
+MMIM_BLTemperatureVal_Set
+                        0x1000'057b    0xe  Code  Gb  Mod_DataManagement.o [4]
+MMIM_BattVolADCVal_Set  0x1000'058f    0x6  Code  Gb  Mod_DataManagement.o [4]
+MMIM_BattVolVal_Set     0x1000'0589    0x6  Code  Gb  Mod_DataManagement.o [4]
+MMIM_Check_Power_Error  0x1000'02f9   0x50  Code  Gb  Mod_DataManagement.o [4]
+MMIM_Client_Diag_Get    0x1000'1f37    0x6  Code  Gb  Mod_DataManagement.o [4]
+MMIM_Client_Diag_Set    0x1000'1f31    0x6  Code  Gb  Mod_DataManagement.o [4]
+MMIM_CoreAssmPNStatusRegFlag_Ctrl
+                        0x1000'01eb    0xc  Code  Gb  Mod_DataManagement.o [4]
+MMIM_DataLength_FunSafe_Get
+                        0x1000'0e01   0xdc  Code  Gb  Mod_DataManagement.o [4]
+MMIM_DataLength_Get     0x1000'05b5   0xb8  Code  Gb  Mod_DataManagement.o [4]
+MMIM_DelAssmPNStatusRegFlag_Ctrl
+                        0x1000'01df    0xc  Code  Gb  Mod_DataManagement.o [4]
+MMIM_DeratingFlag_Get   0x1000'0349    0x6  Code  Gb  Mod_DataManagement.o [4]
+MMIM_Derating_Status_Set
+                        0x1000'1f49    0x6  Code  Gb  Mod_DataManagement.o [4]
+MMIM_DiagnosticMessageFlag_Ctrl
+                        0x1000'02cd    0xc  Code  Gb  Mod_DataManagement.o [4]
+MMIM_DispENFlag_Ctrl    0x1000'02ad    0x2  Code  Gb  Mod_DataManagement.o [4]
+MMIM_DispIDPNStatusRegFlag_Ctrl
+                        0x1000'0203    0xc  Code  Gb  Mod_DataManagement.o [4]
+MMIM_DispVoltError_Set  0x1000'1f25    0x6  Code  Gb  Mod_DataManagement.o [4]
+MMIM_DisplayStatusReg_Ctrl
+                        0x1000'03b1  0x112  Code  Gb  Mod_DataManagement.o [4]
+MMIM_DisplayStatusRegister_Set
+                        0x1000'0197   0x48  Code  Gb  Mod_DataManagement.o [4]
+MMIM_ErrorCount_Add     0x1000'0355    0xc  Code  Gb  Mod_DataManagement.o [4]
+MMIM_FactoryFlag_Ctrl   0x1000'028b    0xc  Code  Gb  Mod_DataManagement.o [4]
+MMIM_First_Diag_Set     0x1000'1f43    0x6  Code  Gb  Mod_DataManagement.o [4]
+MMIM_I2cMessages_FunSafe_Set
+                        0x1000'15ad  0x95a  Code  Gb  Mod_DataManagement.o [4]
+MMIM_I2cMessages_Set    0x1000'0a6d  0x360  Code  Gb  Mod_DataManagement.o [4]
+MMIM_INTBActiveFlag_Ctrl
+                        0x1000'0365    0x2  Code  Gb  Mod_DataManagement.o [4]
+MMIM_InteruptStutsReg_Ctrl
+                        0x1000'04e1   0x74  Code  Gb  Mod_DataManagement.o [4]
+MMIM_JumpToBootCodeFlag_Ctrl
+                        0x1000'027f    0xc  Code  Gb  Mod_DataManagement.o [4]
+MMIM_LocalDim_Flag_Get  0x1000'1f3d    0x6  Code  Gb  Mod_DataManagement.o [4]
+MMIM_LockPinStatus_Ctrl
+                        0x1000'0381    0x4  Code  Gb  Mod_DataManagement.o [4]
+MMIM_LockStatus_Get     0x1000'0371    0xa  Code  Gb  Mod_DataManagement.o [4]
+MMIM_MainCalibPNStatusRegFlag_Ctrl
+                        0x1000'01f7    0xc  Code  Gb  Mod_DataManagement.o [4]
+MMIM_MessageData_FunSafe_Get
+                        0x1000'0ef5  0x6a0  Code  Gb  Mod_DataManagement.o [4]
+MMIM_MessageData_Get    0x1000'066d  0x382  Code  Gb  Mod_DataManagement.o [4]
+MMIM_PCBNTCADC_Set      0x1000'0555    0x6  Code  Gb  Mod_DataManagement.o [4]
+MMIM_PCBTemperatureVal_Set
+                        0x1000'056d    0xe  Code  Gb  Mod_DataManagement.o [4]
+MMIM_PWMTargetValue_Ctrl
+                        0x1000'0389    0xe  Code  Gb  Mod_DataManagement.o [4]
+MMIM_PowerState_Ctrl    0x1000'02dd    0x6  Code  Gb  Mod_DataManagement.o [4]
+MMIM_PowerState_e        0x800'38fc    0x1  Data  Lc  Mod_DataManagement.o [4]
+MMIM_PwrInitStatus_Ctrl
+                        0x1000'0273    0x2  Code  Gb  Mod_DataManagement.o [4]
+MMIM_ScanDirectionFlag_Ctrl
+                        0x1000'02c5    0x4  Code  Gb  Mod_DataManagement.o [4]
+MMIM_SerialPNStatusRegFlag_Ctrl
+                        0x1000'0213    0x4  Code  Gb  Mod_DataManagement.o [4]
+MMIM_ShutdownFlag_Ctrl  0x1000'029d    0x2  Code  Gb  Mod_DataManagement.o [4]
+MMIM_SoftwarePNStatusRegFlag_Ctrl
+                        0x1000'020f    0x4  Code  Gb  Mod_DataManagement.o [4]
+MMIM_SourceDriver_Ctrl  0x1000'0385    0x4  Code  Gb  Mod_DataManagement.o [4]
+MMIM_TCON_VER_Set       0x1000'1f4f    0x6  Code  Gb  Mod_DataManagement.o [4]
+MMIM_TFT_Revision_Set   0x1000'1f2b    0x6  Code  Gb  Mod_DataManagement.o [4]
+MMIM_Update_Flag_Get    0x1000'1f07    0x6  Code  Gb  Mod_DataManagement.o [4]
+MMIM_Update_Flag_Set    0x1000'1f0d    0x6  Code  Gb  Mod_DataManagement.o [4]
+MMIM_VCOM_Set           0x1000'1f13    0x6  Code  Gb  Mod_DataManagement.o [4]
+MMIM_VolRestRqFlag_Ctrl
+                        0x1000'0397    0x4  Code  Gb  Mod_DataManagement.o [4]
+MMIM_VoltageDRT_Flag_Get
+                        0x1000'1f1f    0x6  Code  Gb  Mod_DataManagement.o [4]
+MMIM_VoltageDRT_Flag_Set
+                        0x1000'1f19    0x6  Code  Gb  Mod_DataManagement.o [4]
+MMIM_WriteCoreAssmFPNFlag_Ctrl
+                        0x1000'0223    0xc  Code  Gb  Mod_DataManagement.o [4]
+MMIM_WriteDelAssmFPNFlag_Ctrl
+                        0x1000'0217    0xc  Code  Gb  Mod_DataManagement.o [4]
+MMIM_WriteDispIDFPNFlag_Ctrl
+                        0x1000'023b    0xc  Code  Gb  Mod_DataManagement.o [4]
+MMIM_WriteMainCalibFPNFlag_Ctrl
+                        0x1000'022f    0xc  Code  Gb  Mod_DataManagement.o [4]
+MMIM_WriteSerialFPNFlag_Ctrl
+                        0x1000'024b    0x4  Code  Gb  Mod_DataManagement.o [4]
+MMIM_WriteSoftwareFPNFlag_Ctrl
+                        0x1000'0247    0x4  Code  Gb  Mod_DataManagement.o [4]
+MMIM_pI2CMessage_Get    0x1000'02e3    0x4  Code  Gb  Mod_DataManagement.o [4]
+MMIM_pcore_assembly_Get
+                        0x1000'025f    0x4  Code  Gb  Mod_DataManagement.o [4]
+MMIM_pdelivery_assembly_Get
+                        0x1000'025b    0x4  Code  Gb  Mod_DataManagement.o [4]
+MMIM_pdisplay_id_Get    0x1000'0267    0x4  Code  Gb  Mod_DataManagement.o [4]
+MMIM_pmain_calibration_Get
+                        0x1000'0263    0x4  Code  Gb  Mod_DataManagement.o [4]
+MMIM_pserial_number_Get
+                        0x1000'026f    0x4  Code  Gb  Mod_DataManagement.o [4]
+MMIM_psoftware_fpn_Get  0x1000'026b    0x4  Code  Gb  Mod_DataManagement.o [4]
+MPSC_Check_Power_Alive  0x1000'a155   0x5c  Code  Gb  Mod_PowerSequence_Ctrl.o [4]
+MPSC_Module_Inital      0x1000'a119   0x30  Code  Gb  Mod_PowerSequence_Ctrl.o [4]
+MPSC_PowerSequence_Ctrl
+                        0x1000'a561   0x58  Code  Gb  Mod_PowerSequence_Ctrl.o [4]
+MPSC_PowerSequence_MAX20419Fault
+                        0x1000'a503   0x5c  Code  Gb  Mod_PowerSequence_Ctrl.o [4]
+MPSC_PowerSequence_OFF  0x1000'a3b7   0xea  Code  Gb  Mod_PowerSequence_Ctrl.o [4]
+MPSC_PowerSequence_ON   0x1000'a1b1  0x1f6  Code  Gb  Mod_PowerSequence_Ctrl.o [4]
+MPSC_PowerSequence_Shutdown
+                        0x1000'a4a1   0x34  Code  Gb  Mod_PowerSequence_Ctrl.o [4]
+MPSC_PowerSequence_abnormalVol
+                        0x1000'a4d5   0x2e  Code  Gb  Mod_PowerSequence_Ctrl.o [4]
+MPSC_PowerState_Get     0x1000'a5b9    0x6  Code  Gb  Mod_PowerSequence_Ctrl.o [4]
+MPSC_WatchDog_Feed      0x1000'a105   0x14  Code  Gb  Mod_PowerSequence_Ctrl.o [4]
+MPSC_ePowerState         0x800'3d0a    0x1  Data  Lc  Mod_PowerSequence_Ctrl.o [4]
+MSDC_ScanDirection_Ctrl
+                        0x1000'9aad   0x2c  Code  Gb  Mod_ScanDirection_Ctrl.o [4]
+MTPC_BacklightNtcAdcValue_Average_API_L
+                        0x1000'b93d    0x4  Code  Gb  Mod_TemperatureProtection_Ctrl.o [4]
+MTPC_BacklightNtcAdcValue_Average_API_L::u32BacklightNtcAdcValue_Average
+                         0x800'3ce0    0x4  Data  Lc  Mod_TemperatureProtection_Ctrl.o [4]
+MTPC_BacklightNtcAdcValue_Average_API_R
+                        0x1000'b941    0x2  Code  Gb  Mod_TemperatureProtection_Ctrl.o [4]
+MTPC_BacklightNtcAdcValue_Average_API_R::u32BacklightNtcAdcValue_Average
+                         0x800'3ce4    0x4  Data  Lc  Mod_TemperatureProtection_Ctrl.o [4]
+MTPC_BacklightNtcAdcValue_lookuptable_API
+                        0x1000'b965   0x76  Code  Gb  Mod_TemperatureProtection_Ctrl.o [4]
+MTPC_Backlight_derating_process
+                        0x1000'b9db  0x2dc  Code  Gb  Mod_TemperatureProtection_Ctrl.o [4]
+MTPC_PCBNtcAdcValue_Average_API
+                        0x1000'b953    0x4  Code  Gb  Mod_TemperatureProtection_Ctrl.o [4]
+MTPC_PCBNtcAdcValue_Average_API::u32BacklightNtcAdcValue_Average
+                         0x800'3ce8    0x4  Data  Lc  Mod_TemperatureProtection_Ctrl.o [4]
+MTPC_TemperatureProtection_Ctrl
+                        0x1000'bcc1   0x90  Code  Gb  Mod_TemperatureProtection_Ctrl.o [4]
+MTPC_Temperature_Get    0x1000'bd57   0xb6  Code  Gb  Mod_TemperatureProtection_Ctrl.o [4]
+MainCalibFPNReadCount    0x800'3d00    0x1  Data  Lc  Mod_FPNCtrl.o [4]
+Mod_TemPro_Ctrl_Table_Get
+                        0x1000'bd51    0x6  Code  Gb  Mod_TemperatureProtection_Ctrl.o [4]
+Mod_TemProtect_result    0x800'1614    0x4  Data  Gb  Com_TemperatureProtect.o [3]
+Mod_TemProtect_result_PWM
+                         0x800'160a    0x2  Data  Lc  Com_TemperatureProtect.o [3]
+Mod_TemProtect_result_PWM_temp
+                         0x800'160c    0x2  Data  Lc  Com_TemperatureProtect.o [3]
+Mod_TemProtect_result_status
+                         0x800'15fd    0x1  Data  Lc  Com_TemperatureProtect.o [3]
+NMI_Handler             0x1000'd169         Code  Wk  startup_cm0plus.o [52]
+NTC_Buffer               0x800'24ac    0x8  Data  Gb  Mod_DataManagement.o [4]
+PMICFaultSendEventFlag   0x800'2d9e    0x1  Data  Lc  Com_BatteryProtect.o [3]
+PWM_Adjuist_t            0x800'3c6c    0x8  Data  Lc  Mod_BLbrightness_Ctrl.o [4]
+PWM_Initialze           0x1000'2771   0x2a  Code  Gb  PWMApp.o [2]
+PendSV_Handler          0x1000'd16d         Code  Wk  startup_cm0plus.o [52]
+PinIO_DebounceResult    0x1000'22e9   0x4e  Code  Gb  Mod_BatteryProtection_Ctrl.o [4]
+Recover_Voltage_ActiveHigh
+                         0x800'249e    0x2  Data  Gb  Mod_BatteryProtection_Ctrl.o [4]
+Recover_Voltage_ActiveLow
+                         0x800'249c    0x2  Data  Gb  Mod_BatteryProtection_Ctrl.o [4]
+Region$$Table$$Base     0x1000'd034          --   Gb  - Linker created -
+Region$$Table$$Limit    0x1000'd054          --   Gb  - Linker created -
+Reset_Handler           0x1000'cc19         Code  Wk  startup_cm0plus.o [52]
+SCB_I2C_Get             0x1000'7109   0x22  Code  Lc  hal_i2c.o [40]
+SCB_I2C_Master_SendStartBit
+                        0x1000'712b   0x5a  Code  Lc  hal_i2c.o [40]
+SCB_I2C_Master_Transmit
+                        0x1000'7185   0xc8  Code  Lc  hal_i2c.o [40]
+SCB_Master_Recv         0x1000'724d   0x6c  Code  Lc  hal_i2c.o [40]
+SCB_Uart_Get            0x1000'2129   0x22  Code  Lc  hal_uart.o [46]
+SOURCE_IC_58H_B1         0x800'2924   0x18  Data  Lc  Mod_DetectI2C.o [4]
+SOURCE_IC_59H_B1         0x800'293c   0x18  Data  Lc  Mod_DetectI2C.o [4]
+SOURCE_IC_5AH_B1         0x800'2954   0x18  Data  Lc  Mod_DetectI2C.o [4]
+SOURCE_IC_5BH_B1         0x800'296c   0x18  Data  Lc  Mod_DetectI2C.o [4]
+SVC_Handler             0x1000'd0a9         Code  Wk  startup_cm0plus.o [52]
+SerialNumFPNReadCount    0x800'3d02    0x1  Data  Lc  Mod_FPNCtrl.o [4]
+ServiceTimeOutCnt        0x800'2d9d    0x1  Data  Lc  Com_BatteryProtect.o [3]
+SoftwareFPNFPNReadCount
+                         0x800'3d01    0x1  Data  Lc  Mod_FPNCtrl.o [4]
+SourceIC58Faultcount     0x800'3cb0    0x1  Data  Lc  Mod_DetectI2C.o [4]
+SourceIC59Faultcount     0x800'3cb1    0x1  Data  Lc  Mod_DetectI2C.o [4]
+SourceIC5AFaultcount     0x800'3cb2    0x1  Data  Lc  Mod_DetectI2C.o [4]
+SourceIC5BFaultcount     0x800'3cb3    0x1  Data  Lc  Mod_DetectI2C.o [4]
+Startup_Init            0x1000'cdc1   0x68  Code  Gb  startup.o [52]
+StrategyState_e          0x800'3cc8    0x1  Data  Lc  Mod_INTBControl.o [4]
+SysTick_Handler         0x1000'd171         Code  Wk  startup_cm0plus.o [52]
+SystemCoreClock          0x800'3c5c    0x4  Data  Gb  system_tviibe1m_cm0plus.o [53]
+SystemCoreClockUpdate   0x1000'bff5   0x70  Code  Gb  system_tviibe1m_cm0plus.o [53]
+TCON_B1                  0x800'28f4   0x18  Data  Lc  Mod_DetectI2C.o [4]
+TCON_B2                  0x800'290c   0x18  Data  Lc  Mod_DetectI2C.o [4]
+TimeOutCnt               0x800'15fc    0x1  Data  Lc  Com_TemperatureProtect.o [3]
+Timer_Initialize        0x1000'caa5   0x3c  Code  Gb  TimerApp.o [2]
+UartApp_initialize      0x1000'ca4d   0x58  Code  Gb  UartApp.o [2]
+Voltage_ActiveHigh       0x800'249a    0x2  Data  Gb  Mod_BatteryProtection_Ctrl.o [4]
+Voltage_ActiveLow        0x800'2498    0x2  Data  Gb  Mod_BatteryProtection_Ctrl.o [4]
+WDTApp_ClearWDT         0x1000'989d    0x8  Code  Gb  WDTApp.o [2]
+WDT_Initialize          0x1000'9869   0x2a  Code  Gb  WDTApp.o [2]
+WatchDogToogle_EN        0x800'24b4    0x1  Data  Lc  Mod_DataManagement.o [4]
+_LC                     0x1000'61b1    0x8  Code  Lc  xprintffull_nomb.o [54]
+_LitobFullNoMb          0x1000'6f4b  0x124  Code  Lc  xprintffull_nomb.o [54]
+_PrintfFullNoMb         0x1000'61b9  0xd92  Code  Gb  xprintffull_nomb.o [54]
+_PutcharsFullNoMb       0x1000'70bd   0x36  Code  Lc  xprintffull_nomb.o [54]
+_SNProut                0x1000'd0e1   0x1c  Code  Gb  xsnprout.o [54]
+__Vectors               0x1000'0000          --   Gb  startup_cm0plus.o [52]
+__Vectors_End           0x1000'0080         Data  Gb  startup_cm0plus.o [52]
+__Vectors_Size {Abs}           0x80          --   Gb  startup_cm0plus.o [52]
+__aeabi_cdcmple         0x1000'7875         Code  Gb  DblCmpLe.o [55]
+__aeabi_cdrcmple        0x1000'78a7         Code  Gb  DblCmpGe.o [55]
+__aeabi_d2iz            0x1000'7949         Code  Gb  DblToI32.o [55]
+__aeabi_d2uiz           0x1000'796d         Code  Gb  DblToI32.o [55]
+__aeabi_ddiv            0x1000'7b79         Code  Gb  DblDiv.o [55]
+__aeabi_dmul            0x1000'7c3b         Code  Gb  DblMul.o [55]
+__aeabi_dsub            0x1000'7a8b         Code  Gb  DblAddSub.o [55]
+__aeabi_i2d             0x1000'79bd         Code  Gb  IxxToDbl.o [55]
+__aeabi_idiv            0x1000'2515         Code  Gb  I32DivModFast.o [56]
+__aeabi_idiv0           0x1000'3a85         Code  Gb  IntDivZer.o [56]
+__aeabi_idivmod         0x1000'2515         Code  Gb  I32DivModFast.o [56]
+__aeabi_ldiv0           0x1000'7791         Code  Gb  I64DivZer.o [56]
+__aeabi_lmul            0x1000'7795         Code  Gb  I64Mul.o [56]
+__aeabi_memclr          0x1000'1f95         Code  Gb  ABImemset.o [56]
+__aeabi_memclr4         0x1000'1f99         Code  Gb  ABImemset.o [56]
+__aeabi_memclr8         0x1000'1f99         Code  Gb  ABImemset.o [56]
+__aeabi_memcpy          0x1000'2015         Code  Gb  ABImemcpy.o [56]
+__aeabi_memcpy4         0x1000'1fe1         Code  Gb  ABImemcpy.o [56]
+__aeabi_memcpy8         0x1000'1fe1         Code  Gb  ABImemcpy.o [56]
+__aeabi_memset          0x1000'1f75         Code  Gb  ABImemset.o [56]
+__aeabi_memset4         0x1000'1f9d         Code  Gb  ABImemset.o [56]
+__aeabi_memset8         0x1000'1f9d         Code  Gb  ABImemset.o [56]
+__aeabi_ui2d            0x1000'799d         Code  Gb  IxxToDbl.o [55]
+__aeabi_uidiv           0x1000'251b         Code  Gb  I32DivModFast.o [56]
+__aeabi_uidivmod        0x1000'251b         Code  Gb  I32DivModFast.o [56]
+__aeabi_uldivmod        0x1000'44c1         Code  Gb  I64DivMod.o [56]
+__cm4_vector_base_linker_symbol {Abs}
+                        0x1008'0000         Data  Gb  <internal module>
+__cmain                 0x1000'd055         Code  Gb  cmain.o [56]
+__ecc_init_sram_end_address {Abs}
+                         0x800'ffff         Data  Gb  <internal module>
+__ecc_init_sram_start_address {Abs}
+                         0x800'0000         Data  Gb  <internal module>
+__exit                  0x1000'7dc9   0x14  Code  Gb  exit.o [57]
+__iar_Fail_s            0x1000'77dd   0x22  Code  Gb  xfail_s.o [54]
+__iar_Memchr            0x1000'7835         Code  Gb  memchr.o [56]
+__iar_Memcpy            0x1000'2021         Code  Gb  ABImemcpy.o [56]
+__iar_Memset4_word      0x1000'1fa9         Code  Gb  ABImemset.o [56]
+__iar_Memset_word       0x1000'1f81         Code  Gb  ABImemset.o [56]
+__iar_Strchr            0x1000'77c9         Code  Gb  strchr.o [56]
+__iar_d2uiz             0x1000'7971         Code  Gb  DblToI32.o [55]
+__iar_data_init3        0x1000'd00d   0x28  Code  Gb  data_init.o [56]
+__iar_frexp             0x1000'7857         Code  Gb  frexp.o [55]
+__iar_frexp64           0x1000'784b         Code  Gb  frexp.o [55]
+__iar_frexpl            0x1000'7857         Code  Gb  frexp.o [55]
+__iar_ldexp64           0x1000'78d9         Code  Gb  ldexp.o [55]
+__iar_lz77_init_single3
+                        0x1000'cb99   0x80  Code  Gb  lz77_init_single.o [56]
+__iar_program_start     0x1000'd0c5         Code  Gb  cstartup_M.o [56]
+__iar_scalbln64         0x1000'78d9         Code  Gb  ldexp.o [55]
+__iar_scalbn64          0x1000'78d9         Code  Gb  ldexp.o [55]
+__iar_zero_init3        0x1000'cfa1   0x3c  Code  Gb  zero_init3.o [56]
+__low_level_init        0x1000'd075         Code  Gb  startup_cm0plus.o [52]
+__ramVectors             0x800'3e00         Data  Gb  startup_cm0plus.o [52]
+__vector_table          0x1000'0000         Data  Gb  startup_cm0plus.o [52]
+__vector_table_0x1c     0x1000'001c         Data  Gb  startup_cm0plus.o [52]
+_call_main              0x1000'd061         Code  Gb  cmain.o [56]
+_exit                   0x1000'd081         Code  Gb  cexit.o [56]
+abort                   0x1000'7dbf    0xa  Code  Gb  abort.o [54]
+bVoltageDerating         0x800'3cfd    0x1  Data  Lc  Mod_DataManagement.o [4]
+bl_state                 0x800'3cf2    0x1  Data  Lc  Com_Diagnostic.o [3]
+cy_assertFileName        0x800'3c40   0x18  Data  Gb  cy_syslib.o [25]
+cy_assertLine            0x800'3cd8    0x4  Data  Gb  cy_syslib.o [25]
+cy_delay32kMs            0x800'3c68    0x4  Data  Gb  system_tviibe1m_cm0plus.o [53]
+cy_delayFreqHz           0x800'3c60    0x4  Data  Gb  system_tviibe1m_cm0plus.o [53]
+cy_delayFreqKhz          0x800'3c64    0x4  Data  Gb  system_tviibe1m_cm0plus.o [53]
+cy_delayFreqMhz          0x800'3c58    0x1  Data  Gb  system_tviibe1m_cm0plus.o [53]
+cy_faultFrame            0x800'3ad0   0x24  Data  Gb  cy_syslib.o [25]
+eCDC_LockState           0x800'2da7    0x1  Data  Lc  Com_DeviceControl.o [3]
+eCDC_PowerState          0x800'2da6    0x1  Data  Lc  Com_DeviceControl.o [3]
+eDisplayScanStatus       0x800'3d0b    0x1  Data  Gb  Mod_ScanDirection_Ctrl.o [4]
+exit                    0x1000'd079    0x8  Code  Gb  exit.o [54]
+fpc_config               0x800'3c08    0x8  Data  Gb  Mod_DetectGPIO.o [4]
+frexp                   0x1000'784b         Code  Gb  frexp.o [55]
+frexpl                  0x1000'784b         Code  Gb  frexp.o [55]
+gApMode                  0x800'24c4    0x4  Data  Gb  Mod_DataManagement.o [4]
+gErrorCounter            0x800'2594   0x10  Data  Lc  Mod_DataManagement.o [4]
+gMcuVerReturn            0x800'24c8    0xc  Data  Lc  Mod_DataManagement.o [4]
+gReadBackErrorCounter    0x800'24e4   0x10  Data  Lc  Mod_DataManagement.o [4]
+g_NB_ModeEnabled         0x800'3c3e    0x1  Data  Lc  cy_mw_flash.o [49]
+g_completeFlag           0x800'3c3d    0x1  Data  Lc  cy_mw_flash.o [49]
+g_scratch                0x800'3c80   0x10  Data  Lc  cy_srom.o [21]
+gbUpdateRead             0x800'3cf8    0x1  Data  Lc  Mod_DataManagement.o [4]
+gp_srom_resp_handler     0x800'3cd4    0x4  Data  Lc  cy_srom.o [21]
+gtdADC_ChannelConfig     0x800'23d0    0xc  Data  Gb  hal_adc_config.o [39]
+gtdADC_Config            0x800'3c7e    0x2  Data  Gb  hal_adc_config.o [39]
+gtdPinInputConfig        0x800'2430    0x8  Data  Gb  hal_gpio_config.o [39]
+gtdPinOutputConfig       0x800'2410    0x8  Data  Gb  hal_gpio_config.o [39]
+gtdPinOutputConfig_OD_GPIO
+                         0x800'2418    0x8  Data  Gb  hal_gpio_config.o [39]
+gtdPinOutputConfig_PWM_GPIO
+                         0x800'2420    0x8  Data  Gb  hal_gpio_config.o [39]
+gtdPinOutputConfig_Test
+                         0x800'2400    0x8  Data  Gb  hal_gpio_config.o [39]
+gtdPinOutputConfig_Test2
+                         0x800'2408    0x8  Data  Gb  hal_gpio_config.o [39]
+gtsClockInit             0x800'23dc   0x24  Data  Gb  hal_clock_config.o [39]
+gtsI2C_Master_Fast_Mode
+                         0x800'2438   0x10  Data  Gb  hal_i2c_config.o [39]
+gtsI2C_Slave_Fast_Mode   0x800'2448   0x10  Data  Gb  hal_i2c_config.o [39]
+gtsTempForm_ModTemPro    0x800'2998    0x4  Data  Lc  Mod_TemperatureProtection_Ctrl.o [4]
+gts_10mSec_Timer_Continuous_Config
+                         0x800'2464    0xc  Data  Gb  hal_timer_config.o [39]
+gts_1mSec_Timer_Continuous_Config
+                         0x800'2458    0xc  Data  Gb  hal_timer_config.o [39]
+gts_25mSec_Timer_Continuous_Config
+                         0x800'247c    0xc  Data  Gb  hal_timer_config.o [39]
+gts_2mSec_Timer_Continuous_Config
+                         0x800'2470    0xc  Data  Gb  hal_timer_config.o [39]
+gts_UART_115200_bps_Config
+                         0x800'2488    0xc  Data  Gb  hal_uart_config.o [39]
+gu16BattVoltage          0x800'24a2    0x2  Data  Lc  Mod_BatteryProtection_Ctrl.o [4]
+gu16CoolFanPWMDuty       0x800'24d4    0x2  Data  Gb  Mod_DataManagement.o [4]
+i16BacklightStatus_Derating_temprecord
+                         0x800'3432    0x2  Data  Lc  Mod_TemperatureProtection_Ctrl.o [4]
+i16BacklightTemperature
+                         0x800'299c    0x2  Data  Lc  Mod_TemperatureProtection_Ctrl.o [4]
+i16Temperature_984       0x800'1610    0x2  Data  Gb  Com_TemperatureProtect.o [3]
+i16Temperature_BL        0x800'160e    0x2  Data  Gb  Com_TemperatureProtect.o [3]
+i2cMessagesInit         0x1000'0081  0x116  Code  Gb  Mod_DataManagement.o [4]
+i2c_messages             0x800'368c   0xc8  Data  Gb  Mod_DataManagement.o [4]
+i8PCBNtcAdcTable_Temp    0x800'2c38  0x14c  Data  Gb  Mod_TemperatureProtection_Ctrl.o [4]
+intFreqInitialized       0x800'3c3c    0x1  Data  Gb  cy_sysclk.o [22]
+internalBaseFreqInfo     0x800'3c24   0x18  Data  Gb  cy_sysclk.o [22]
+last_Mod_TemProtect_result_status
+                         0x800'15fe    0x1  Data  Lc  Com_TemperatureProtect.o [3]
+ldexp                   0x1000'78d9         Code  Gb  ldexp.o [55]
+ldexpl                  0x1000'78d9         Code  Gb  ldexp.o [55]
+main                    0x1000'c981   0xbc  Code  Gb  main_cm0plus.o [1]
+memchr                  0x1000'7835         Code  Gb  memchr.o [56]
+memcmp                  0x1000'c295         Code  Gb  memcmp.o [56]
+rxBuffer                 0x800'3260  0x100  Data  Lc  I2CSlaveApp.o [2]
+sPmState                 0x800'2dab    0x1  Data  Gb  Com_PowerManagement.o [3]
+scalbln                 0x1000'78d9         Code  Gb  ldexp.o [55]
+scalblnl                0x1000'78d9         Code  Gb  ldexp.o [55]
+scalbn                  0x1000'78d9         Code  Gb  ldexp.o [55]
+scalbnl                 0x1000'78d9         Code  Gb  ldexp.o [55]
+scale                   0x1000'706f   0x44  Code  Lc  xprintffull_nomb.o [54]
+sec_hand                 0x800'3cec    0x4  Data  Lc  xfail_s.o [54]
+statusBuff               0x800'3be8    0x4  Data  Lc  AdcApp.o [2]
+strchr                  0x1000'77c9         Code  Gb  strchr.o [56]
+strlen                  0x1000'7825         Code  Gb  strlen.o [56]
+strncpy                 0x1000'400d         Code  Gb  strncpy.o [56]
+subAddress               0x800'3a00    0x1  Data  Lc  I2CSlaveApp.o [2]
+tdADC0                   0x800'20d0  0x120  Data  Lc  hal_adc.o [34]
+tdADC1                   0x800'21f0  0x180  Data  Lc  hal_adc.o [34]
+tdADC2                   0x800'2370   0x60  Data  Lc  hal_adc.o [34]
+tdBatteryProcessStatus   0x800'2d9c    0x1  Data  Lc  Com_BatteryProtect.o [3]
+tdDisplayEnReg           0x800'3cd0    0x1  Data  Lc  Com_Diagnostic.o [3]
+tmp_Diag                 0x800'25a4    0x4  Data  Gb  Mod_DetectI2C.o [4]
+tsAdcChannelDefConfig   0x1000'b640   0x20  Data  Lc  hal_adc.o [34]
+tsConuterDefConfig      0x1000'ccf0   0x68  Data  Lc  hal_timer.o [45]
+tsDivider_24_5           0x800'20c0   0x10  Data  Lc  cyhal_hwmgr.o [36]
+tsGpioCfg_GPIO_PWM       0x800'2428    0x8  Data  Gb  hal_gpio_config.o [39]
+tsI2C                    0x800'2dc0  0x2c0  Data  Lc  hal_i2c.o [40]
+tsPLL_SOURCE_ECO_Config
+                        0x1000'bfdc    0xc  Data  Lc  hal_clock.o [35]
+tsPLL_SOURCE_IMO_Config
+                        0x1000'bfe8    0xc  Data  Lc  hal_clock.o [35]
+tsSCB                    0x800'1ba0   0xc0  Data  Lc  cyhal_hwmgr.o [36]
+tsTCPWM                  0x800'1c60  0x460  Data  Lc  cyhal_hwmgr.o [36]
+tsUart                   0x800'3080  0x1e0  Data  Lc  hal_uart.o [46]
+tsUartDefConfig         0x1000'ce78   0x4c  Data  Lc  hal_uart.o [46]
+ts_20K_hz_Config         0x800'2d88   0x14  Data  Lc  PWMApp.o [2]
+txBuffer                 0x800'3a04   0x44  Data  Lc  I2CSlaveApp.o [2]
+txDataLength             0x800'3a4c    0x4  Data  Lc  I2CSlaveApp.o [2]
+u10BitPWMValue           0x800'24de    0x2  Data  Lc  Mod_DataManagement.o [4]
+u16BLPWMVal_I2C_16bit    0x800'3c78    0x2  Data  Lc  Mod_BLbrightness_Ctrl.o [4]
+u16BacklightDutyCycle    0x800'3430    0x2  Data  Lc  Mod_TemperatureProtection_Ctrl.o [4]
+u16BacklightNtcAdcValue_L
+                         0x800'1600    0x2  Data  Lc  Com_TemperatureProtect.o [3]
+u16BacklightNtcAdcValue_R
+                         0x800'1602    0x2  Data  Lc  Com_TemperatureProtect.o [3]
+u16BacklightNtcAdcVaules
+                         0x800'24d6    0x2  Data  Lc  Mod_DataManagement.o [4]
+u16BacklightUserDuty_Get
+                         0x800'1608    0x2  Data  Lc  Com_TemperatureProtect.o [3]
+u16BatterAdcVal          0x800'2da0    0x2  Data  Lc  Com_BatteryProtect.o [3]
+u16BatteryVoltAdcValues_Delay1
+                         0x800'3ca8    0x2  Data  Lc  Mod_BatteryProtection_Ctrl.o [4]
+u16BatteryVoltAdcValues_Delay2
+                         0x800'3ca0    0x8  Data  Lc  Mod_BatteryProtection_Ctrl.o [4]
+u16BatteryVoltageValue   0x800'24da    0x2  Data  Lc  Mod_DataManagement.o [4]
+u16Cnt                   0x800'2da4    0x2  Data  Lc  Mod_BatteryProtection_Ctrl.o [4]
+u16CurrentBLPWM_10bit    0x800'3c76    0x2  Data  Lc  Mod_BLbrightness_Ctrl.o [4]
+u16MCURef_1V_ADCValues   0x800'1606    0x2  Data  Lc  Com_TemperatureProtect.o [3]
+u16PCB984NtcAdcTable_RawData
+                         0x800'2aec  0x14c  Data  Gb  Mod_TemperatureProtection_Ctrl.o [4]
+u16PCBNtcAdcTable_RawData
+                         0x800'29a0  0x14c  Data  Gb  Mod_TemperatureProtection_Ctrl.o [4]
+u16PCBNtcAdcVaules       0x800'24d8    0x2  Data  Lc  Mod_DataManagement.o [4]
+u16PWMflage              0x800'3c7a    0x2  Data  Gb  Mod_BLbrightness_Ctrl.o [4]
+u16PWMper_getreg         0x800'3c06    0x2  Data  Lc  PWMApp.o [2]
+u16Pcb984NtcAdcValue     0x800'1604    0x2  Data  Lc  Com_TemperatureProtect.o [3]
+u16UpdateKey             0x800'1500    0x2  Data  Wk  Mod_DataManagement.o [4]
+u16backlightCounter      0x800'342e    0x2  Data  Lc  Mod_TemperatureProtection_Ctrl.o [4]
+u32SamplingCycle         0x800'3cdc    0x4  Data  Lc  hal_adc.o [34]
+u8BISTModeFlag           0x800'2586    0x1  Data  Lc  Mod_DataManagement.o [4]
+u8BIST_DATA_t            0x800'24a8    0x1  Data  Lc  Mod_DataManagement.o [4]
+u8BLPWMFlag              0x800'24b8    0x1  Data  Lc  Mod_DataManagement.o [4]
+u8BacklightStatus        0x800'342b    0x1  Data  Lc  Mod_TemperatureProtection_Ctrl.o [4]
+u8BacklightStatus_Derating_mode
+                         0x800'342c    0x1  Data  Lc  Mod_TemperatureProtection_Ctrl.o [4]
+u8BatteryProtection_initial
+                         0x800'3caa    0x1  Data  Lc  Mod_BatteryProtection_Ctrl.o [4]
+u8BatteryProtection_status
+                         0x800'3cab    0x1  Data  Lc  Mod_BatteryProtection_Ctrl.o [4]
+u8ClientDiag             0x800'3a80   0x2c  Data  Lc  Mod_DataManagement.o [4]
+u8ConnectDetectFlag      0x800'152e    0x1  Data  Gb  Com_Diagnostic.o [3]
+u8CoreAssmFPN            0x800'2510   0x1c  Data  Lc  Mod_DataManagement.o [4]
+u8CoreAssmFPNFlag        0x800'258d    0x1  Data  Lc  Mod_DataManagement.o [4]
+u8Crc8                   0x800'3a02    0x1  Data  Lc  I2CSlaveApp.o [2]
+u8CrcRuleAccept_flag     0x800'24bd    0x1  Data  Lc  Mod_DataManagement.o [4]
+u8DebounceResault        0x800'2494    0x1  Data  Lc  Mod_BatteryProtection_Ctrl.o [4]
+u8DelAssmFPN             0x800'24f4   0x1c  Data  Lc  Mod_DataManagement.o [4]
+u8DelAssmFPNFlag         0x800'258b    0x1  Data  Lc  Mod_DataManagement.o [4]
+u8DeratingEN             0x800'2589    0x1  Data  Lc  Mod_DataManagement.o [4]
+u8DeratingStatus         0x800'24c2    0x1  Data  Lc  Mod_DataManagement.o [4]
+u8DiagnosticMessageFlag
+                         0x800'2587    0x1  Data  Lc  Mod_DataManagement.o [4]
+u8DispENFlag             0x800'24b7    0x1  Data  Lc  Mod_DataManagement.o [4]
+u8DispIDFPN              0x800'2548    0x4  Data  Lc  Mod_DataManagement.o [4]
+u8DispIDFPNFlag          0x800'2591    0x1  Data  Lc  Mod_DataManagement.o [4]
+u8DispVoltSatus          0x800'24be    0x1  Data  Lc  Mod_DataManagement.o [4]
+u8EventSetCount          0x800'3c23    0x1  Data  Lc  Com_Diagnostic.o [3]
+u8EventSetFlag           0x800'3c22    0x1  Data  Lc  Com_Diagnostic.o [3]
+u8FPNFlashBuff           0x800'37f4   0x80  Data  Lc  Mod_FPNCtrl.o [4]
+u8FactoryEn              0x800'2588    0x1  Data  Lc  Mod_DataManagement.o [4]
+u8FirstDiag              0x800'2db3    0x1  Data  Lc  Mod_DataManagement.o [4]
+u8FlashBuf               0x800'3900   0x80  Data  Lc  Mod_DataManagement.o [4]
+u8FlashBuff              0x800'3980   0x80  Data  Lc  MCUDiagApp.o [2]
+u8INITActiveFlag         0x800'24b6    0x1  Data  Lc  Mod_DataManagement.o [4]
+u8InitDivider            0x800'3cf6    0x1  Data  Lc  hal_timer.o [45]
+u8Init_PWM_Divider       0x800'3cf5    0x1  Data  Lc  hal_pwm.o [42]
+u8JumpToBootCodeFlag     0x800'24b9    0x1  Data  Lc  Mod_DataManagement.o [4]
+u8LastHostRollingCnt     0x800'24bb    0x1  Data  Lc  Mod_DataManagement.o [4]
+u8LastHostSendsubAddress
+                         0x800'24bc    0x1  Data  Lc  Mod_DataManagement.o [4]
+u8LedVoltStatus          0x800'24bf    0x1  Data  Lc  Mod_DataManagement.o [4]
+u8LocalDim_Flag          0x800'2db2    0x1  Data  Lc  Mod_DataManagement.o [4]
+u8LockPinStatus          0x800'3cf9    0x1  Data  Lc  Mod_DataManagement.o [4]
+u8LowVolResetReq         0x800'24e0    0x1  Data  Lc  Mod_DataManagement.o [4]
+u8MCUSendRollingCnt      0x800'24ba    0x1  Data  Lc  Mod_DataManagement.o [4]
+u8MainCalibFPN           0x800'252c   0x1c  Data  Lc  Mod_DataManagement.o [4]
+u8MainCalibFPNFlag       0x800'258f    0x1  Data  Lc  Mod_DataManagement.o [4]
+u8PinIO_DebounceResult_initial
+                         0x800'2da2    0x1  Data  Lc  Mod_BatteryProtection_Ctrl.o [4]
+u8PinIO_DebounceResult_status
+                         0x800'2da3    0x1  Data  Lc  Mod_BatteryProtection_Ctrl.o [4]
+u8PowerInitStatus        0x800'3cfa    0x1  Data  Gb  Mod_DataManagement.o [4]
+u8PrintfTextBuf          0x800'3874   0x88  Data  Lc  hal_uart.o [46]
+u8Reset_Requst_flag      0x800'3cb4    0x1  Data  Gb  Mod_DetectI2C.o [4]
+u8RollingCnt             0x800'3a01    0x1  Data  Lc  I2CSlaveApp.o [2]
+u8ScanDirectionFlag      0x800'2584    0x1  Data  Lc  Mod_DataManagement.o [4]
+u8SendEventStatus        0x800'2495    0x1  Data  Gb  Mod_BatteryProtection_Ctrl.o [4]
+u8SerialNumFPN           0x800'2568   0x1c  Data  Lc  Mod_DataManagement.o [4]
+u8SerialNumFPNFlag       0x800'2db1    0x1  Data  Lc  Mod_DataManagement.o [4]
+u8ShutdownFlag           0x800'2585    0x1  Data  Lc  Mod_DataManagement.o [4]
+u8SoftwareFPN            0x800'254c   0x1c  Data  Lc  Mod_DataManagement.o [4]
+u8SoftwareFPNFlag        0x800'2593    0x1  Data  Lc  Mod_DataManagement.o [4]
+u8SourceICDetectCount    0x800'152d    0x1  Data  Lc  Com_Diagnostic.o [3]
+u8TCONversion            0x800'24c3    0x1  Data  Lc  Mod_DataManagement.o [4]
+u8TFT_Rev_ID             0x800'24c1    0x1  Data  Lc  Mod_DataManagement.o [4]
+u8VCOM                   0x800'24c0    0x1  Data  Lc  Mod_DataManagement.o [4]
+u8VolRestRq_flag         0x800'3cfc    0x1  Data  Lc  Mod_DataManagement.o [4]
+u8VoltCount              0x800'2d9f    0x1  Data  Lc  Com_BatteryProtect.o [3]
+u8WatchDogToogle_EN      0x800'3d09    0x1  Data  Gb  Mod_PowerSequence_Ctrl.o [4]
+u8WriteCoreAssmPNStatusRegFlag
+                         0x800'258c    0x1  Data  Lc  Mod_DataManagement.o [4]
+u8WriteDelAssmPNStatusRegFlag
+                         0x800'258a    0x1  Data  Lc  Mod_DataManagement.o [4]
+u8WriteDispIDPNStatusRegFlag
+                         0x800'2590    0x1  Data  Lc  Mod_DataManagement.o [4]
+u8WriteMainCalibPNStatusRegFlag
+                         0x800'258e    0x1  Data  Lc  Mod_DataManagement.o [4]
+u8WriteSerialNumFPNStatusRegFlag
+                         0x800'2db0    0x1  Data  Lc  Mod_DataManagement.o [4]
+u8WriteSoftwareFPNStatusRegFlag
+                         0x800'2592    0x1  Data  Lc  Mod_DataManagement.o [4]
+u8backlightprocess_initial
+                         0x800'342a    0x1  Data  Lc  Mod_TemperatureProtection_Ctrl.o [4]
+u8flashWriteStatus       0x800'3cf4    0x1  Data  Lc  FlashApp.o [2]
+u8sourceDriver_rest_flag
+                         0x800'3cfb    0x1  Data  Lc  Mod_DataManagement.o [4]
+u984_TempAdcVaules       0x800'3bfc    0x2  Data  Lc  AdcApp.o [2]
+uADC_THERMAL_N_L_ADC     0x800'3bf0    0x2  Data  Lc  AdcApp.o [2]
+uADC_THERMAL_N_R_ADC     0x800'3bf4    0x2  Data  Lc  AdcApp.o [2]
+uADC_THERMAL_P_L_ADC     0x800'3bf2    0x2  Data  Lc  AdcApp.o [2]
+uADC_THERMAL_P_R_ADC     0x800'3bf6    0x2  Data  Lc  AdcApp.o [2]
+uAdcApp_BatteryVoltAdcValue
+                         0x800'3bee    0x2  Data  Lc  AdcApp.o [2]
+uBacklightNtcAdcVaules_L
+                         0x800'3bf8    0x2  Data  Lc  AdcApp.o [2]
+uBacklightNtcAdcVaules_R
+                         0x800'3bfa    0x2  Data  Lc  AdcApp.o [2]
+uBatteryVoltAdcValue     0x800'24dc    0x2  Data  Lc  Mod_DataManagement.o [4]
+uDataCDC1                0x800'3c90    0x4  Data  Lc  Mod_DisplayEN_Ctrl.o [4]
+uDataCDC2                0x800'3c94    0x4  Data  Lc  Mod_DisplayEN_Ctrl.o [4]
+uDataCDC3                0x800'3c98    0x4  Data  Lc  Mod_DisplayEN_Ctrl.o [4]
+uDataCDC4                0x800'3c9c    0x4  Data  Lc  Mod_DisplayEN_Ctrl.o [4]
+uVRefHAdcVaules          0x800'3bfe    0x2  Data  Lc  AdcApp.o [2]
+uVRefLAdcVaules          0x800'3c00    0x2  Data  Lc  AdcApp.o [2]
+ucCustomID              0x1000'd160    0x8  Data  Gb  FlashApp.o [2]
+ucDimmingStepCnt         0x800'3c74    0x1  Data  Lc  Mod_BLbrightness_Ctrl.o [4]
+ucErrorPower             0x800'24b5    0x1  Data  Lc  Mod_DataManagement.o [4]
+ucMcuChecksum           0x1000'd0fc   0x10  Data  Gb  FlashApp.o [2]
+ucMcuVer                0x1000'd154    0xc  Data  Gb  FlashApp.o [2]
+vsnprintf               0x1000'36fd   0x40  Code  Gb  vsnprint.o [54]
+writingByteSize          0x800'3a48    0x4  Data  Lc  I2CSlaveApp.o [2]
+
+
+[1] = C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src
+[2] = C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\APP
+[3] = C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\APP\Component
+[4] = C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\APP\Module
+[5] = C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\drivers\adc
+[6] = C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\drivers\canfd
+[7] = C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\drivers\cpu
+[8] = C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\drivers\crypto
+[9] = C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\drivers\dma
+[10] = C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\drivers\evtgen
+[11] = C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\drivers\flash
+[12] = C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\drivers\gpio
+[13] = C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\drivers\ipc
+[14] = C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\drivers\lin
+[15] = C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\drivers\lvd
+[16] = C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\drivers\mcwdt
+[17] = C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\drivers\mpu
+[18] = C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\drivers\prot
+[19] = C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\drivers\scb
+[20] = C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\drivers\smartio
+[21] = C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\drivers\srom
+[22] = C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\drivers\sysclk
+[23] = C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\drivers\sysflt
+[24] = C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\drivers\sysint
+[25] = C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\drivers\syslib
+[26] = C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\drivers\syspm
+[27] = C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\drivers\sysreset
+[28] = C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\drivers\sysrtc
+[29] = C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\drivers\systick
+[30] = C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\drivers\syswdt
+[31] = C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\drivers\tcpwm
+[32] = C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\drivers\trigmux
+[33] = C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\hal
+[34] = C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\hal\adc
+[35] = C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\hal\clock
+[36] = C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\hal\cy_hdr
+[37] = C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\hal\fmc
+[38] = C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\hal\gpio
+[39] = C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\hal\hal_config
+[40] = C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\hal\i2c
+[41] = C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\hal\pm
+[42] = C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\hal\pwm
+[43] = C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\hal\sp
+[44] = C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\hal\spi
+[45] = C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\hal\timer
+[46] = C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\hal\uart
+[47] = C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\interrupts\rev_b
+[48] = C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\mw\button
+[49] = C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\mw\flash
+[50] = C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\mw\semihosting
+[51] = C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\mw\sw_timer
+[52] = C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\startup
+[53] = C:\TVII_Sample_Driver_Library_7.1.0\tviibe1m_707app_V0211\tools\iar\flash\cm0plus\rev_b\Obj\src\system\rev_b
+[54] = dl6M_tln.a
+[55] = m6M_tl.a
+[56] = rt6M_tl.a
+[57] = shb_l.a
+
+  52'102 bytes of readonly  code memory
+   3'737 bytes of readonly  data memory
+  11'398 bytes of readwrite data memory (+ 2 absolute)
+
+Errors: none
+Warnings: none

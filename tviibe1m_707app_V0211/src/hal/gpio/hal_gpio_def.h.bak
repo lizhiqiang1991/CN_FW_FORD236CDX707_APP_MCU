@@ -1,0 +1,268 @@
+#ifndef HAL_GPIO_DEF_H
+#define HAL_GPIO_DEF_H
+
+/** Gets a pin definition from the provided port and pin numbers */
+#define CYHAL_GET_GPIO(port, pin)   ((((uint8_t)(port)) << 3U) + ((uint8_t)(pin)))
+
+/** Macro that, given a gpio, will extract the pin number */
+#define CYHAL_GET_PIN(pin)          ((uint8_t)(((uint8_t)pin) & 0x07U))
+
+/** Macro that, given a gpio, will extract the port number */
+#define CYHAL_GET_PORT(pin)         ((uint8_t)((((uint8_t)pin) >> 3U) & 0x1FU))
+
+/** Port definitions */
+#define IO_PORT0        0x00U
+#define IO_PORT1        0x01U
+#define IO_PORT2        0x02U
+#define IO_PORT3        0x03U
+#define IO_PORT4        0x04U
+#define IO_PORT5        0x05U
+#define IO_PORT6        0x06U
+#define IO_PORT7        0x07U
+#define IO_PORT8        0x08U
+#define IO_PORT9        0x09U
+#define IO_PORT10       0x0AU
+#define IO_PORT11       0x0BU
+#define IO_PORT12       0x0CU
+#define IO_PORT13       0x0DU
+#define IO_PORT14       0x0EU
+#define IO_PORT15       0x0FU
+#define IO_PORT16       0x10U
+#define IO_PORT17       0x11U
+#define IO_PORT18       0x12U
+#define IO_PORT19       0x13U
+#define IO_PORT20       0x14U
+#define IO_PORT21       0x15U
+#define IO_PORT22       0x16U
+#define IO_PORT23       0x17U
+#define IO_PORT_MAX     0x18U
+
+/** Pin definitions */
+#define IO_NC           0xFF                        //!< No Connect/Invalid Pin
+
+#define IO_P0_0         CYHAL_GET_GPIO(IO_PORT0, 0) //!< Port 0 Pin 0
+#define IO_P0_1         CYHAL_GET_GPIO(IO_PORT0, 1) //!< Port 0 Pin 1
+#define IO_P0_2         CYHAL_GET_GPIO(IO_PORT0, 2) //!< Port 0 Pin 2
+#define IO_P0_3         CYHAL_GET_GPIO(IO_PORT0, 3) //!< Port 0 Pin 3
+
+#define IO_P2_0         CYHAL_GET_GPIO(IO_PORT2, 0) //!< Port 2 Pin 0
+#define IO_P2_1         CYHAL_GET_GPIO(IO_PORT2, 1) //!< Port 2 Pin 1
+#define IO_P2_2         CYHAL_GET_GPIO(IO_PORT2, 2) //!< Port 2 Pin 2
+#define IO_P2_3         CYHAL_GET_GPIO(IO_PORT2, 3) //!< Port 2 Pin 3
+
+#define IO_P3_0         CYHAL_GET_GPIO(IO_PORT3, 0) //!< Port 3 Pin 0
+#define IO_P3_1         CYHAL_GET_GPIO(IO_PORT3, 1) //!< Port 3 Pin 1
+
+#define IO_P5_0         CYHAL_GET_GPIO(IO_PORT5, 0) //!< Port 5 Pin 0
+#define IO_P5_1         CYHAL_GET_GPIO(IO_PORT5, 1) //!< Port 5 Pin 1
+#define IO_P5_2         CYHAL_GET_GPIO(IO_PORT5, 2) //!< Port 5 Pin 2
+#define IO_P5_3         CYHAL_GET_GPIO(IO_PORT5, 3) //!< Port 5 Pin 3
+
+#define IO_P6_0         CYHAL_GET_GPIO(IO_PORT6, 0) //!< Port 6 Pin 0
+#define IO_P6_1         CYHAL_GET_GPIO(IO_PORT6, 1) //!< Port 6 Pin 1
+#define IO_P6_2         CYHAL_GET_GPIO(IO_PORT6, 2) //!< Port 6 Pin 2
+#define IO_P6_3         CYHAL_GET_GPIO(IO_PORT6, 3) //!< Port 6 Pin 3
+#define IO_P6_4         CYHAL_GET_GPIO(IO_PORT6, 4) //!< Port 6 Pin 4
+#define IO_P6_5         CYHAL_GET_GPIO(IO_PORT6, 5) //!< Port 6 Pin 5
+
+#define IO_P7_0         CYHAL_GET_GPIO(IO_PORT7, 0) //!< Port 7 Pin 0
+#define IO_P7_1         CYHAL_GET_GPIO(IO_PORT7, 1) //!< Port 7 Pin 1
+#define IO_P7_2         CYHAL_GET_GPIO(IO_PORT7, 2) //!< Port 7 Pin 2
+#define IO_P7_3         CYHAL_GET_GPIO(IO_PORT7, 3) //!< Port 7 Pin 3
+#define IO_P7_4         CYHAL_GET_GPIO(IO_PORT7, 4) //!< Port 7 Pin 4
+#define IO_P7_5         CYHAL_GET_GPIO(IO_PORT7, 5) //!< Port 7 Pin 5
+
+#define IO_P8_0         CYHAL_GET_GPIO(IO_PORT8, 0) //!< Port 8 Pin 0
+#define IO_P8_1         CYHAL_GET_GPIO(IO_PORT8, 1) //!< Port 8 Pin 1
+#define IO_P8_2         CYHAL_GET_GPIO(IO_PORT8, 2) //!< Port 8 Pin 2
+
+#define IO_P11_0         CYHAL_GET_GPIO(IO_PORT11, 0) //!< Port 11 Pin 0
+#define IO_P11_1         CYHAL_GET_GPIO(IO_PORT11, 1) //!< Port 11 Pin 1
+#define IO_P11_2         CYHAL_GET_GPIO(IO_PORT11, 2) //!< Port 11 Pin 2
+
+#define IO_P12_0         CYHAL_GET_GPIO(IO_PORT12, 0) //!< Port 12 Pin 0
+#define IO_P12_1         CYHAL_GET_GPIO(IO_PORT12, 1) //!< Port 12 Pin 1
+#define IO_P12_2         CYHAL_GET_GPIO(IO_PORT12, 2) //!< Port 12 Pin 2
+#define IO_P12_3         CYHAL_GET_GPIO(IO_PORT12, 3) //!< Port 12 Pin 3
+#define IO_P12_4         CYHAL_GET_GPIO(IO_PORT12, 4) //!< Port 12 Pin 4
+
+#define IO_P13_0         CYHAL_GET_GPIO(IO_PORT13, 0) //!< Port 13 Pin 0
+#define IO_P13_1         CYHAL_GET_GPIO(IO_PORT13, 1) //!< Port 13 Pin 1
+#define IO_P13_2         CYHAL_GET_GPIO(IO_PORT13, 2) //!< Port 13 Pin 2
+#define IO_P13_3         CYHAL_GET_GPIO(IO_PORT13, 3) //!< Port 13 Pin 3
+#define IO_P13_4         CYHAL_GET_GPIO(IO_PORT13, 4) //!< Port 13 Pin 4
+#define IO_P13_5         CYHAL_GET_GPIO(IO_PORT13, 5) //!< Port 13 Pin 5
+#define IO_P13_6         CYHAL_GET_GPIO(IO_PORT13, 6) //!< Port 13 Pin 6
+#define IO_P13_7         CYHAL_GET_GPIO(IO_PORT13, 7) //!< Port 13 Pin 7
+
+#define IO_P14_0         CYHAL_GET_GPIO(IO_PORT14, 0) //!< Port 14 Pin 0
+#define IO_P14_1         CYHAL_GET_GPIO(IO_PORT14, 1) //!< Port 14 Pin 1
+#define IO_P14_2         CYHAL_GET_GPIO(IO_PORT14, 2) //!< Port 14 Pin 2
+#define IO_P14_3         CYHAL_GET_GPIO(IO_PORT14, 3) //!< Port 14 Pin 3
+
+#define IO_P17_0         CYHAL_GET_GPIO(IO_PORT17, 0) //!< Port 17 Pin 0
+#define IO_P17_1         CYHAL_GET_GPIO(IO_PORT17, 1) //!< Port 17 Pin 1
+#define IO_P17_2         CYHAL_GET_GPIO(IO_PORT17, 2) //!< Port 17 Pin 2
+
+#define IO_P18_0         CYHAL_GET_GPIO(IO_PORT18, 0) //!< Port 18 Pin 0
+#define IO_P18_1         CYHAL_GET_GPIO(IO_PORT18, 1) //!< Port 18 Pin 1
+#define IO_P18_2         CYHAL_GET_GPIO(IO_PORT18, 2) //!< Port 18 Pin 2
+#define IO_P18_3         CYHAL_GET_GPIO(IO_PORT18, 3) //!< Port 18 Pin 3
+#define IO_P18_4         CYHAL_GET_GPIO(IO_PORT18, 4) //!< Port 18 Pin 4
+#define IO_P18_5         CYHAL_GET_GPIO(IO_PORT18, 5) //!< Port 18 Pin 5
+#define IO_P18_6         CYHAL_GET_GPIO(IO_PORT18, 6) //!< Port 18 Pin 6
+#define IO_P18_7         CYHAL_GET_GPIO(IO_PORT18, 7) //!< Port 18 Pin 7
+
+#define IO_P19_0         CYHAL_GET_GPIO(IO_PORT19, 0) //!< Port 19 Pin 0
+#define IO_P19_1         CYHAL_GET_GPIO(IO_PORT19, 1) //!< Port 19 Pin 1
+#define IO_P19_2         CYHAL_GET_GPIO(IO_PORT19, 2) //!< Port 19 Pin 2
+#define IO_P19_3         CYHAL_GET_GPIO(IO_PORT19, 3) //!< Port 19 Pin 3
+
+#define IO_P21_0         CYHAL_GET_GPIO(IO_PORT21, 0) //!< Port 21 Pin 0
+#define IO_P21_1         CYHAL_GET_GPIO(IO_PORT21, 1) //!< Port 21 Pin 1
+#define IO_P21_2         CYHAL_GET_GPIO(IO_PORT21, 2) //!< Port 21 Pin 2
+#define IO_P21_3         CYHAL_GET_GPIO(IO_PORT21, 3) //!< Port 21 Pin 3
+#define IO_P21_5         CYHAL_GET_GPIO(IO_PORT21, 5) //!< Port 21 Pin 5
+
+#define IO_P22_0         CYHAL_GET_GPIO(IO_PORT22, 0) //!< Port 22 Pin 0
+#define IO_P22_1         CYHAL_GET_GPIO(IO_PORT22, 1) //!< Port 22 Pin 1
+#define IO_P22_2         CYHAL_GET_GPIO(IO_PORT22, 2) //!< Port 22 Pin 2
+#define IO_P22_3         CYHAL_GET_GPIO(IO_PORT22, 3) //!< Port 22 Pin 3
+
+#define IO_P23_3         CYHAL_GET_GPIO(IO_PORT23, 3) //!< Port 23 Pin 3
+#define IO_P23_4         CYHAL_GET_GPIO(IO_PORT23, 4) //!< Port 23 Pin 4
+#define IO_P23_5         CYHAL_GET_GPIO(IO_PORT23, 5) //!< Port 23 Pin 5
+#define IO_P23_6         CYHAL_GET_GPIO(IO_PORT23, 6) //!< Port 23 Pin 6
+#define IO_P23_7         CYHAL_GET_GPIO(IO_PORT23, 7) //!< Port 23 Pin 7
+
+#ifdef tviibh8m
+#define IO_P21_4         CYHAL_GET_GPIO(IO_PORT21, 4) //!< Port 21 Pin 4 8M
+#define IO_P23_2         CYHAL_GET_GPIO(IO_PORT23, 2) //!< Port 23 Pin 2 8M
+#endif
+
+/***************************************************************************
+*\MCU Pin Definition 
+****************************************************************************/
+#define PIN_MCU_DETECT0             IO_P0_0
+#define PIN_MCU_DETECT1             IO_P0_1
+#define PIN_MCU_INT                 IO_P0_2
+#define PIN_COOLING_FAN_PWM         IO_P0_3     /**< PIN_MCU_PIN5_P0_3 Reserved */
+#define PIN_OSD_SPI_SDO_MCU         IO_P2_0
+#define PIN_UART_SCB7_RX            IO_P2_0
+#define PIN_OSD_SPI_SDI_MCU         IO_P2_1
+#define PIN_UART_SCB7_TX            IO_P2_1
+#define PIN_OSD_SPI_SCL_MCU         IO_P2_2
+#define PIN_OSD_SPI_CS_MCU          IO_P2_3
+#define PIN_UART_SCB7_CTS           IO_P2_3
+#define PIN_25240_PG_L              IO_P3_0
+#define PIN_25240_EN_L              IO_P3_1   //  PIN_25230_EN_L 20210407
+#define PIN_25210_RESET_L           IO_P5_0
+#define PIN_25210_EN_L              IO_P5_1
+#define PIN_25501_FLTB_L            IO_P5_2
+#define PIN_U301_EN_VBATT_SENSE     IO_P5_3
+#define PIN_U301_VBATT_SENSE        IO_P6_0
+#define PIN_I2C_SCB4_SDA            IO_P6_1
+#define PIN_I2C_SCB4_SCL            IO_P6_2
+#define PIN_THERMAL_N_L             IO_P6_3
+#define PIN_THERMAL_P_L             IO_P6_4
+#define PIN_W25X20_WP               IO_P6_5
+#define PIN_PCBA_A0                 IO_P7_0
+#define PIN_I2C_SCB5_SDA            IO_P7_1
+#define PIN_I2C_SCB5_SCL            IO_P7_2
+#define PIN_PANEL_FPCA_DET_OUT_R    IO_P7_3
+#define PIN_FPCA_DET_IN_R           IO_P7_4
+#define PIN_FPCA_DET_IN_L           IO_P7_5
+#define PIN_PANEL_FPCA_DET_OUT_L    IO_P8_0
+#define PIN_PANEL_ABD               IO_P8_1
+#define PIN_PANEL_RESET             IO_P8_2
+#define PIN_MCU_PIN38_P11_0         IO_P11_0    /**< Reserved */
+
+#if 0
+/* PCBA2.0 */
+#define PIN_TCON_BIST_STOP          IO_P12_0
+#else
+/* PCBA3.0 */
+#define PIN_TCON_BIST_STOP          IO_P11_1    
+#endif
+
+#define PIN_PANEL_XON_MCU           IO_P11_2    /**< Reserved */
+#define PIN_TCON_PWMI               IO_P12_1
+#define PIN_TCON_ASIL_O             IO_P12_2
+#define PIN_TCON_BIST               IO_P12_3
+#define PIN_TCON_RESET              IO_P12_4
+#define PIN_984_PDB                 IO_P13_0
+#define PIN_I2C_SCB3_SDA            IO_P13_1
+#define PIN_I2C_SCB3_SCL            IO_P13_2
+#define PIN_984_INTB_IN             IO_P13_3
+#define PIN_984_LOCK                IO_P13_4
+#define PIN_984_TEMP                IO_P13_5  //20210407
+#define PIN_MAX25221_EN             IO_P13_6
+#define PIN_MAX25221_FLTB           IO_P13_7
+#define PIN_MAX20419_XWDI           IO_P14_0
+#define PIN_MAX20419_PG             IO_P14_1
+#define PIN_LM61460_EN              IO_P14_2
+#define PIN_LM61460_PG              IO_P14_3
+#define PIN_MCU_PIN64_P17_0         IO_P17_0
+#define PIN_MCU_PIN64_P17_1         IO_P17_1
+#define PIN_MAX25501_FLTB_R         IO_P17_2
+#define PIN_25210_EN_R              IO_P18_0
+#define PIN_I2C_SCB1_SDA            IO_P18_1
+#define PIN_I2C_SCB1_SCL            IO_P18_2
+#define PIN_25210_RESET_R           IO_P18_3
+#define PIN_THERMAL_P_R             IO_P18_6
+#define PIN_THERMAL_N_R             IO_P18_7
+
+
+#define PIN_25240_EN_R              IO_P19_0
+#define PIN_25240_PG_R              IO_P19_1    
+
+
+#define PIN_20419_EN3               IO_P19_2    
+#define PIN_20419_EN2               IO_P19_3    
+#define PIN_20419_EN1               IO_P21_0    
+#define PIN_MCU_PIN82_P21_1         IO_P21_1    /**< Reserved */
+#define PIN_20419_RESET1            IO_P21_5    
+#define PIN_20419_RESET2            IO_P22_0    
+#define PIN_20419_RESET3            IO_P22_1    
+#define PIN_MCU_PIN93_P22_2         IO_P22_2    /**< Reserved */
+#define PIN_MCU_PIN94_P22_3         IO_P22_3    /**< Reserved */
+#define PIN_MCU_PIN95_P23_3         IO_P23_3    /**< Reserved */
+
+/*PIN CONFIG*/
+typedef struct {
+    uint8_t u8OutValue;        /**< Pin output state */
+    uint8_t u8DriveMode;       /**< Drive mode */
+    uint8_t u8HSIOM;           /**< HSIOM selection */
+    uint8_t u8Vtrip;           /**< Input buffer voltage trip type */
+    uint8_t u8SlewRate;        /**< Output buffer slew rate */
+    uint8_t u8DriveStength;    /**< Drive strength */
+} gpio_pin_config_t;
+
+/*PORT CONFIG*/
+typedef struct {
+    uint32_t u32OutValue;      /**< Initial output data for the IO pins in the port */
+    uint32_t u32DriveMode;     /**< Port pin drive modes and input buffer enable configuration */
+    uint32_t u32CfgIn;         /**< Port pin input buffer configuration */
+    uint32_t u32CfgOut;        /**< Port pin output buffer configuration */
+    uint32_t u32HSIOM0;        /**< HSIOM selection for port pins 0,1,2,3 */
+    uint32_t u32HSIOM1;        /**< HSIOM selection for port pins 4,5,6,7 */
+} gpio_port_config_t;
+
+/*GPIO OUTPUT CONFIG*/
+extern  gpio_pin_config_t gtdPinOutputConfig;
+
+/*GPIO INPUT CONFIG*/
+extern  gpio_pin_config_t gtdPinInputConfig;
+
+extern  gpio_pin_config_t gtdPinOutputConfig_Test;
+
+extern  gpio_pin_config_t gtdPinOutputConfig_Test2;
+
+extern gpio_pin_config_t gtdPinOutputConfig_PWM_GPIO;
+
+extern gpio_pin_config_t gtdPinOutputConfig_OD_GPIO;
+
+extern gpio_pin_config_t tsGpioCfg_GPIO_PWM;
+#endif
+
+

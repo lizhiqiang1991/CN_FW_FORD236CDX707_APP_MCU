@@ -1,0 +1,533 @@
+/*
+* Mod_DataManagement.c
+*
+*  Created on: 2021-07-18
+*      Author: Joshua
+*/
+
+#ifndef MOD_DATAMANAGEMENT_H_
+#define MOD_DATAMANAGEMENT_H_
+
+#include <stdint.h>
+#include <stdbool.h>
+#include <string.h>
+
+
+/* define for bootloader  */
+#define     BOOT_KEY                  0x55AA
+/* ---------------------- */
+
+
+#define MASK_1_BIT 0x01U
+#define MASK_2_BIT 0x03U
+#define MASK_3_BIT 0x07U
+#define MASK_4_BIT 0x0FU
+#define MASK_5_BIT 0x1FU
+#define MASK_6_BIT 0x3FU
+#define MASK_7_BIT 0x7FU
+#define MASK_8_BIT 0xFFU
+#define MASK_BIT6_0 0x41U
+
+#define MASK_BL_LDO_L 0x01U
+#define MASK_BL_LDO_R 0x02U
+
+#define I2C_DEVICE_ADDR (0x71U)
+#define DEVICE_ADDRESS_SIZE (1U)
+#define SUB_ADDRESS_SIZE (1U)
+#define ROLLING_COUNTER_SIZE (1U)
+#define CRC8_SIZE (1U)
+#define ONE_DATA_BYTE_SIZE (1U)
+#define MAX_ROLLING_COUNTER (255U)
+
+#define FIRST_DATA_BYTE (1U)
+#define SECOND_DATA_BYTE (2U)
+#define THIR_DATA_BYTE (3U)
+#define FOUR_DATA_BYTE (4U)
+#define RESERVED_IN_FIRST_BYTE (1U)
+#define RESERVED_IN_SECOND_BYTE (2U)
+
+#define InteruptStatusRegistorSize 4U
+#define DisplayStatusLatchBitSize 7U
+#define DisplayStatusLatchBit2Size 4U
+#define DISP_STATUS_DATA1_SIZE 8U/* 8bits */
+#define DISPSHUTDOWNENABLE ENABLE
+
+#define MMIM_DisplayStateChangeEvent 0U
+
+#define SOUREFROMI2C 1U
+#define SOURENOTFROMI2C 2U
+#define orbit1Mask 0x01
+
+#define BYTE0 0U
+#define BYTE1 1U 
+#define BYTE2 2U
+
+#define DELIVERY_ASSMBLY_FPN_SIZE 26U
+#define CORE_ASSMBLY_FPN_SIZE 26U
+#define MAIN_CALIBRATION_FPN_SIZE 26U
+#define DISPLAY_ID_FPN_SIZE 3U
+#define SOFTWARE_FPN_SIZE 26U
+#define SERIAL_FPN_SIZE 26U
+
+#define VCOM_SIZE      1U    // leo 20211118
+
+#define SOUREFROM_BL_R 1U
+#define SOUREFROM_BL_L 2U
+#define SOUREFROM_984  3U
+
+/* 
+ * TCON_DIAG_NEW = 0 , old tcon diag, 
+ * TCON_DIAG_NEW = 1 , new tcon diag 
+ */
+#define TCON_DIAG_NEW  1U   
+
+typedef struct
+{
+    uint8_t LCDERR : 1;
+    uint8_t BLERR : 1;
+    uint8_t TERR : 1;
+    uint8_t DCERR : 1;
+    uint8_t RST_RQ : 1;
+    uint8_t LLOSS : 1;
+    uint8_t TSCERR : 1;
+    uint8_t TCERR : 1;
+    
+    uint8_t DISP_ST : 1;
+    uint8_t TSC_ST : 1;
+    uint8_t INIT : 1;
+    uint8_t HIGHERR : 1;
+    uint8_t MEDERR : 1;
+    uint8_t LOWERR : 1;
+    uint8_t BL_ST : 1;
+    uint8_t DISPERR : 1;
+    
+    uint8_t RESERVED : 8;
+} __attribute__((__packed__)) DISPLAY_STATUS_T;
+
+typedef struct
+{
+    uint8_t Display_ID;
+    uint8_t Subrevision;
+} __attribute__((__packed__)) DISPLAY_IDENTIFICATION_T;
+
+typedef struct
+{
+    uint8_t BL_PWM_7_0;
+    uint8_t BL_PWM_9_8 : 2;
+    uint8_t RESERVED : 6;
+} __attribute__((__packed__)) LCD_BACKLIGHT_PWM_VALUE_T;
+
+typedef struct
+{
+    uint8_t HSD : 1;
+    uint8_t VSD : 1;
+    uint8_t RESERVED : 6;
+} __attribute__((__packed__)) DISPLAY_SCANNING_T;
+
+typedef struct
+{
+    uint8_t DISP_EN : 1;
+    uint8_t TSC_EN : 1;
+    uint8_t RESERVED : 6;
+} __attribute__((__packed__)) DISPLAY_ENABLE_T;
+
+typedef struct
+{
+    uint8_t SHDWN : 1;
+    uint8_t RESERVED : 7;
+} __attribute__((__packed__)) DISPLAY_SHUTDOWN_T;
+
+typedef struct
+{
+    uint8_t INT_ERR : 1;
+    uint8_t INT_BTN : 1;
+    uint8_t INT_TCH : 1;
+    uint8_t INT_ROT : 1;
+    uint8_t RESERVED : 4;
+} __attribute__((__packed__)) INTERRUPT_STATUS_MESSAGE_T;
+
+typedef struct
+{
+    uint8_t TP_RESET : 1;
+    uint8_t RESERVED : 7;
+} __attribute__((__packed__)) TX_COMMAND_STATUS_T;
+
+typedef struct
+{
+    uint8_t FACTORY_EN : 1;
+    uint8_t RESERVED : 7;
+} __attribute__((__packed__)) FACTORY_EN__T;
+
+/* P/N Read/Write */
+typedef struct
+{
+    uint8_t WRT_ST : 1;
+    uint8_t INT_WRT : 1;
+    uint8_t CKSUM_ERR : 1;
+    uint8_t RESERVED : 5;
+} __attribute__((__packed__)) PN_STATUS_CTRL_T;
+
+/* USER BIST mode control Read/Write */
+typedef struct
+{
+    uint8_t BIST_EN : 1;
+    uint8_t BIST_PATTERN_SWITCH_EN : 1;
+    uint8_t RESERVED : 6;
+} __attribute__((__packed__)) USER_BIST_MODE_CTRL_T;
+
+
+typedef struct
+{
+    uint8_t PWMDuty;
+    
+} __attribute__((__packed__)) Cool_Fan_Control;
+
+typedef struct
+{
+    
+    DISPLAY_STATUS_T display_status;/*sub address 0x00*/
+    DISPLAY_IDENTIFICATION_T display_identification;/*sub address 0x01*/
+    LCD_BACKLIGHT_PWM_VALUE_T lcd_backlight_pwm_value;/*sub address 0x02*/
+    DISPLAY_SCANNING_T display_scanning;/*sub address 0x03*/
+    DISPLAY_ENABLE_T display_enable;/*sub address 0x04*/
+    DISPLAY_SHUTDOWN_T display_shutdown;/*sub address 0x05*/
+    INTERRUPT_STATUS_MESSAGE_T interrupt_status_message;/*sub address 0x30*/
+    TX_COMMAND_STATUS_T tx_cmd_status;/*sub address 0xB0*/
+    FACTORY_EN__T factory_status;/*sub address 0xB1*/
+    PN_STATUS_CTRL_T pn_delivery_assembly_status_ctrl;/* PN status register 0xC0 */
+    PN_STATUS_CTRL_T pn_core_assembly_status_ctrl;/* PN status register 0xC2 */
+    PN_STATUS_CTRL_T pn_main_calibration_status_ctrl;/* PN status register 0xC4 */
+    PN_STATUS_CTRL_T pn_display_identification_status_ctrl;/* PN status register 0xC6 */
+    PN_STATUS_CTRL_T pn_software_ford_part_number_status_ctrl;/* PN status register 0xC8 */
+    PN_STATUS_CTRL_T pn_serial_number_status_ctrl;   // leo 20220621
+    uint8_t jump_bootloader[4];    //20211028 Joel
+    uint8_t core_assembly[25];
+    uint8_t delivery_assembly[25];
+    uint8_t software_ford_part_number[25];
+    uint8_t serial_number[25];
+    uint8_t main_calibration_ford_part_number[25];
+#if TCON_DIAG_NEW
+    uint8_t client_specific_diagnostic_message[50];
+#else
+    uint8_t client_specific_diagnostic_message[25];
+#endif
+} __attribute__((__packed__)) I2C_MESSAGES_T;
+
+typedef struct
+{
+    uint8_t ucSign;
+    uint8_t TempVal_L;
+    uint8_t TempVal_H;
+    uint8_t DataSource;
+}NTCTempValStruct;
+
+typedef enum
+{
+    eINT_ERR = 0U,
+    eINT_BTN,
+    eINT_TCH,
+    eINT_ROT,
+    eINT_ALL=99U
+}interrupt_status_message_E;
+
+
+typedef enum
+{
+    DISPLAY_STATUS = 0x00,                    //R
+    DISPLAY_IDENTIFICATION = 0x01,            //R
+    LCD_BACKLIGHT_PWM_VALUE = 0x02,           //R/W
+    DISPLAY_SCANNING = 0x03,                  //R/W
+    DISPLAY_ENABLE = 0x04,                    //R/W
+    DISPLAY_SHUTDOWN = 0x05,                  //R/W
+    MOMENTARY_LCD_PWM = 0x09,                 //R
+    INTERRUPT_STATUS_MESSAGE = 0x30,          //R
+    CORE_ASSEMBLY = 0x31,                     //R
+    DELIVERY_ASSEMBLY = 0x32,                 //R
+    SOFTWARE_FORD_PART_NUMBER = 0x33,         //R
+    SERIAL_NUMBER = 0x34,                     //R
+    MAIN_CALIBRATION_FORD_PART_NUMBER = 0x35, //R
+    CLIENT_SPECIFIC_DIAGNOSTIC_MESSAGE = 0xA3, //R/W
+    JUMP_BOOTLOADER = 0xE4,                   //R           //20211028 Joel
+    /*User command*/
+    USER_Reset= 0xB0,         //W
+    USER_FACTORYMODE_EN = 0xB1,//WR
+    USER_Temputer = 0xB2,//WR
+    USER_Temputer2 = 0xB3,
+    POWER_STATUS = 0xB4,//WR
+    USER_ReadEEprom = 0xB5,//w
+    USER_ShowErrorState = 0xB6,//r
+    USER_ClearErrorState = 0xB7,//w
+    USER_BatteryVoltage = 0xB8,//R
+    USER_ResetReq = 0xB9,//R
+    USER_Derating_EN = 0xBA,//W
+    USER_WatchDogToogle_EN = 0xBB,//W
+    USER_GetNowPWMDuty = 0xBC, //R
+    USER_BIST_Crtl = 0xBD,
+    USER_VCOM = 0xBE,      //R  , leo 20211118
+    USER_Set_CoolFan_PWM = 0xBF, //R/W Sean add 2022/08/17
+    USER_Get_Disp_Voltage = 0xD3,   //R
+    USER_Get_LED_Voltage = 0xD4,    //R
+    
+    USER_TFT_REV = 0xD5,   //R
+    USER_Eable_Local_Dimming = 0xDC,    //W
+    
+    /* P/N Read and write */
+    PN_DelAssmStatus_Ctrl = 0xC0,/* R/W */
+    PN_DelAssmblyFPN = 0xC1,/* R/W */
+    PN_CoreAssmStatus_Ctrl = 0xC2,/* R/W */
+    PN_CoreAssmblyFPN = 0xC3,/* R/W */ 
+    PN_MainCalibStatus_Ctrl = 0xC4,/* R/W */
+    PN_MainCalibFPN = 0xC5,/* R/W */
+    PN_DispIDStatus_Ctrl = 0xC6,/* R/W */
+    PN_DispIDFPN = 0xC7,/* R/W */
+    PN_SwFPNStatus_Ctrl = 0xC8,/* R/W */
+    PN_SoftwareFPN = 0xC9,/* R/W */ 
+    PN_SnFPNStatus_Ctrl = 0xCA,  /* leo 20220621 */
+    PN_SerialNumFPN = 0xCB,
+    /*BootLoader*/
+    CMD_JUMP_KEY = 0xD6,
+    CMD_GET_STATE = 0xD7,
+    CMD_GET_VERSION = 0xDF,
+    CMD_MODE = 0xF0,
+    CMD_GET_TCON_VERSION = 0xD8,
+    CMD_GET_Bootloader_Status = 0xF4  /* 20220708 Taylor */
+      
+     
+}I2C_MESSAGES_E;
+
+typedef enum
+{
+	/*BYTE0*/
+	eLCDERR = 0U,
+	eLCD_BL_Fault,
+	eTemperatureERR,
+	eDisconnecterror,
+	eResetRequest,
+	elossoflock,
+	eTouchScreenControllerError,
+	eTouchConnectionError,
+	/*BYTE1*/
+	eDisplayStatus,
+	eTouchControllerStatus,
+	eDisplayInitialized,
+ 	eHighPriorityError,
+  	eMediumPriorityError,  
+    eLowPriorityError,
+    eBacklightStatus,
+    eDisplayError,         
+	eALLReg = 99U
+}DisplayReg0x00_E;
+
+typedef enum
+{
+    ERROR_PGOOD_LM61460         = 0x0001,
+    ERROR_PGOOD_MAX20419        = 0x0002,
+    ERROR_PGOOD_MAX25221_FLTB   = 0x0004,
+    ERROR_PIN_984_LOCK          = 0x0008,
+    ERROR_PIN_PANEL_ABD         = 0x0010,
+    ERROR_PIN_25210_RESET_R     = 0x0020,
+    ERROR_PIN_25210_RESET_L     = 0x0040,
+    
+}error_power_detect_t;
+
+typedef enum
+{
+    /*General_Byte_0*/
+    P3V3_PG_Fail            = 0x01,
+    /*General_Byte_1*/
+    Serdes_Lock_Error       = 0x01,
+    FPC_L_Disconnect        = 0x02,
+    FPC_R_Disconnect        = 0x04,
+    Battery_Vol_Low         = 0x20,
+    Battery_Vol_High        = 0x40,
+    /*General_Byte_2*/
+    P3V3_PO_Fail            = 0x01,
+    Battery_Vol_PO_Low      = 0x20,
+    Battery_Vol_PO_High     = 0x40,
+    /*General_Device_NAK*/
+    TCON_LED_L_NACK         = 0x01,
+    TCON_LED_R_NACK         = 0x02,
+    TCON_FAIL_NACK          = 0x04,
+    SOURCE_IC_58H_NACK      = 0x08,
+    SOURCE_IC_59H_NACK      = 0x10,
+    SOURCE_IC_5AH_NACK      = 0x20,
+    SOURCE_IC_5BH_NACK      = 0x40,
+    VCOM_FAULT_NACK         = 0x80,
+}Diagnostic_bit;
+
+#if TCON_DIAG_NEW
+typedef enum
+{
+    General_Byte_0          = 0,
+    General_Byte_1          = 1,
+    General_Byte_2          = 2,
+    General_Device_NACK     = 3,
+    TCON_LED_L_LED1_B2      = 4,
+    TCON_LED_L_LED1_B3      = 5,
+    TCON_LED_L_LED1_B4      = 6,
+    TCON_LED_L_LED1_B5      = 7,
+    TCON_LED_L_LED1_B6      = 8,
+    TCON_LED_L_LED2_B2      = 9,
+    TCON_LED_L_LED2_B3      = 10,
+    TCON_LED_L_LED2_B4      = 11,
+    TCON_LED_L_LED2_B5      = 12,
+    TCON_LED_L_LED2_B6      = 13,
+    TCON_LED_L_LED3_B2      = 14,
+    TCON_LED_L_LED3_B3      = 15,
+    TCON_LED_L_LED3_B4      = 16,
+    TCON_LED_L_LED3_B5      = 17,
+    TCON_LED_L_LED3_B6      = 18,
+    TCON_LED_R_LED1_B2      = 19,
+    TCON_LED_R_LED1_B3      = 20,
+    TCON_LED_R_LED1_B4      = 21,
+    TCON_LED_R_LED1_B5      = 22,
+    TCON_LED_R_LED1_B6      = 23,
+    TCON_LED_R_LED2_B2      = 24,
+    TCON_LED_R_LED2_B3      = 25,
+    TCON_LED_R_LED2_B4      = 26,
+    TCON_LED_R_LED2_B5      = 27,
+    TCON_LED_R_LED2_B6      = 28,
+    TCON_LED_R_LED3_B2      = 29,
+    TCON_LED_R_LED3_B3      = 30,
+    TCON_LED_R_LED3_B4      = 31,
+    TCON_LED_R_LED3_B5      = 32,
+    TCON_LED_R_LED3_B6      = 33,
+    TCON_FAIL_B1            = 34,
+    TCON_FAIL_B2            = 35,
+    SOURCE_IC_58H           = 36,
+    SOURCE_IC_59H           = 37,
+    SOURCE_IC_5AH           = 38,
+    SOURCE_IC_5BH           = 39,
+    VCOM_FAULT              = 40,
+}ERR_DataType_E;
+#else
+typedef enum
+{
+    TCON_STATUS1_NACK   = 0,
+    TCON_STATUS1        = 1,
+    TCON_STATUS2_NACK   = 2,
+    TCON_STATUS2        = 3,
+    TCON_FAIL_NACK      = 4,
+    TCON_FAIL           = 5,
+    SOURCE_IC_58H_NACK  = 6,
+    SOURCE_IC_58H       = 7,
+    SOURCE_IC_59H_NACK  = 8,
+    SOURCE_IC_59H       = 9,
+    SOURCE_IC_5AH_NACK  = 10,
+    SOURCE_IC_5AH       = 11,
+    SOURCE_IC_5BH_NACK  = 12,
+    SOURCE_IC_5BH       = 13,
+    VCOM_FAULT_NACK     = 14,
+    VCOM_FAULT          = 15,
+    
+}ERR_DataType_E;
+#endif
+
+Global_PowerState_E MMIM_PowerState_Ctrl(Global_PowerState_E PowerState_e);
+void i2cMessagesInit(void);
+uint8_t MMIM_PwrInitStatus_Ctrl(uint8_t u8Status);
+Global_LockState_E MMIM_LockStatus_Get(void);
+uint8_t MMIM_LockPinStatus_Ctrl (uint8_t u8Status);
+uint8_t MMIM_DataLength_Get(uint8_t subAddr);
+void MMIM_MessageData_Get(uint8_t subAddr, uint8_t *dataBuffer);
+void MMIM_I2cMessages_Set(uint8_t subAddr, uint8_t *dataBuffer, uint32_t dataLength);
+void MMIM_InteruptStutsReg_Ctrl(uint8_t DataSource,interrupt_status_message_E eISR,uint8_t RegState);
+uint8_t MMIM_ErrorCount_Add(uint8_t u8Index);
+uint8_t MMIM_ErrorCount_Get(uint8_t u8Index);
+void *MMIM_ErrorCountArray_Get(void);
+I2C_MESSAGES_T *MMIM_pI2CMessage_Get(void);
+void MMIM_Check_Power_Error(uint8_t status);
+void MMIM_DisplayStatusReg_Ctrl(uint8_t DataSource,DisplayReg0x00_E eReg,uint8_t RegState);
+uint8_t MMIM_DispENFlag_Ctrl(uint8_t FlagState);
+uint8_t MMIM_BLPWMFlag_Ctrl(uint8_t FlagState);
+uint8_t MMIM_ScanDirectionFlag_Ctrl(uint8_t FlagState);
+uint8_t MMIM_FactoryFlag_Ctrl(uint8_t FlagState);
+uint8_t MMIM_INTBActiveFlag_Ctrl (uint8_t u8FlagState);
+uint8_t MMIM_ShutdownFlag_Ctrl(uint8_t FlagState);
+uint8_t MMIM_JumpToBootCodeFlag_Ctrl(uint8_t u8FlagStatus);
+void MMIM_PCBNTCADC_Set (uint16_t u16NADCValue);
+uint16_t MMIM_PCBNTCADC_Get (void);
+void MMIM_PCBTemperatureVal_Set(uint8_t u8Sign ,uint16_t u16Temperature,uint8_t u8DataSource);
+void MMIM_FactoryFlag_Set (uint8_t u8Flag);
+uint8_t MMIM_FactoryFlag_Get (void);
+void MMIM_BattVolVal_Set(uint16_t u16Val);
+uint16_t MMIM_BattVolVal_Get(void);
+void MMIM_BattVolADCVal_Set(uint16_t u16ADCVal);
+uint16_t MMIM_BattVolADCVal_Get(void);
+uint8_t MMIM_DeratingFlag_Get(void);
+
+uint8_t MMIM_DelAssmPNStatusRegFlag_Ctrl (uint8_t u8status);
+uint8_t MMIM_WriteDelAssmFPNFlag_Ctrl (uint8_t u8status);
+uint8_t *MMIM_pdelivery_assembly_Get (void);
+
+uint8_t MMIM_CoreAssmPNStatusRegFlag_Ctrl (uint8_t u8status);
+uint8_t MMIM_WriteCoreAssmFPNFlag_Ctrl (uint8_t u8status);
+uint8_t *MMIM_pcore_assembly_Get (void);
+
+uint8_t MMIM_MainCalibPNStatusRegFlag_Ctrl (uint8_t u8status);
+uint8_t MMIM_WriteMainCalibFPNFlag_Ctrl (uint8_t u8status);
+uint8_t *MMIM_pmain_calibration_Get (void);
+
+uint8_t MMIM_DispIDPNStatusRegFlag_Ctrl (uint8_t u8status);
+uint8_t MMIM_WriteDispIDFPNFlag_Ctrl (uint8_t u8status);
+uint8_t *MMIM_pdisplay_id_Get (void);
+
+uint8_t MMIM_SoftwarePNStatusRegFlag_Ctrl (uint8_t u8status);
+uint8_t MMIM_WriteSoftwareFPNFlag_Ctrl (uint8_t u8status);
+uint8_t *MMIM_psoftware_fpn_Get (void);
+
+/* leo 20220621 */
+uint8_t MMIM_SerialPNStatusRegFlag_Ctrl (uint8_t u8status);
+uint8_t MMIM_WriteSerialFPNFlag_Ctrl (uint8_t u8status);
+uint8_t *MMIM_pserial_number_Get (void);
+
+USER_BIST_MODE_CTRL_T MMIM_BISTData_Get(void);
+uint8_t MMIM_BISTModeFlag_Ctrl (uint8_t u8status);
+uint8_t MMIM_SourceDriver_Ctrl(uint8_t u8FlagState);
+uint16_t  MMIM_PWMTargetValue_Ctrl(uint16_t u16PWMState);
+uint8_t  MMIM_VolRestRqFlag_Ctrl(uint8_t u8FlagState);
+uint8_t MMIM_DiagnosticMessageFlag_Ctrl(uint8_t FlagState);
+
+void MMIM_BLNTCADC_Set(uint16_t u16NADCValue);
+uint16_t MMIM_BLNTCADC_Get(void);
+void MMIM_BLTemperatureVal_Set(uint8_t u8Sign ,uint16_t u16Temperature,uint8_t u8DataSource);
+
+void MMIM_I2cMessages_FunSafe_Set(uint8_t subAddr, uint8_t *dataBuffer, uint32_t dataLength);
+void MMIM_MessageData_FunSafe_Get(uint8_t subAddr,uint8_t rollCnt, uint8_t Crc8Value, uint8_t *dataBuffer, uint32_t dataByteSize);
+uint8_t MMIM_DataLength_FunSafe_Get(uint8_t subAddr,uint8_t rollCnt, uint32_t dataByteSize);
+
+bool MMIM_Update_Flag_Get(void);
+void MMIM_Update_Flag_Set(bool bStatus);
+
+/* leo 20211117 */
+void MMIM_VCOM_Set(uint8_t u8VCOMVal);
+uint8_t MMIM_VCOM_Get(void);
+
+void MMIM_VoltageDRT_Flag_Set(bool bSetTDRT);
+bool MMIM_VoltageDRT_Flag_Get(void);
+
+void MMIM_TFT_Revision_Set(uint8_t u8RevID);
+uint8_t MMIM_TFT_Revision_Get(void);
+
+/* leo 2021_12_14 */
+void MMIM_DispVoltError_Set(uint8_t u8Result);
+uint8_t MMIM_DispVoltError_Get(void);
+
+/* leo 2021_12_14 */
+void MMIM_LedVoltError_Set(uint8_t u8Result);
+uint8_t MMIM_LedVoltError_Get(void);
+
+/* leo 2022_week6 modify */
+void MMIM_Client_Diag_Set(ERR_DataType_E Index, uint8_t u8Value);
+/* Joel 20220315 modify */
+uint8_t MMIM_Client_Diag_Get(ERR_DataType_E Index);
+
+uint8_t MMIM_LocalDim_Flag_Get(void);
+
+void MMIM_First_Diag_Set(uint8_t u8Enable);
+uint8_t MMIM_First_Diag_Get(void);
+
+void MMIM_Derating_Status_Set(uint8_t u8Status);
+void MMIM_TCON_VER_Set(uint8_t u8tconver);
+
+#endif /* MOD_DATAMANAGEMENT_H_ */
